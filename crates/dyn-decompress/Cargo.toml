@@ -1,0 +1,11 @@
+[package]
+name = "dyn-decompress"
+version = "0.1.0"
+edition = "2021"
+description = "Decompressor module for OpenLimiter: upward expansion above a threshold, with a peak ceiling"
+
+
+[dependencies]
+olm-api = { path = "../api" }
+dynamics = { path = "../dynamics" }
+

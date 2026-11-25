@@ -1,0 +1,35 @@
+[package]
+name = "openmultiband"
+description = "OpenMultiband: 1-to-6-band Linkwitz-Riley multiband dynamics (decompressor, gate/expander, compressor, de-expander per band + global limiter) on OpenPluginSDK with GoodLookin DRI"
+version = "1.0.0-beta"
+authors = ["Marcos Quirino Deida"]
+edition = "2021"
+license = "MIT"
+publish = false
+
+[lib]
+crate-type = ["cdylib", "staticlib", "rlib"]
+
+[dependencies]
+olm-api = { path = "crates/api" }
+dynamics = { path = "crates/dynamics" }
+dyn-deexpand = { path = "crates/dyn-deexpand" }
+dyn-decompress = { path = "crates/dyn-decompress" }
+# OpenPluginSDK main (c6fa6a0) and GoodLookin DRI main (3fe0426) side by side in
+# ../../Dependencies.
+openplugin = { path = "../../Dependencies/OpenPluginSDK/crates/openplugin" }
+# Text measuring for the kit; the SDK takes the same checkout.
+goodlookindri-shell = { path = "../../Dependencies/GoodLookinDri/shell" }
+
+# The SDK takes GoodLookin DRI from GitHub; use the same checkout as the direct dependency, so
+# both are one crate (pinned in scripts/build.sh).
+[patch."https://github.com/MistaMin/GoodLookinDri"]
+goodlookindri = { path = "../../Dependencies/GoodLookinDri" }
+goodlookindri-shell = { path = "../../Dependencies/GoodLookinDri/shell" }
+
+[workspace]
+members = ["crates/*"]
+
+[profile.release]
+opt-level = 3
+lto = "thin"

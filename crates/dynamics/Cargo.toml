@@ -1,0 +1,8 @@
+[package]
+name = "dynamics"
+version = "0.1.0"
+edition = "2021"
+description = "Gate/expander, compressor and look-ahead limiter on exact static curves"
+
+[dependencies]
+olm-api = { path = "../api" }

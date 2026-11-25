@@ -1,0 +1,191 @@
+{
+ "fx": "LV2: OpenMultiband",
+ "checks": [
+  {
+   "check": "loads",
+   "status": "PASS",
+   "detail": "OpenMultiband, 600 parameters"
+  },
+  {
+   "check": "finite output",
+   "status": "PASS",
+   "detail": "peak -9.1 dBFS"
+  },
+  {
+   "check": "not silent",
+   "status": "PASS",
+   "detail": "rms -19.6 dBFS"
+  },
+  {
+   "check": "deterministic render",
+   "status": "FAIL",
+   "detail": "repeat differs by -17.2 dB"
+  },
+  {
+   "check": "editor opens",
+   "status": "SKIPPED",
+   "detail": "visual checks disabled"
+  },
+  {
+   "check": "every parameter changes the sound",
+   "status": "PASS",
+   "detail": ""
+  },
+  {
+   "check": "state survives save and reopen",
+   "status": "PASS",
+   "detail": ""
+  },
+  {
+   "check": "editor reopens",
+   "status": "SKIPPED",
+   "detail": "headless: OpenGrid9 runs without an editor window"
+  }
+ ],
+ "params": [
+  {
+   "index": 4,
+   "name": "Input Gain",
+   "ident": "Input Gain",
+   "default": 0.5,
+   "context": "",
+   "audio": "skipped (render not deterministic)"
+  },
+  {
+   "index": 5,
+   "name": "Output Gain",
+   "ident": "Output Gain",
+   "default": 0.5625,
+   "context": "",
+   "audio": "skipped (render not deterministic)"
+  },
+  {
+   "index": 6,
+   "name": "Zero Latency",
+   "ident": "Zero Latency",
+   "default": 1,
+   "context": "",
+   "audio": "skipped (render not deterministic)"
+  },
+  {
+   "index": 7,
+   "name": "Auto Gain",
+   "ident": "Auto Gain",
+   "default": 1,
+   "context": "",
+   "audio": "skipped (render not deterministic)"
+  },
+  {
+   "index": 8,
+   "name": "Delta",
+   "ident": "Delta",
+   "default": 1,
+   "context": "",
+   "audio": "skipped (render not deterministic)"
+  },
+  {
+   "index": 9,
+   "name": "Bands",
+   "ident": "Bands",
+   "default": 600,
+   "context": "",
+   "audio": "skipped (render not deterministic)"
+  },
+  {
+   "index": 10,
+   "name": "Crossover Slope",
+   "ident": "Crossover Slope",
+   "default": 4000,
+   "context": "",
+   "audio": "skipped (render not deterministic)"
+  },
+  {
+   "index": 11,
+   "name": "Crossover 1",
+   "ident": "Crossover 1",
+   "default": 0.9483660133,
+   "context": "",
+   "audio": "skipped (render not deterministic)"
+  },
+  {
+   "index": 16,
+   "name": "Limiter On",
+   "ident": "Limiter On",
+   "default": 1,
+   "context": "",
+   "audio": "skipped (render not deterministic)"
+  },
+  {
+   "index": 17,
+   "name": "Limiter Threshold",
+   "ident": "Limiter Threshold",
+   "default": 5.166666667,
+   "context": "",
+   "audio": "skipped (render not deterministic)"
+  },
+  {
+   "index": 18,
+   "name": "Limiter Ceiling",
+   "ident": "Limiter Ceiling",
+   "default": 1.041666667,
+   "context": "",
+   "audio": "skipped (render not deterministic)"
+  },
+  {
+   "index": 26,
+   "name": "Band 1 Gain",
+   "ident": "Band 1 Gain",
+   "default": 0.5,
+   "context": "",
+   "audio": "skipped (render not deterministic)"
+  },
+  {
+   "index": 27,
+   "name": "Band 1 Solo",
+   "ident": "Band 1 Solo",
+   "default": 0,
+   "context": "",
+   "audio": "skipped (render not deterministic)"
+  },
+  {
+   "index": 28,
+   "name": "Band 1 Mute",
+   "ident": "Band 1 Mute",
+   "default": 0,
+   "context": "",
+   "audio": "skipped (render not deterministic)"
+  },
+  {
+   "index": 29,
+   "name": "Band 1 Bypass",
+   "ident": "Band 1 Bypass",
+   "default": 1,
+   "context": "",
+   "audio": "skipped (render not deterministic)"
+  },
+  {
+   "index": 53,
+   "name": "B1 Comp Threshold",
+   "ident": "B1 Comp Threshold",
+   "default": 3,
+   "context": "",
+   "audio": "skipped (render not deterministic)"
+  },
+  {
+   "index": 54,
+   "name": "B1 Comp Ratio",
+   "ident": "B1 Comp Ratio",
+   "default": -0.03448275862,
+   "context": "",
+   "audio": "skipped (render not deterministic)"
+  }
+ ],
+ "info": {
+  "numParams": 600,
+  "fx": 0,
+  "name": "OpenMultiband"
+ },
+ "failed": [
+  "deterministic render"
+ ]
+}

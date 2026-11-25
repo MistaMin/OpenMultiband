@@ -1,0 +1,50 @@
+# Build outputs
+target/
+/build/
+/dist/
+/output/
+/build.log
+# Local signing settings and private research/planning notes
+scripts/signing.local.env
+.private/
+/NOTES.md
+/design/
+# Large or machine-specific QA files
+qa/**/*.wav
+qa/**/*.ppm
+qa/**/resp.txt
+qa/**/build*.log
+qa/**/montage*.png
+# System files
+.DS_Store
+._*
+# Per-module session reports stay local
+crates/*/REPORT.md
+qa/**/*.rpp
+# Host bridge housekeeping and load experiments
+qa/**/cmd.txt
+qa/**/seq.txt
+qa/**/ready.txt
+qa/**/*.pid
+qa/**/hide_pid
+qa/**/reaper.log
+qa/**/load-repro/
+qa/**/reaper-clap-debug*/
+# Host sweep captures, waveform caches, host test sessions, fake HOME dirs, and signed test bundles
+qa/**/editor_*.png
+qa/**/reaper/**/*.png
+qa/**/screenshots/
+qa/**/home/
+qa/**/scan/
+qa/**/session/
+qa/**/sessions/
+qa/**/peaks/
+qa/**/scratch/
+qa/**/signed/
+qa/**/*.aaxplugin
+qa/**/.burnthrough.lock
+# Avid material under the developer agreement (AAX Validator output, Pro Tools sessions/logs): local only
+qa/**/aax/
+qa/**/aax-run.log
+qa/**/validators/aax*
+qa/**/protools/

@@ -1,0 +1,6 @@
+[package]
+name = "olm-api"
+version = "0.1.0"
+edition = "2021"
+description = "The contract every OpenLimiter processing module implements"
+

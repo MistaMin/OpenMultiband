@@ -1,0 +1,4448 @@
+
+    AU Validation Tool
+    Version: 1.10.0 
+    Copyright 2003-2019, Apple Inc. All Rights Reserved.
+    Specify -h (-help) for command options
+
+--------------------------------------------------
+VALIDATING AUDIO UNIT: 'aufx' - 'OMbd' - 'Ogrd'
+--------------------------------------------------
+Manufacturer String: OpenGrid
+AudioUnit Name: OpenMultiband
+Component Version: 0.1.0 (0x100)
+
+* * PASS
+--------------------------------------------------
+TESTING OPEN TIMES:
+COLD:
+Time to open AudioUnit:         270.946 ms
+WARM:
+Time to open AudioUnit:         2.608  ms
+This AudioUnit is a version 2 implementation.
+FIRST TIME:
+Time for initialization:        5.912 ms
+
+* * PASS
+--------------------------------------------------
+VERIFYING DEFAULT SCOPE FORMATS:
+Input Scope Bus Configuration:
+ Default Bus Count:1
+    Default Format: AudioStreamBasicDescription:  2 ch,  44100 Hz, Float32, deinterleaved
+    Has Channel Layouts: 0x650002 
+    Default Layout:
+	Tag=0x650002, Num Chan Descs=0
+
+Output Scope Bus Configuration:
+ Default Bus Count:1
+    Default Format: AudioStreamBasicDescription:  2 ch,  44100 Hz, Float32, deinterleaved
+    Has Channel Layouts: 0x650002 
+    Default Layout:
+	Tag=0x650002, Num Chan Descs=0
+
+* * PASS
+--------------------------------------------------
+VERIFYING REQUIRED PROPERTIES:
+
+* * PASS
+--------------------------------------------------
+VERIFYING RECOMMENDED PROPERTIES:
+  VERIFYING PROPERTY: Latency
+    PASS
+  VERIFYING PROPERTY: Tail Time
+WARNING: Recommended Property is not supported
+
+  VERIFYING PROPERTY: Bypass Effect
+    PASS
+
+* * PASS
+--------------------------------------------------
+VERIFYING OPTIONAL PROPERTIES:
+
+* * PASS
+--------------------------------------------------
+VERIFYING SPECIAL PROPERTIES:
+
+VERIFYING CUSTOM UI
+Cocoa Views Available: 1
+  OpenPluginAUViewFactory_OpenMultiband_0_1_0
+    PASS
+
+VERIFYING CLASS INFO
+    PASS
+
+TESTING HOST CALLBACKS
+    PASS
+
+* * PASS
+--------------------------------------------------
+PUBLISHED PARAMETER INFO:
+
+# # # 592 Global Scope Parameters:
+Parameter ID:26
+Name: B1 Gate On
+Parameter Type: Boolean
+Values: Minimum = Off, Default = Off, Maximum = On
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:27
+Name: B1 Gate Mode
+Parameter Type: Boolean
+Values: Minimum = Gate, Default = Gate, Maximum = Expander
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:28
+Name: B1 Gate Threshold
+Parameter Type: Decibels
+Values: Minimum = -90.0 dB, Default = -50.0 dB, Maximum = 0.0 dB
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:29
+Name: B1 Gate Ratio
+Parameter Type: ID=25 (unknown display string)
+Values: Minimum = 1.0:1, Default = 2.0:1, Maximum = 20.0:1
+Flags: Values Have Strings, Display Logarithmic, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:30
+Name: B1 Gate Range
+Parameter Type: Decibels
+Values: Minimum = 0.0 dB, Default = 40.0 dB, Maximum = 90.0 dB
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:31
+Name: B1 Gate Knee
+Parameter Type: Decibels
+Values: Minimum = 0.0 dB, Default = 6.0 dB, Maximum = 24.0 dB
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:32
+Name: B1 Gate Hysteresis
+Parameter Type: Decibels
+Values: Minimum = 0.0 dB, Default = 3.0 dB, Maximum = 12.0 dB
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:33
+Name: B1 Gate Attack
+Parameter Type: Milliseconds
+Values: Minimum = 0.0 ms, Default = 0.5 ms, Maximum = 100.0 ms
+Flags: Values Have Strings, Display Logarithmic, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:34
+Name: B1 Gate Hold
+Parameter Type: Milliseconds
+Values: Minimum = 0.0 ms, Default = 20.0 ms, Maximum = 500.0 ms
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:35
+Name: B1 Gate Release
+Parameter Type: Milliseconds
+Values: Minimum = 5.0 ms, Default = 150.0 ms, Maximum = 5000.0 ms
+Flags: Values Have Strings, Display Logarithmic, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:36
+Name: B1 Gate Detector
+Parameter Type: Boolean
+Values: Minimum = Peak, Default = Peak, Maximum = RMS
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:37
+Name: B1 Gate RMS Window
+Parameter Type: Milliseconds
+Values: Minimum = 1.0 ms, Default = 10.0 ms, Maximum = 300.0 ms
+Flags: Values Have Strings, Display Logarithmic, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:38
+Name: B1 Gate Look-Ahead
+Parameter Type: Milliseconds
+Values: Minimum = 0.0 ms, Default = 2.0 ms, Maximum = 10.0 ms
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:39
+Name: B1 Gate Stereo Link
+Parameter Type: Percent
+Values: Minimum = 0%, Default = 100%, Maximum = 100%
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:40
+Name: B1 Gate Key Source
+Parameter Type: Boolean
+Values: Minimum = Internal, Default = Internal, Maximum = External
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:41
+Name: B1 Gate Key High-Pass
+Parameter Type: Hertz
+Values: Minimum = 10.0 Hz, Default = 10.0 Hz, Maximum = 2.00 kHz
+Flags: Values Have Strings, Display Logarithmic, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:42
+Name: B1 Gate Key Low-Pass
+Parameter Type: Hertz
+Values: Minimum = 500.0 Hz, Default = 22.00 kHz, Maximum = 22.00 kHz
+Flags: Values Have Strings, Display Logarithmic, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:43
+Name: B1 Gate Auto Attack
+Parameter Type: Boolean
+Values: Minimum = Off, Default = Off, Maximum = On
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:44
+Name: B1 Gate Auto Release
+Parameter Type: Boolean
+Values: Minimum = Off, Default = Off, Maximum = On
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:45
+Name: B1 Gate Key Boost Freq
+Parameter Type: Hertz
+Values: Minimum = 20.0 Hz, Default = 1.00 kHz, Maximum = 20.00 kHz
+Flags: Values Have Strings, Display Logarithmic, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:46
+Name: B1 Gate Key Boost
+Parameter Type: Decibels
+Values: Minimum = -24.0 dB, Default = 0.0 dB, Maximum = 24.0 dB
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:47
+Name: B1 Gate Key Boost Q
+Parameter Type: Generic
+Values: Minimum = 0.30, Default = 1.00, Maximum = 10.00
+Flags: Values Have Strings, Display Logarithmic, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:121
+Name: B2 Gate On
+Parameter Type: Boolean
+Values: Minimum = Off, Default = Off, Maximum = On
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:122
+Name: B2 Gate Mode
+Parameter Type: Boolean
+Values: Minimum = Gate, Default = Gate, Maximum = Expander
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:123
+Name: B2 Gate Threshold
+Parameter Type: Decibels
+Values: Minimum = -90.0 dB, Default = -50.0 dB, Maximum = 0.0 dB
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:124
+Name: B2 Gate Ratio
+Parameter Type: ID=25 (unknown display string)
+Values: Minimum = 1.0:1, Default = 2.0:1, Maximum = 20.0:1
+Flags: Values Have Strings, Display Logarithmic, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:125
+Name: B2 Gate Range
+Parameter Type: Decibels
+Values: Minimum = 0.0 dB, Default = 40.0 dB, Maximum = 90.0 dB
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:126
+Name: B2 Gate Knee
+Parameter Type: Decibels
+Values: Minimum = 0.0 dB, Default = 6.0 dB, Maximum = 24.0 dB
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:127
+Name: B2 Gate Hysteresis
+Parameter Type: Decibels
+Values: Minimum = 0.0 dB, Default = 3.0 dB, Maximum = 12.0 dB
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:128
+Name: B2 Gate Attack
+Parameter Type: Milliseconds
+Values: Minimum = 0.0 ms, Default = 0.5 ms, Maximum = 100.0 ms
+Flags: Values Have Strings, Display Logarithmic, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:129
+Name: B2 Gate Hold
+Parameter Type: Milliseconds
+Values: Minimum = 0.0 ms, Default = 20.0 ms, Maximum = 500.0 ms
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:130
+Name: B2 Gate Release
+Parameter Type: Milliseconds
+Values: Minimum = 5.0 ms, Default = 150.0 ms, Maximum = 5000.0 ms
+Flags: Values Have Strings, Display Logarithmic, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:131
+Name: B2 Gate Detector
+Parameter Type: Boolean
+Values: Minimum = Peak, Default = Peak, Maximum = RMS
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:132
+Name: B2 Gate RMS Window
+Parameter Type: Milliseconds
+Values: Minimum = 1.0 ms, Default = 10.0 ms, Maximum = 300.0 ms
+Flags: Values Have Strings, Display Logarithmic, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:133
+Name: B2 Gate Look-Ahead
+Parameter Type: Milliseconds
+Values: Minimum = 0.0 ms, Default = 2.0 ms, Maximum = 10.0 ms
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:134
+Name: B2 Gate Stereo Link
+Parameter Type: Percent
+Values: Minimum = 0%, Default = 100%, Maximum = 100%
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:135
+Name: B2 Gate Key Source
+Parameter Type: Boolean
+Values: Minimum = Internal, Default = Internal, Maximum = External
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:136
+Name: B2 Gate Key High-Pass
+Parameter Type: Hertz
+Values: Minimum = 10.0 Hz, Default = 10.0 Hz, Maximum = 2.00 kHz
+Flags: Values Have Strings, Display Logarithmic, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:137
+Name: B2 Gate Key Low-Pass
+Parameter Type: Hertz
+Values: Minimum = 500.0 Hz, Default = 22.00 kHz, Maximum = 22.00 kHz
+Flags: Values Have Strings, Display Logarithmic, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:138
+Name: B2 Gate Auto Attack
+Parameter Type: Boolean
+Values: Minimum = Off, Default = Off, Maximum = On
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:139
+Name: B2 Gate Auto Release
+Parameter Type: Boolean
+Values: Minimum = Off, Default = Off, Maximum = On
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:140
+Name: B2 Gate Key Boost Freq
+Parameter Type: Hertz
+Values: Minimum = 20.0 Hz, Default = 1.00 kHz, Maximum = 20.00 kHz
+Flags: Values Have Strings, Display Logarithmic, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:141
+Name: B2 Gate Key Boost
+Parameter Type: Decibels
+Values: Minimum = -24.0 dB, Default = 0.0 dB, Maximum = 24.0 dB
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:142
+Name: B2 Gate Key Boost Q
+Parameter Type: Generic
+Values: Minimum = 0.30, Default = 1.00, Maximum = 10.00
+Flags: Values Have Strings, Display Logarithmic, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:216
+Name: B3 Gate On
+Parameter Type: Boolean
+Values: Minimum = Off, Default = Off, Maximum = On
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:217
+Name: B3 Gate Mode
+Parameter Type: Boolean
+Values: Minimum = Gate, Default = Gate, Maximum = Expander
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:218
+Name: B3 Gate Threshold
+Parameter Type: Decibels
+Values: Minimum = -90.0 dB, Default = -50.0 dB, Maximum = 0.0 dB
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:219
+Name: B3 Gate Ratio
+Parameter Type: ID=25 (unknown display string)
+Values: Minimum = 1.0:1, Default = 2.0:1, Maximum = 20.0:1
+Flags: Values Have Strings, Display Logarithmic, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:220
+Name: B3 Gate Range
+Parameter Type: Decibels
+Values: Minimum = 0.0 dB, Default = 40.0 dB, Maximum = 90.0 dB
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:221
+Name: B3 Gate Knee
+Parameter Type: Decibels
+Values: Minimum = 0.0 dB, Default = 6.0 dB, Maximum = 24.0 dB
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:222
+Name: B3 Gate Hysteresis
+Parameter Type: Decibels
+Values: Minimum = 0.0 dB, Default = 3.0 dB, Maximum = 12.0 dB
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:223
+Name: B3 Gate Attack
+Parameter Type: Milliseconds
+Values: Minimum = 0.0 ms, Default = 0.5 ms, Maximum = 100.0 ms
+Flags: Values Have Strings, Display Logarithmic, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:224
+Name: B3 Gate Hold
+Parameter Type: Milliseconds
+Values: Minimum = 0.0 ms, Default = 20.0 ms, Maximum = 500.0 ms
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:225
+Name: B3 Gate Release
+Parameter Type: Milliseconds
+Values: Minimum = 5.0 ms, Default = 150.0 ms, Maximum = 5000.0 ms
+Flags: Values Have Strings, Display Logarithmic, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:226
+Name: B3 Gate Detector
+Parameter Type: Boolean
+Values: Minimum = Peak, Default = Peak, Maximum = RMS
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:227
+Name: B3 Gate RMS Window
+Parameter Type: Milliseconds
+Values: Minimum = 1.0 ms, Default = 10.0 ms, Maximum = 300.0 ms
+Flags: Values Have Strings, Display Logarithmic, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:228
+Name: B3 Gate Look-Ahead
+Parameter Type: Milliseconds
+Values: Minimum = 0.0 ms, Default = 2.0 ms, Maximum = 10.0 ms
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:229
+Name: B3 Gate Stereo Link
+Parameter Type: Percent
+Values: Minimum = 0%, Default = 100%, Maximum = 100%
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:230
+Name: B3 Gate Key Source
+Parameter Type: Boolean
+Values: Minimum = Internal, Default = Internal, Maximum = External
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:231
+Name: B3 Gate Key High-Pass
+Parameter Type: Hertz
+Values: Minimum = 10.0 Hz, Default = 10.0 Hz, Maximum = 2.00 kHz
+Flags: Values Have Strings, Display Logarithmic, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:232
+Name: B3 Gate Key Low-Pass
+Parameter Type: Hertz
+Values: Minimum = 500.0 Hz, Default = 22.00 kHz, Maximum = 22.00 kHz
+Flags: Values Have Strings, Display Logarithmic, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:233
+Name: B3 Gate Auto Attack
+Parameter Type: Boolean
+Values: Minimum = Off, Default = Off, Maximum = On
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:234
+Name: B3 Gate Auto Release
+Parameter Type: Boolean
+Values: Minimum = Off, Default = Off, Maximum = On
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:235
+Name: B3 Gate Key Boost Freq
+Parameter Type: Hertz
+Values: Minimum = 20.0 Hz, Default = 1.00 kHz, Maximum = 20.00 kHz
+Flags: Values Have Strings, Display Logarithmic, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:236
+Name: B3 Gate Key Boost
+Parameter Type: Decibels
+Values: Minimum = -24.0 dB, Default = 0.0 dB, Maximum = 24.0 dB
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:237
+Name: B3 Gate Key Boost Q
+Parameter Type: Generic
+Values: Minimum = 0.30, Default = 1.00, Maximum = 10.00
+Flags: Values Have Strings, Display Logarithmic, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:311
+Name: B4 Gate On
+Parameter Type: Boolean
+Values: Minimum = Off, Default = Off, Maximum = On
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:312
+Name: B4 Gate Mode
+Parameter Type: Boolean
+Values: Minimum = Gate, Default = Gate, Maximum = Expander
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:313
+Name: B4 Gate Threshold
+Parameter Type: Decibels
+Values: Minimum = -90.0 dB, Default = -50.0 dB, Maximum = 0.0 dB
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:314
+Name: B4 Gate Ratio
+Parameter Type: ID=25 (unknown display string)
+Values: Minimum = 1.0:1, Default = 2.0:1, Maximum = 20.0:1
+Flags: Values Have Strings, Display Logarithmic, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:315
+Name: B4 Gate Range
+Parameter Type: Decibels
+Values: Minimum = 0.0 dB, Default = 40.0 dB, Maximum = 90.0 dB
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:316
+Name: B4 Gate Knee
+Parameter Type: Decibels
+Values: Minimum = 0.0 dB, Default = 6.0 dB, Maximum = 24.0 dB
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:317
+Name: B4 Gate Hysteresis
+Parameter Type: Decibels
+Values: Minimum = 0.0 dB, Default = 3.0 dB, Maximum = 12.0 dB
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:318
+Name: B4 Gate Attack
+Parameter Type: Milliseconds
+Values: Minimum = 0.0 ms, Default = 0.5 ms, Maximum = 100.0 ms
+Flags: Values Have Strings, Display Logarithmic, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:319
+Name: B4 Gate Hold
+Parameter Type: Milliseconds
+Values: Minimum = 0.0 ms, Default = 20.0 ms, Maximum = 500.0 ms
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:320
+Name: B4 Gate Release
+Parameter Type: Milliseconds
+Values: Minimum = 5.0 ms, Default = 150.0 ms, Maximum = 5000.0 ms
+Flags: Values Have Strings, Display Logarithmic, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:321
+Name: B4 Gate Detector
+Parameter Type: Boolean
+Values: Minimum = Peak, Default = Peak, Maximum = RMS
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:322
+Name: B4 Gate RMS Window
+Parameter Type: Milliseconds
+Values: Minimum = 1.0 ms, Default = 10.0 ms, Maximum = 300.0 ms
+Flags: Values Have Strings, Display Logarithmic, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:323
+Name: B4 Gate Look-Ahead
+Parameter Type: Milliseconds
+Values: Minimum = 0.0 ms, Default = 2.0 ms, Maximum = 10.0 ms
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:324
+Name: B4 Gate Stereo Link
+Parameter Type: Percent
+Values: Minimum = 0%, Default = 100%, Maximum = 100%
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:325
+Name: B4 Gate Key Source
+Parameter Type: Boolean
+Values: Minimum = Internal, Default = Internal, Maximum = External
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:326
+Name: B4 Gate Key High-Pass
+Parameter Type: Hertz
+Values: Minimum = 10.0 Hz, Default = 10.0 Hz, Maximum = 2.00 kHz
+Flags: Values Have Strings, Display Logarithmic, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:327
+Name: B4 Gate Key Low-Pass
+Parameter Type: Hertz
+Values: Minimum = 500.0 Hz, Default = 22.00 kHz, Maximum = 22.00 kHz
+Flags: Values Have Strings, Display Logarithmic, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:328
+Name: B4 Gate Auto Attack
+Parameter Type: Boolean
+Values: Minimum = Off, Default = Off, Maximum = On
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:329
+Name: B4 Gate Auto Release
+Parameter Type: Boolean
+Values: Minimum = Off, Default = Off, Maximum = On
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:330
+Name: B4 Gate Key Boost Freq
+Parameter Type: Hertz
+Values: Minimum = 20.0 Hz, Default = 1.00 kHz, Maximum = 20.00 kHz
+Flags: Values Have Strings, Display Logarithmic, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:331
+Name: B4 Gate Key Boost
+Parameter Type: Decibels
+Values: Minimum = -24.0 dB, Default = 0.0 dB, Maximum = 24.0 dB
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:332
+Name: B4 Gate Key Boost Q
+Parameter Type: Generic
+Values: Minimum = 0.30, Default = 1.00, Maximum = 10.00
+Flags: Values Have Strings, Display Logarithmic, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:406
+Name: B5 Gate On
+Parameter Type: Boolean
+Values: Minimum = Off, Default = Off, Maximum = On
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:407
+Name: B5 Gate Mode
+Parameter Type: Boolean
+Values: Minimum = Gate, Default = Gate, Maximum = Expander
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:408
+Name: B5 Gate Threshold
+Parameter Type: Decibels
+Values: Minimum = -90.0 dB, Default = -50.0 dB, Maximum = 0.0 dB
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:409
+Name: B5 Gate Ratio
+Parameter Type: ID=25 (unknown display string)
+Values: Minimum = 1.0:1, Default = 2.0:1, Maximum = 20.0:1
+Flags: Values Have Strings, Display Logarithmic, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:410
+Name: B5 Gate Range
+Parameter Type: Decibels
+Values: Minimum = 0.0 dB, Default = 40.0 dB, Maximum = 90.0 dB
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:411
+Name: B5 Gate Knee
+Parameter Type: Decibels
+Values: Minimum = 0.0 dB, Default = 6.0 dB, Maximum = 24.0 dB
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:412
+Name: B5 Gate Hysteresis
+Parameter Type: Decibels
+Values: Minimum = 0.0 dB, Default = 3.0 dB, Maximum = 12.0 dB
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:413
+Name: B5 Gate Attack
+Parameter Type: Milliseconds
+Values: Minimum = 0.0 ms, Default = 0.5 ms, Maximum = 100.0 ms
+Flags: Values Have Strings, Display Logarithmic, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:414
+Name: B5 Gate Hold
+Parameter Type: Milliseconds
+Values: Minimum = 0.0 ms, Default = 20.0 ms, Maximum = 500.0 ms
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:415
+Name: B5 Gate Release
+Parameter Type: Milliseconds
+Values: Minimum = 5.0 ms, Default = 150.0 ms, Maximum = 5000.0 ms
+Flags: Values Have Strings, Display Logarithmic, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:416
+Name: B5 Gate Detector
+Parameter Type: Boolean
+Values: Minimum = Peak, Default = Peak, Maximum = RMS
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:417
+Name: B5 Gate RMS Window
+Parameter Type: Milliseconds
+Values: Minimum = 1.0 ms, Default = 10.0 ms, Maximum = 300.0 ms
+Flags: Values Have Strings, Display Logarithmic, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:418
+Name: B5 Gate Look-Ahead
+Parameter Type: Milliseconds
+Values: Minimum = 0.0 ms, Default = 2.0 ms, Maximum = 10.0 ms
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:419
+Name: B5 Gate Stereo Link
+Parameter Type: Percent
+Values: Minimum = 0%, Default = 100%, Maximum = 100%
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:420
+Name: B5 Gate Key Source
+Parameter Type: Boolean
+Values: Minimum = Internal, Default = Internal, Maximum = External
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:421
+Name: B5 Gate Key High-Pass
+Parameter Type: Hertz
+Values: Minimum = 10.0 Hz, Default = 10.0 Hz, Maximum = 2.00 kHz
+Flags: Values Have Strings, Display Logarithmic, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:422
+Name: B5 Gate Key Low-Pass
+Parameter Type: Hertz
+Values: Minimum = 500.0 Hz, Default = 22.00 kHz, Maximum = 22.00 kHz
+Flags: Values Have Strings, Display Logarithmic, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:423
+Name: B5 Gate Auto Attack
+Parameter Type: Boolean
+Values: Minimum = Off, Default = Off, Maximum = On
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:424
+Name: B5 Gate Auto Release
+Parameter Type: Boolean
+Values: Minimum = Off, Default = Off, Maximum = On
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:425
+Name: B5 Gate Key Boost Freq
+Parameter Type: Hertz
+Values: Minimum = 20.0 Hz, Default = 1.00 kHz, Maximum = 20.00 kHz
+Flags: Values Have Strings, Display Logarithmic, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:426
+Name: B5 Gate Key Boost
+Parameter Type: Decibels
+Values: Minimum = -24.0 dB, Default = 0.0 dB, Maximum = 24.0 dB
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:427
+Name: B5 Gate Key Boost Q
+Parameter Type: Generic
+Values: Minimum = 0.30, Default = 1.00, Maximum = 10.00
+Flags: Values Have Strings, Display Logarithmic, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:501
+Name: B6 Gate On
+Parameter Type: Boolean
+Values: Minimum = Off, Default = Off, Maximum = On
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:502
+Name: B6 Gate Mode
+Parameter Type: Boolean
+Values: Minimum = Gate, Default = Gate, Maximum = Expander
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:503
+Name: B6 Gate Threshold
+Parameter Type: Decibels
+Values: Minimum = -90.0 dB, Default = -50.0 dB, Maximum = 0.0 dB
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:504
+Name: B6 Gate Ratio
+Parameter Type: ID=25 (unknown display string)
+Values: Minimum = 1.0:1, Default = 2.0:1, Maximum = 20.0:1
+Flags: Values Have Strings, Display Logarithmic, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:505
+Name: B6 Gate Range
+Parameter Type: Decibels
+Values: Minimum = 0.0 dB, Default = 40.0 dB, Maximum = 90.0 dB
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:506
+Name: B6 Gate Knee
+Parameter Type: Decibels
+Values: Minimum = 0.0 dB, Default = 6.0 dB, Maximum = 24.0 dB
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:507
+Name: B6 Gate Hysteresis
+Parameter Type: Decibels
+Values: Minimum = 0.0 dB, Default = 3.0 dB, Maximum = 12.0 dB
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:508
+Name: B6 Gate Attack
+Parameter Type: Milliseconds
+Values: Minimum = 0.0 ms, Default = 0.5 ms, Maximum = 100.0 ms
+Flags: Values Have Strings, Display Logarithmic, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:509
+Name: B6 Gate Hold
+Parameter Type: Milliseconds
+Values: Minimum = 0.0 ms, Default = 20.0 ms, Maximum = 500.0 ms
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:510
+Name: B6 Gate Release
+Parameter Type: Milliseconds
+Values: Minimum = 5.0 ms, Default = 150.0 ms, Maximum = 5000.0 ms
+Flags: Values Have Strings, Display Logarithmic, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:511
+Name: B6 Gate Detector
+Parameter Type: Boolean
+Values: Minimum = Peak, Default = Peak, Maximum = RMS
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:512
+Name: B6 Gate RMS Window
+Parameter Type: Milliseconds
+Values: Minimum = 1.0 ms, Default = 10.0 ms, Maximum = 300.0 ms
+Flags: Values Have Strings, Display Logarithmic, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:513
+Name: B6 Gate Look-Ahead
+Parameter Type: Milliseconds
+Values: Minimum = 0.0 ms, Default = 2.0 ms, Maximum = 10.0 ms
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:514
+Name: B6 Gate Stereo Link
+Parameter Type: Percent
+Values: Minimum = 0%, Default = 100%, Maximum = 100%
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:515
+Name: B6 Gate Key Source
+Parameter Type: Boolean
+Values: Minimum = Internal, Default = Internal, Maximum = External
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:516
+Name: B6 Gate Key High-Pass
+Parameter Type: Hertz
+Values: Minimum = 10.0 Hz, Default = 10.0 Hz, Maximum = 2.00 kHz
+Flags: Values Have Strings, Display Logarithmic, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:517
+Name: B6 Gate Key Low-Pass
+Parameter Type: Hertz
+Values: Minimum = 500.0 Hz, Default = 22.00 kHz, Maximum = 22.00 kHz
+Flags: Values Have Strings, Display Logarithmic, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:518
+Name: B6 Gate Auto Attack
+Parameter Type: Boolean
+Values: Minimum = Off, Default = Off, Maximum = On
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:519
+Name: B6 Gate Auto Release
+Parameter Type: Boolean
+Values: Minimum = Off, Default = Off, Maximum = On
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:520
+Name: B6 Gate Key Boost Freq
+Parameter Type: Hertz
+Values: Minimum = 20.0 Hz, Default = 1.00 kHz, Maximum = 20.00 kHz
+Flags: Values Have Strings, Display Logarithmic, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:521
+Name: B6 Gate Key Boost
+Parameter Type: Decibels
+Values: Minimum = -24.0 dB, Default = 0.0 dB, Maximum = 24.0 dB
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:522
+Name: B6 Gate Key Boost Q
+Parameter Type: Generic
+Values: Minimum = 0.30, Default = 1.00, Maximum = 10.00
+Flags: Values Have Strings, Display Logarithmic, Readable, Writable 
+  -parameter PASS
+
+
+# # Parameters for clump: 1
+# Full Clump Name: Global
+# Short (4 Chars limit) Clump Name: Glob
+Parameter ID:0
+Name: Input Gain
+Parameter Type: Decibels
+Values: Minimum = -24.0 dB, Default = 0.0 dB, Maximum = 24.0 dB
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:1
+Name: Output Gain
+Parameter Type: Decibels
+Values: Minimum = -24.0 dB, Default = 0.0 dB, Maximum = 24.0 dB
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:2
+Name: Zero Latency
+Parameter Type: Boolean
+Values: Minimum = Off, Default = Off, Maximum = On
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:3
+Name: Auto Gain
+Parameter Type: Boolean
+Values: Minimum = Off, Default = Off, Maximum = On
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:4
+Name: Delta
+Parameter Type: Boolean
+Values: Minimum = Off, Default = Off, Maximum = On
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+
+# # Parameters for clump: 2
+# Full Clump Name: Crossover
+# Short (4 Chars limit) Clump Name: Cros
+Parameter ID:5
+Name: Bands
+Parameter Type: Generic
+Values: Minimum = 1, Default = 4, Maximum = 6
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:6
+Name: Crossover Slope
+Parameter Type: Indexed
+Values: Minimum = 12 dB, Default = 24 dB, Maximum = 48 dB
+Flags: Values Have Strings, Readable, Writable 
+Parameter has Value Strings
+Num Strings = 3
+Value: 0,  String: 12 dB
+Value: 1,  String: 24 dB
+Value: 2,  String: 48 dB
+  -parameter PASS
+
+Parameter ID:7
+Name: Crossover 1
+Parameter Type: Hertz
+Values: Minimum = 20.0 Hz, Default = 120.0 Hz, Maximum = 20.00 kHz
+Flags: Values Have Strings, Display Logarithmic, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:8
+Name: Crossover 2
+Parameter Type: Hertz
+Values: Minimum = 20.0 Hz, Default = 750.0 Hz, Maximum = 20.00 kHz
+Flags: Values Have Strings, Display Logarithmic, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:9
+Name: Crossover 3
+Parameter Type: Hertz
+Values: Minimum = 20.0 Hz, Default = 3.00 kHz, Maximum = 20.00 kHz
+Flags: Values Have Strings, Display Logarithmic, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:10
+Name: Crossover 4
+Parameter Type: Hertz
+Values: Minimum = 20.0 Hz, Default = 8.00 kHz, Maximum = 20.00 kHz
+Flags: Values Have Strings, Display Logarithmic, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:11
+Name: Crossover 5
+Parameter Type: Hertz
+Values: Minimum = 20.0 Hz, Default = 14.00 kHz, Maximum = 20.00 kHz
+Flags: Values Have Strings, Display Logarithmic, Readable, Writable 
+  -parameter PASS
+
+
+# # Parameters for clump: 3
+# Full Clump Name: Master Limiter
+# Short (4 Chars limit) Clump Name: Mast
+Parameter ID:12
+Name: Limiter On
+Parameter Type: Boolean
+Values: Minimum = Off, Default = On, Maximum = On
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:13
+Name: Limiter Threshold
+Parameter Type: Decibels
+Values: Minimum = -24.0 dB, Default = 0.0 dB, Maximum = 0.0 dB
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:14
+Name: Limiter Ceiling
+Parameter Type: Decibels
+Values: Minimum = -24.0 dB, Default = -1.0 dB, Maximum = 0.0 dB
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:15
+Name: Limiter Attack
+Parameter Type: Milliseconds
+Values: Minimum = 0.0 ms, Default = 0.0 ms, Maximum = 10.0 ms
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:16
+Name: Limiter Release
+Parameter Type: Milliseconds
+Values: Minimum = 1.0 ms, Default = 100.0 ms, Maximum = 2000.0 ms
+Flags: Values Have Strings, Display Logarithmic, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:17
+Name: Limiter Stereo Link
+Parameter Type: Percent
+Values: Minimum = 0%, Default = 100%, Maximum = 100%
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:18
+Name: Limiter Clean
+Parameter Type: Boolean
+Values: Minimum = Off, Default = On, Maximum = On
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:19
+Name: Limiter Bass Hold
+Parameter Type: Milliseconds
+Values: Minimum = 0.0 ms, Default = 14.0 ms, Maximum = 20.0 ms
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:20
+Name: Limiter Auto Attack
+Parameter Type: Boolean
+Values: Minimum = Off, Default = Off, Maximum = On
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:21
+Name: Limiter Auto Release
+Parameter Type: Boolean
+Values: Minimum = Off, Default = Off, Maximum = On
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+
+# # Parameters for clump: 4
+# Full Clump Name: Band 1
+# Short (4 Chars limit) Clump Name: Band
+Parameter ID:22
+Name: Band 1 Gain
+Parameter Type: Decibels
+Values: Minimum = -24.0 dB, Default = 0.0 dB, Maximum = 24.0 dB
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:23
+Name: Band 1 Solo
+Parameter Type: Boolean
+Values: Minimum = Off, Default = Off, Maximum = On
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:24
+Name: Band 1 Mute
+Parameter Type: Boolean
+Values: Minimum = Off, Default = Off, Maximum = On
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:25
+Name: Band 1 Bypass
+Parameter Type: Boolean
+Values: Minimum = Off, Default = Off, Maximum = On
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+
+# # Parameters for clump: 5
+# Full Clump Name: Band 1 Compressor
+# Short (4 Chars limit) Clump Name: Band
+Parameter ID:48
+Name: B1 Comp On
+Parameter Type: Boolean
+Values: Minimum = Off, Default = On, Maximum = On
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:49
+Name: B1 Comp Threshold
+Parameter Type: Decibels
+Values: Minimum = -60.0 dB, Default = -18.0 dB, Maximum = 0.0 dB
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:50
+Name: B1 Comp Ratio
+Parameter Type: ID=25 (unknown display string)
+Values: Minimum = 1.0:1, Default = 4.0:1, Maximum = 30.0:1
+Flags: Values Have Strings, Display Logarithmic, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:51
+Name: B1 Comp Knee
+Parameter Type: Decibels
+Values: Minimum = 0.0 dB, Default = 6.0 dB, Maximum = 24.0 dB
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:52
+Name: B1 Comp Attack
+Parameter Type: Milliseconds
+Values: Minimum = 0.0 ms, Default = 10.0 ms, Maximum = 300.0 ms
+Flags: Values Have Strings, Display Logarithmic, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:53
+Name: B1 Comp Release
+Parameter Type: Milliseconds
+Values: Minimum = 5.0 ms, Default = 120.0 ms, Maximum = 5000.0 ms
+Flags: Values Have Strings, Display Logarithmic, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:54
+Name: B1 Comp Detector
+Parameter Type: Boolean
+Values: Minimum = Peak, Default = Peak, Maximum = RMS
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:55
+Name: B1 Comp RMS Window
+Parameter Type: Milliseconds
+Values: Minimum = 1.0 ms, Default = 10.0 ms, Maximum = 300.0 ms
+Flags: Values Have Strings, Display Logarithmic, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:56
+Name: B1 Comp Look-Ahead
+Parameter Type: Milliseconds
+Values: Minimum = 0.0 ms, Default = 2.0 ms, Maximum = 10.0 ms
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:57
+Name: B1 Comp Stereo Link
+Parameter Type: Percent
+Values: Minimum = 0%, Default = 100%, Maximum = 100%
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:58
+Name: B1 Comp Key Source
+Parameter Type: Boolean
+Values: Minimum = Internal, Default = Internal, Maximum = External
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:59
+Name: B1 Comp Key High-Pass
+Parameter Type: Hertz
+Values: Minimum = 10.0 Hz, Default = 10.0 Hz, Maximum = 2.00 kHz
+Flags: Values Have Strings, Display Logarithmic, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:60
+Name: B1 Comp Key Low-Pass
+Parameter Type: Hertz
+Values: Minimum = 500.0 Hz, Default = 22.00 kHz, Maximum = 22.00 kHz
+Flags: Values Have Strings, Display Logarithmic, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:61
+Name: B1 Comp Make-Up
+Parameter Type: Decibels
+Values: Minimum = -12.0 dB, Default = 0.0 dB, Maximum = 24.0 dB
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:62
+Name: B1 Comp Mix
+Parameter Type: Percent
+Values: Minimum = 0%, Default = 100%, Maximum = 100%
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:63
+Name: B1 Comp Auto Attack
+Parameter Type: Boolean
+Values: Minimum = Off, Default = Off, Maximum = On
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:64
+Name: B1 Comp Auto Release
+Parameter Type: Boolean
+Values: Minimum = Off, Default = Off, Maximum = On
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:65
+Name: B1 Comp Key Boost Freq
+Parameter Type: Hertz
+Values: Minimum = 20.0 Hz, Default = 1.00 kHz, Maximum = 20.00 kHz
+Flags: Values Have Strings, Display Logarithmic, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:66
+Name: B1 Comp Key Boost
+Parameter Type: Decibels
+Values: Minimum = -24.0 dB, Default = 0.0 dB, Maximum = 24.0 dB
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:67
+Name: B1 Comp Key Boost Q
+Parameter Type: Generic
+Values: Minimum = 0.30, Default = 1.00, Maximum = 10.00
+Flags: Values Have Strings, Display Logarithmic, Readable, Writable 
+  -parameter PASS
+
+
+# # Parameters for clump: 6
+# Full Clump Name: Band 1 De-Expander
+# Short (4 Chars limit) Clump Name: Band
+Parameter ID:68
+Name: B1 DeExp On
+Parameter Type: Boolean
+Values: Minimum = Off, Default = Off, Maximum = On
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:69
+Name: B1 DeExp Threshold
+Parameter Type: Decibels
+Values: Minimum = -80.0 dB, Default = -40.0 dB, Maximum = 0.0 dB
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:70
+Name: B1 DeExp Ratio
+Parameter Type: ID=25 (unknown display string)
+Values: Minimum = 1.0:1, Default = 2.0:1, Maximum = 8.0:1
+Flags: Values Have Strings, Display Logarithmic, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:71
+Name: B1 DeExp Range
+Parameter Type: Decibels
+Values: Minimum = 0.0 dB, Default = 12.0 dB, Maximum = 36.0 dB
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:72
+Name: B1 DeExp Knee
+Parameter Type: Decibels
+Values: Minimum = 0.0 dB, Default = 6.0 dB, Maximum = 24.0 dB
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:73
+Name: B1 DeExp Floor
+Parameter Type: Decibels
+Values: Minimum = -inf dB, Default = -72.0 dB, Maximum = -20.0 dB
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:74
+Name: B1 DeExp Attack
+Parameter Type: Milliseconds
+Values: Minimum = 0.0 ms, Default = 0.5 ms, Maximum = 100.0 ms
+Flags: Values Have Strings, Display Logarithmic, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:75
+Name: B1 DeExp Hold
+Parameter Type: Milliseconds
+Values: Minimum = 0.0 ms, Default = 20.0 ms, Maximum = 500.0 ms
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:76
+Name: B1 DeExp Release
+Parameter Type: Milliseconds
+Values: Minimum = 1.0 ms, Default = 150.0 ms, Maximum = 5000.0 ms
+Flags: Values Have Strings, Display Logarithmic, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:77
+Name: B1 DeExp Detector
+Parameter Type: Boolean
+Values: Minimum = Peak, Default = RMS, Maximum = RMS
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:78
+Name: B1 DeExp RMS Window
+Parameter Type: Milliseconds
+Values: Minimum = 1.0 ms, Default = 10.0 ms, Maximum = 500.0 ms
+Flags: Values Have Strings, Display Logarithmic, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:79
+Name: B1 DeExp Look-Ahead
+Parameter Type: Milliseconds
+Values: Minimum = 0.0 ms, Default = 2.0 ms, Maximum = 10.0 ms
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:80
+Name: B1 DeExp Stereo Link
+Parameter Type: Percent
+Values: Minimum = 0%, Default = 100%, Maximum = 100%
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:81
+Name: B1 DeExp Key Source
+Parameter Type: Boolean
+Values: Minimum = Internal, Default = Internal, Maximum = External
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:82
+Name: B1 DeExp Key High-Pass
+Parameter Type: Hertz
+Values: Minimum = 10.0 Hz, Default = 10.0 Hz, Maximum = 2.00 kHz
+Flags: Values Have Strings, Display Logarithmic, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:83
+Name: B1 DeExp Key Low-Pass
+Parameter Type: Hertz
+Values: Minimum = 500.0 Hz, Default = 22.00 kHz, Maximum = 22.00 kHz
+Flags: Values Have Strings, Display Logarithmic, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:84
+Name: B1 DeExp Mix
+Parameter Type: Percent
+Values: Minimum = 0%, Default = 100%, Maximum = 100%
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:85
+Name: B1 DeExp Auto Attack
+Parameter Type: Boolean
+Values: Minimum = Off, Default = Off, Maximum = On
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:86
+Name: B1 DeExp Auto Release
+Parameter Type: Boolean
+Values: Minimum = Off, Default = Off, Maximum = On
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:87
+Name: B1 DeExp Key Boost Freq
+Parameter Type: Hertz
+Values: Minimum = 20.0 Hz, Default = 1.00 kHz, Maximum = 20.00 kHz
+Flags: Values Have Strings, Display Logarithmic, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:88
+Name: B1 DeExp Key Boost
+Parameter Type: Decibels
+Values: Minimum = -24.0 dB, Default = 0.0 dB, Maximum = 24.0 dB
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:89
+Name: B1 DeExp Key Boost Q
+Parameter Type: Generic
+Values: Minimum = 0.30, Default = 1.00, Maximum = 10.00
+Flags: Values Have Strings, Display Logarithmic, Readable, Writable 
+  -parameter PASS
+
+
+# # Parameters for clump: 7
+# Full Clump Name: Band 1 Decompressor
+# Short (4 Chars limit) Clump Name: Band
+Parameter ID:90
+Name: B1 DeComp On
+Parameter Type: Boolean
+Values: Minimum = Off, Default = Off, Maximum = On
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:91
+Name: B1 DeComp Threshold
+Parameter Type: Decibels
+Values: Minimum = -60.0 dB, Default = -18.0 dB, Maximum = 0.0 dB
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:92
+Name: B1 DeComp Ratio
+Parameter Type: ID=25 (unknown display string)
+Values: Minimum = 1.0:1, Default = 2.0:1, Maximum = 4.0:1
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:93
+Name: B1 DeComp Range
+Parameter Type: Decibels
+Values: Minimum = 0.0 dB, Default = 6.0 dB, Maximum = 24.0 dB
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:94
+Name: B1 DeComp Knee
+Parameter Type: Decibels
+Values: Minimum = 0.0 dB, Default = 6.0 dB, Maximum = 24.0 dB
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:95
+Name: B1 DeComp Attack
+Parameter Type: Milliseconds
+Values: Minimum = 0.0 ms, Default = 1.0 ms, Maximum = 100.0 ms
+Flags: Values Have Strings, Display Logarithmic, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:96
+Name: B1 DeComp Release
+Parameter Type: Milliseconds
+Values: Minimum = 1.0 ms, Default = 80.0 ms, Maximum = 2000.0 ms
+Flags: Values Have Strings, Display Logarithmic, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:97
+Name: B1 DeComp Detector
+Parameter Type: Indexed
+Values: Minimum = Peak, Default = Peak, Maximum = Transient
+Flags: Values Have Strings, Readable, Writable 
+Parameter has Value Strings
+Num Strings = 3
+Value: 0,  String: Peak
+Value: 1,  String: RMS
+Value: 2,  String: Transient
+  -parameter PASS
+
+Parameter ID:98
+Name: B1 DeComp RMS Window
+Parameter Type: Milliseconds
+Values: Minimum = 1.0 ms, Default = 30.0 ms, Maximum = 500.0 ms
+Flags: Values Have Strings, Display Logarithmic, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:99
+Name: B1 DeComp Transient Crest
+Parameter Type: Decibels
+Values: Minimum = 0.0 dB, Default = 6.0 dB, Maximum = 24.0 dB
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:100
+Name: B1 DeComp Look-Ahead
+Parameter Type: Milliseconds
+Values: Minimum = 0.0 ms, Default = 2.0 ms, Maximum = 10.0 ms
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:101
+Name: B1 DeComp Stereo Link
+Parameter Type: Percent
+Values: Minimum = 0%, Default = 100%, Maximum = 100%
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:102
+Name: B1 DeComp Key Source
+Parameter Type: Boolean
+Values: Minimum = Internal, Default = Internal, Maximum = External
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:103
+Name: B1 DeComp Key High-Pass
+Parameter Type: Hertz
+Values: Minimum = 10.0 Hz, Default = 10.0 Hz, Maximum = 2.00 kHz
+Flags: Values Have Strings, Display Logarithmic, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:104
+Name: B1 DeComp Key Low-Pass
+Parameter Type: Hertz
+Values: Minimum = 500.0 Hz, Default = 22.00 kHz, Maximum = 22.00 kHz
+Flags: Values Have Strings, Display Logarithmic, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:105
+Name: B1 DeComp Mix
+Parameter Type: Percent
+Values: Minimum = 0%, Default = 100%, Maximum = 100%
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:106
+Name: B1 DeComp Ceiling
+Parameter Type: Boolean
+Values: Minimum = Off, Default = Off, Maximum = On
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:107
+Name: B1 DeComp Ceiling Level
+Parameter Type: Decibels
+Values: Minimum = -24.0 dB, Default = -1.0 dB, Maximum = 0.0 dB
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:108
+Name: B1 DeComp Ceiling Type
+Parameter Type: Boolean
+Values: Minimum = Sample peak, Default = True peak, Maximum = True peak
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:109
+Name: B1 DeComp Output Trim
+Parameter Type: Decibels
+Values: Minimum = -24.0 dB, Default = 0.0 dB, Maximum = 0.0 dB
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:110
+Name: B1 DeComp Match
+Parameter Type: Boolean
+Values: Minimum = Off, Default = Off, Maximum = On
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:111
+Name: B1 DeComp Match Target Crest
+Parameter Type: Decibels
+Values: Minimum = 6.0 dB, Default = 12.0 dB, Maximum = 24.0 dB
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:112
+Name: B1 DeComp Auto Attack
+Parameter Type: Boolean
+Values: Minimum = Off, Default = Off, Maximum = On
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:113
+Name: B1 DeComp Auto Release
+Parameter Type: Boolean
+Values: Minimum = Off, Default = Off, Maximum = On
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:114
+Name: B1 DeComp Key Boost Freq
+Parameter Type: Hertz
+Values: Minimum = 20.0 Hz, Default = 1.00 kHz, Maximum = 20.00 kHz
+Flags: Values Have Strings, Display Logarithmic, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:115
+Name: B1 DeComp Key Boost
+Parameter Type: Decibels
+Values: Minimum = -24.0 dB, Default = 0.0 dB, Maximum = 24.0 dB
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:116
+Name: B1 DeComp Key Boost Q
+Parameter Type: Generic
+Values: Minimum = 0.30, Default = 1.00, Maximum = 10.00
+Flags: Values Have Strings, Display Logarithmic, Readable, Writable 
+  -parameter PASS
+
+
+# # Parameters for clump: 8
+# Full Clump Name: Band 2
+# Short (4 Chars limit) Clump Name: Band
+Parameter ID:117
+Name: Band 2 Gain
+Parameter Type: Decibels
+Values: Minimum = -24.0 dB, Default = 0.0 dB, Maximum = 24.0 dB
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:118
+Name: Band 2 Solo
+Parameter Type: Boolean
+Values: Minimum = Off, Default = Off, Maximum = On
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:119
+Name: Band 2 Mute
+Parameter Type: Boolean
+Values: Minimum = Off, Default = Off, Maximum = On
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:120
+Name: Band 2 Bypass
+Parameter Type: Boolean
+Values: Minimum = Off, Default = Off, Maximum = On
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+
+# # Parameters for clump: 9
+# Full Clump Name: Band 2 Compressor
+# Short (4 Chars limit) Clump Name: Band
+Parameter ID:143
+Name: B2 Comp On
+Parameter Type: Boolean
+Values: Minimum = Off, Default = On, Maximum = On
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:144
+Name: B2 Comp Threshold
+Parameter Type: Decibels
+Values: Minimum = -60.0 dB, Default = -18.0 dB, Maximum = 0.0 dB
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:145
+Name: B2 Comp Ratio
+Parameter Type: ID=25 (unknown display string)
+Values: Minimum = 1.0:1, Default = 4.0:1, Maximum = 30.0:1
+Flags: Values Have Strings, Display Logarithmic, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:146
+Name: B2 Comp Knee
+Parameter Type: Decibels
+Values: Minimum = 0.0 dB, Default = 6.0 dB, Maximum = 24.0 dB
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:147
+Name: B2 Comp Attack
+Parameter Type: Milliseconds
+Values: Minimum = 0.0 ms, Default = 10.0 ms, Maximum = 300.0 ms
+Flags: Values Have Strings, Display Logarithmic, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:148
+Name: B2 Comp Release
+Parameter Type: Milliseconds
+Values: Minimum = 5.0 ms, Default = 120.0 ms, Maximum = 5000.0 ms
+Flags: Values Have Strings, Display Logarithmic, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:149
+Name: B2 Comp Detector
+Parameter Type: Boolean
+Values: Minimum = Peak, Default = Peak, Maximum = RMS
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:150
+Name: B2 Comp RMS Window
+Parameter Type: Milliseconds
+Values: Minimum = 1.0 ms, Default = 10.0 ms, Maximum = 300.0 ms
+Flags: Values Have Strings, Display Logarithmic, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:151
+Name: B2 Comp Look-Ahead
+Parameter Type: Milliseconds
+Values: Minimum = 0.0 ms, Default = 2.0 ms, Maximum = 10.0 ms
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:152
+Name: B2 Comp Stereo Link
+Parameter Type: Percent
+Values: Minimum = 0%, Default = 100%, Maximum = 100%
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:153
+Name: B2 Comp Key Source
+Parameter Type: Boolean
+Values: Minimum = Internal, Default = Internal, Maximum = External
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:154
+Name: B2 Comp Key High-Pass
+Parameter Type: Hertz
+Values: Minimum = 10.0 Hz, Default = 10.0 Hz, Maximum = 2.00 kHz
+Flags: Values Have Strings, Display Logarithmic, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:155
+Name: B2 Comp Key Low-Pass
+Parameter Type: Hertz
+Values: Minimum = 500.0 Hz, Default = 22.00 kHz, Maximum = 22.00 kHz
+Flags: Values Have Strings, Display Logarithmic, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:156
+Name: B2 Comp Make-Up
+Parameter Type: Decibels
+Values: Minimum = -12.0 dB, Default = 0.0 dB, Maximum = 24.0 dB
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:157
+Name: B2 Comp Mix
+Parameter Type: Percent
+Values: Minimum = 0%, Default = 100%, Maximum = 100%
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:158
+Name: B2 Comp Auto Attack
+Parameter Type: Boolean
+Values: Minimum = Off, Default = Off, Maximum = On
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:159
+Name: B2 Comp Auto Release
+Parameter Type: Boolean
+Values: Minimum = Off, Default = Off, Maximum = On
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:160
+Name: B2 Comp Key Boost Freq
+Parameter Type: Hertz
+Values: Minimum = 20.0 Hz, Default = 1.00 kHz, Maximum = 20.00 kHz
+Flags: Values Have Strings, Display Logarithmic, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:161
+Name: B2 Comp Key Boost
+Parameter Type: Decibels
+Values: Minimum = -24.0 dB, Default = 0.0 dB, Maximum = 24.0 dB
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:162
+Name: B2 Comp Key Boost Q
+Parameter Type: Generic
+Values: Minimum = 0.30, Default = 1.00, Maximum = 10.00
+Flags: Values Have Strings, Display Logarithmic, Readable, Writable 
+  -parameter PASS
+
+
+# # Parameters for clump: 10
+# Full Clump Name: Band 2 De-Expander
+# Short (4 Chars limit) Clump Name: Band
+Parameter ID:163
+Name: B2 DeExp On
+Parameter Type: Boolean
+Values: Minimum = Off, Default = Off, Maximum = On
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:164
+Name: B2 DeExp Threshold
+Parameter Type: Decibels
+Values: Minimum = -80.0 dB, Default = -40.0 dB, Maximum = 0.0 dB
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:165
+Name: B2 DeExp Ratio
+Parameter Type: ID=25 (unknown display string)
+Values: Minimum = 1.0:1, Default = 2.0:1, Maximum = 8.0:1
+Flags: Values Have Strings, Display Logarithmic, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:166
+Name: B2 DeExp Range
+Parameter Type: Decibels
+Values: Minimum = 0.0 dB, Default = 12.0 dB, Maximum = 36.0 dB
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:167
+Name: B2 DeExp Knee
+Parameter Type: Decibels
+Values: Minimum = 0.0 dB, Default = 6.0 dB, Maximum = 24.0 dB
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:168
+Name: B2 DeExp Floor
+Parameter Type: Decibels
+Values: Minimum = -inf dB, Default = -72.0 dB, Maximum = -20.0 dB
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:169
+Name: B2 DeExp Attack
+Parameter Type: Milliseconds
+Values: Minimum = 0.0 ms, Default = 0.5 ms, Maximum = 100.0 ms
+Flags: Values Have Strings, Display Logarithmic, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:170
+Name: B2 DeExp Hold
+Parameter Type: Milliseconds
+Values: Minimum = 0.0 ms, Default = 20.0 ms, Maximum = 500.0 ms
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:171
+Name: B2 DeExp Release
+Parameter Type: Milliseconds
+Values: Minimum = 1.0 ms, Default = 150.0 ms, Maximum = 5000.0 ms
+Flags: Values Have Strings, Display Logarithmic, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:172
+Name: B2 DeExp Detector
+Parameter Type: Boolean
+Values: Minimum = Peak, Default = RMS, Maximum = RMS
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:173
+Name: B2 DeExp RMS Window
+Parameter Type: Milliseconds
+Values: Minimum = 1.0 ms, Default = 10.0 ms, Maximum = 500.0 ms
+Flags: Values Have Strings, Display Logarithmic, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:174
+Name: B2 DeExp Look-Ahead
+Parameter Type: Milliseconds
+Values: Minimum = 0.0 ms, Default = 2.0 ms, Maximum = 10.0 ms
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:175
+Name: B2 DeExp Stereo Link
+Parameter Type: Percent
+Values: Minimum = 0%, Default = 100%, Maximum = 100%
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:176
+Name: B2 DeExp Key Source
+Parameter Type: Boolean
+Values: Minimum = Internal, Default = Internal, Maximum = External
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:177
+Name: B2 DeExp Key High-Pass
+Parameter Type: Hertz
+Values: Minimum = 10.0 Hz, Default = 10.0 Hz, Maximum = 2.00 kHz
+Flags: Values Have Strings, Display Logarithmic, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:178
+Name: B2 DeExp Key Low-Pass
+Parameter Type: Hertz
+Values: Minimum = 500.0 Hz, Default = 22.00 kHz, Maximum = 22.00 kHz
+Flags: Values Have Strings, Display Logarithmic, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:179
+Name: B2 DeExp Mix
+Parameter Type: Percent
+Values: Minimum = 0%, Default = 100%, Maximum = 100%
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:180
+Name: B2 DeExp Auto Attack
+Parameter Type: Boolean
+Values: Minimum = Off, Default = Off, Maximum = On
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:181
+Name: B2 DeExp Auto Release
+Parameter Type: Boolean
+Values: Minimum = Off, Default = Off, Maximum = On
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:182
+Name: B2 DeExp Key Boost Freq
+Parameter Type: Hertz
+Values: Minimum = 20.0 Hz, Default = 1.00 kHz, Maximum = 20.00 kHz
+Flags: Values Have Strings, Display Logarithmic, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:183
+Name: B2 DeExp Key Boost
+Parameter Type: Decibels
+Values: Minimum = -24.0 dB, Default = 0.0 dB, Maximum = 24.0 dB
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:184
+Name: B2 DeExp Key Boost Q
+Parameter Type: Generic
+Values: Minimum = 0.30, Default = 1.00, Maximum = 10.00
+Flags: Values Have Strings, Display Logarithmic, Readable, Writable 
+  -parameter PASS
+
+
+# # Parameters for clump: 11
+# Full Clump Name: Band 2 Decompressor
+# Short (4 Chars limit) Clump Name: Band
+Parameter ID:185
+Name: B2 DeComp On
+Parameter Type: Boolean
+Values: Minimum = Off, Default = Off, Maximum = On
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:186
+Name: B2 DeComp Threshold
+Parameter Type: Decibels
+Values: Minimum = -60.0 dB, Default = -18.0 dB, Maximum = 0.0 dB
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:187
+Name: B2 DeComp Ratio
+Parameter Type: ID=25 (unknown display string)
+Values: Minimum = 1.0:1, Default = 2.0:1, Maximum = 4.0:1
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:188
+Name: B2 DeComp Range
+Parameter Type: Decibels
+Values: Minimum = 0.0 dB, Default = 6.0 dB, Maximum = 24.0 dB
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:189
+Name: B2 DeComp Knee
+Parameter Type: Decibels
+Values: Minimum = 0.0 dB, Default = 6.0 dB, Maximum = 24.0 dB
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:190
+Name: B2 DeComp Attack
+Parameter Type: Milliseconds
+Values: Minimum = 0.0 ms, Default = 1.0 ms, Maximum = 100.0 ms
+Flags: Values Have Strings, Display Logarithmic, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:191
+Name: B2 DeComp Release
+Parameter Type: Milliseconds
+Values: Minimum = 1.0 ms, Default = 80.0 ms, Maximum = 2000.0 ms
+Flags: Values Have Strings, Display Logarithmic, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:192
+Name: B2 DeComp Detector
+Parameter Type: Indexed
+Values: Minimum = Peak, Default = Peak, Maximum = Transient
+Flags: Values Have Strings, Readable, Writable 
+Parameter has Value Strings
+Num Strings = 3
+Value: 0,  String: Peak
+Value: 1,  String: RMS
+Value: 2,  String: Transient
+  -parameter PASS
+
+Parameter ID:193
+Name: B2 DeComp RMS Window
+Parameter Type: Milliseconds
+Values: Minimum = 1.0 ms, Default = 30.0 ms, Maximum = 500.0 ms
+Flags: Values Have Strings, Display Logarithmic, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:194
+Name: B2 DeComp Transient Crest
+Parameter Type: Decibels
+Values: Minimum = 0.0 dB, Default = 6.0 dB, Maximum = 24.0 dB
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:195
+Name: B2 DeComp Look-Ahead
+Parameter Type: Milliseconds
+Values: Minimum = 0.0 ms, Default = 2.0 ms, Maximum = 10.0 ms
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:196
+Name: B2 DeComp Stereo Link
+Parameter Type: Percent
+Values: Minimum = 0%, Default = 100%, Maximum = 100%
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:197
+Name: B2 DeComp Key Source
+Parameter Type: Boolean
+Values: Minimum = Internal, Default = Internal, Maximum = External
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:198
+Name: B2 DeComp Key High-Pass
+Parameter Type: Hertz
+Values: Minimum = 10.0 Hz, Default = 10.0 Hz, Maximum = 2.00 kHz
+Flags: Values Have Strings, Display Logarithmic, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:199
+Name: B2 DeComp Key Low-Pass
+Parameter Type: Hertz
+Values: Minimum = 500.0 Hz, Default = 22.00 kHz, Maximum = 22.00 kHz
+Flags: Values Have Strings, Display Logarithmic, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:200
+Name: B2 DeComp Mix
+Parameter Type: Percent
+Values: Minimum = 0%, Default = 100%, Maximum = 100%
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:201
+Name: B2 DeComp Ceiling
+Parameter Type: Boolean
+Values: Minimum = Off, Default = Off, Maximum = On
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:202
+Name: B2 DeComp Ceiling Level
+Parameter Type: Decibels
+Values: Minimum = -24.0 dB, Default = -1.0 dB, Maximum = 0.0 dB
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:203
+Name: B2 DeComp Ceiling Type
+Parameter Type: Boolean
+Values: Minimum = Sample peak, Default = True peak, Maximum = True peak
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:204
+Name: B2 DeComp Output Trim
+Parameter Type: Decibels
+Values: Minimum = -24.0 dB, Default = 0.0 dB, Maximum = 0.0 dB
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:205
+Name: B2 DeComp Match
+Parameter Type: Boolean
+Values: Minimum = Off, Default = Off, Maximum = On
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:206
+Name: B2 DeComp Match Target Crest
+Parameter Type: Decibels
+Values: Minimum = 6.0 dB, Default = 12.0 dB, Maximum = 24.0 dB
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:207
+Name: B2 DeComp Auto Attack
+Parameter Type: Boolean
+Values: Minimum = Off, Default = Off, Maximum = On
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:208
+Name: B2 DeComp Auto Release
+Parameter Type: Boolean
+Values: Minimum = Off, Default = Off, Maximum = On
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:209
+Name: B2 DeComp Key Boost Freq
+Parameter Type: Hertz
+Values: Minimum = 20.0 Hz, Default = 1.00 kHz, Maximum = 20.00 kHz
+Flags: Values Have Strings, Display Logarithmic, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:210
+Name: B2 DeComp Key Boost
+Parameter Type: Decibels
+Values: Minimum = -24.0 dB, Default = 0.0 dB, Maximum = 24.0 dB
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:211
+Name: B2 DeComp Key Boost Q
+Parameter Type: Generic
+Values: Minimum = 0.30, Default = 1.00, Maximum = 10.00
+Flags: Values Have Strings, Display Logarithmic, Readable, Writable 
+  -parameter PASS
+
+
+# # Parameters for clump: 12
+# Full Clump Name: Band 3
+# Short (4 Chars limit) Clump Name: Band
+Parameter ID:212
+Name: Band 3 Gain
+Parameter Type: Decibels
+Values: Minimum = -24.0 dB, Default = 0.0 dB, Maximum = 24.0 dB
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:213
+Name: Band 3 Solo
+Parameter Type: Boolean
+Values: Minimum = Off, Default = Off, Maximum = On
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:214
+Name: Band 3 Mute
+Parameter Type: Boolean
+Values: Minimum = Off, Default = Off, Maximum = On
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:215
+Name: Band 3 Bypass
+Parameter Type: Boolean
+Values: Minimum = Off, Default = Off, Maximum = On
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+
+# # Parameters for clump: 13
+# Full Clump Name: Band 3 Compressor
+# Short (4 Chars limit) Clump Name: Band
+Parameter ID:238
+Name: B3 Comp On
+Parameter Type: Boolean
+Values: Minimum = Off, Default = On, Maximum = On
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:239
+Name: B3 Comp Threshold
+Parameter Type: Decibels
+Values: Minimum = -60.0 dB, Default = -18.0 dB, Maximum = 0.0 dB
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:240
+Name: B3 Comp Ratio
+Parameter Type: ID=25 (unknown display string)
+Values: Minimum = 1.0:1, Default = 4.0:1, Maximum = 30.0:1
+Flags: Values Have Strings, Display Logarithmic, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:241
+Name: B3 Comp Knee
+Parameter Type: Decibels
+Values: Minimum = 0.0 dB, Default = 6.0 dB, Maximum = 24.0 dB
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:242
+Name: B3 Comp Attack
+Parameter Type: Milliseconds
+Values: Minimum = 0.0 ms, Default = 10.0 ms, Maximum = 300.0 ms
+Flags: Values Have Strings, Display Logarithmic, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:243
+Name: B3 Comp Release
+Parameter Type: Milliseconds
+Values: Minimum = 5.0 ms, Default = 120.0 ms, Maximum = 5000.0 ms
+Flags: Values Have Strings, Display Logarithmic, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:244
+Name: B3 Comp Detector
+Parameter Type: Boolean
+Values: Minimum = Peak, Default = Peak, Maximum = RMS
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:245
+Name: B3 Comp RMS Window
+Parameter Type: Milliseconds
+Values: Minimum = 1.0 ms, Default = 10.0 ms, Maximum = 300.0 ms
+Flags: Values Have Strings, Display Logarithmic, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:246
+Name: B3 Comp Look-Ahead
+Parameter Type: Milliseconds
+Values: Minimum = 0.0 ms, Default = 2.0 ms, Maximum = 10.0 ms
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:247
+Name: B3 Comp Stereo Link
+Parameter Type: Percent
+Values: Minimum = 0%, Default = 100%, Maximum = 100%
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:248
+Name: B3 Comp Key Source
+Parameter Type: Boolean
+Values: Minimum = Internal, Default = Internal, Maximum = External
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:249
+Name: B3 Comp Key High-Pass
+Parameter Type: Hertz
+Values: Minimum = 10.0 Hz, Default = 10.0 Hz, Maximum = 2.00 kHz
+Flags: Values Have Strings, Display Logarithmic, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:250
+Name: B3 Comp Key Low-Pass
+Parameter Type: Hertz
+Values: Minimum = 500.0 Hz, Default = 22.00 kHz, Maximum = 22.00 kHz
+Flags: Values Have Strings, Display Logarithmic, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:251
+Name: B3 Comp Make-Up
+Parameter Type: Decibels
+Values: Minimum = -12.0 dB, Default = 0.0 dB, Maximum = 24.0 dB
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:252
+Name: B3 Comp Mix
+Parameter Type: Percent
+Values: Minimum = 0%, Default = 100%, Maximum = 100%
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:253
+Name: B3 Comp Auto Attack
+Parameter Type: Boolean
+Values: Minimum = Off, Default = Off, Maximum = On
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:254
+Name: B3 Comp Auto Release
+Parameter Type: Boolean
+Values: Minimum = Off, Default = Off, Maximum = On
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:255
+Name: B3 Comp Key Boost Freq
+Parameter Type: Hertz
+Values: Minimum = 20.0 Hz, Default = 1.00 kHz, Maximum = 20.00 kHz
+Flags: Values Have Strings, Display Logarithmic, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:256
+Name: B3 Comp Key Boost
+Parameter Type: Decibels
+Values: Minimum = -24.0 dB, Default = 0.0 dB, Maximum = 24.0 dB
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:257
+Name: B3 Comp Key Boost Q
+Parameter Type: Generic
+Values: Minimum = 0.30, Default = 1.00, Maximum = 10.00
+Flags: Values Have Strings, Display Logarithmic, Readable, Writable 
+  -parameter PASS
+
+
+# # Parameters for clump: 14
+# Full Clump Name: Band 3 De-Expander
+# Short (4 Chars limit) Clump Name: Band
+Parameter ID:258
+Name: B3 DeExp On
+Parameter Type: Boolean
+Values: Minimum = Off, Default = Off, Maximum = On
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:259
+Name: B3 DeExp Threshold
+Parameter Type: Decibels
+Values: Minimum = -80.0 dB, Default = -40.0 dB, Maximum = 0.0 dB
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:260
+Name: B3 DeExp Ratio
+Parameter Type: ID=25 (unknown display string)
+Values: Minimum = 1.0:1, Default = 2.0:1, Maximum = 8.0:1
+Flags: Values Have Strings, Display Logarithmic, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:261
+Name: B3 DeExp Range
+Parameter Type: Decibels
+Values: Minimum = 0.0 dB, Default = 12.0 dB, Maximum = 36.0 dB
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:262
+Name: B3 DeExp Knee
+Parameter Type: Decibels
+Values: Minimum = 0.0 dB, Default = 6.0 dB, Maximum = 24.0 dB
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:263
+Name: B3 DeExp Floor
+Parameter Type: Decibels
+Values: Minimum = -inf dB, Default = -72.0 dB, Maximum = -20.0 dB
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:264
+Name: B3 DeExp Attack
+Parameter Type: Milliseconds
+Values: Minimum = 0.0 ms, Default = 0.5 ms, Maximum = 100.0 ms
+Flags: Values Have Strings, Display Logarithmic, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:265
+Name: B3 DeExp Hold
+Parameter Type: Milliseconds
+Values: Minimum = 0.0 ms, Default = 20.0 ms, Maximum = 500.0 ms
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:266
+Name: B3 DeExp Release
+Parameter Type: Milliseconds
+Values: Minimum = 1.0 ms, Default = 150.0 ms, Maximum = 5000.0 ms
+Flags: Values Have Strings, Display Logarithmic, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:267
+Name: B3 DeExp Detector
+Parameter Type: Boolean
+Values: Minimum = Peak, Default = RMS, Maximum = RMS
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:268
+Name: B3 DeExp RMS Window
+Parameter Type: Milliseconds
+Values: Minimum = 1.0 ms, Default = 10.0 ms, Maximum = 500.0 ms
+Flags: Values Have Strings, Display Logarithmic, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:269
+Name: B3 DeExp Look-Ahead
+Parameter Type: Milliseconds
+Values: Minimum = 0.0 ms, Default = 2.0 ms, Maximum = 10.0 ms
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:270
+Name: B3 DeExp Stereo Link
+Parameter Type: Percent
+Values: Minimum = 0%, Default = 100%, Maximum = 100%
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:271
+Name: B3 DeExp Key Source
+Parameter Type: Boolean
+Values: Minimum = Internal, Default = Internal, Maximum = External
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:272
+Name: B3 DeExp Key High-Pass
+Parameter Type: Hertz
+Values: Minimum = 10.0 Hz, Default = 10.0 Hz, Maximum = 2.00 kHz
+Flags: Values Have Strings, Display Logarithmic, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:273
+Name: B3 DeExp Key Low-Pass
+Parameter Type: Hertz
+Values: Minimum = 500.0 Hz, Default = 22.00 kHz, Maximum = 22.00 kHz
+Flags: Values Have Strings, Display Logarithmic, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:274
+Name: B3 DeExp Mix
+Parameter Type: Percent
+Values: Minimum = 0%, Default = 100%, Maximum = 100%
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:275
+Name: B3 DeExp Auto Attack
+Parameter Type: Boolean
+Values: Minimum = Off, Default = Off, Maximum = On
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:276
+Name: B3 DeExp Auto Release
+Parameter Type: Boolean
+Values: Minimum = Off, Default = Off, Maximum = On
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:277
+Name: B3 DeExp Key Boost Freq
+Parameter Type: Hertz
+Values: Minimum = 20.0 Hz, Default = 1.00 kHz, Maximum = 20.00 kHz
+Flags: Values Have Strings, Display Logarithmic, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:278
+Name: B3 DeExp Key Boost
+Parameter Type: Decibels
+Values: Minimum = -24.0 dB, Default = 0.0 dB, Maximum = 24.0 dB
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:279
+Name: B3 DeExp Key Boost Q
+Parameter Type: Generic
+Values: Minimum = 0.30, Default = 1.00, Maximum = 10.00
+Flags: Values Have Strings, Display Logarithmic, Readable, Writable 
+  -parameter PASS
+
+
+# # Parameters for clump: 15
+# Full Clump Name: Band 3 Decompressor
+# Short (4 Chars limit) Clump Name: Band
+Parameter ID:280
+Name: B3 DeComp On
+Parameter Type: Boolean
+Values: Minimum = Off, Default = Off, Maximum = On
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:281
+Name: B3 DeComp Threshold
+Parameter Type: Decibels
+Values: Minimum = -60.0 dB, Default = -18.0 dB, Maximum = 0.0 dB
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:282
+Name: B3 DeComp Ratio
+Parameter Type: ID=25 (unknown display string)
+Values: Minimum = 1.0:1, Default = 2.0:1, Maximum = 4.0:1
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:283
+Name: B3 DeComp Range
+Parameter Type: Decibels
+Values: Minimum = 0.0 dB, Default = 6.0 dB, Maximum = 24.0 dB
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:284
+Name: B3 DeComp Knee
+Parameter Type: Decibels
+Values: Minimum = 0.0 dB, Default = 6.0 dB, Maximum = 24.0 dB
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:285
+Name: B3 DeComp Attack
+Parameter Type: Milliseconds
+Values: Minimum = 0.0 ms, Default = 1.0 ms, Maximum = 100.0 ms
+Flags: Values Have Strings, Display Logarithmic, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:286
+Name: B3 DeComp Release
+Parameter Type: Milliseconds
+Values: Minimum = 1.0 ms, Default = 80.0 ms, Maximum = 2000.0 ms
+Flags: Values Have Strings, Display Logarithmic, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:287
+Name: B3 DeComp Detector
+Parameter Type: Indexed
+Values: Minimum = Peak, Default = Peak, Maximum = Transient
+Flags: Values Have Strings, Readable, Writable 
+Parameter has Value Strings
+Num Strings = 3
+Value: 0,  String: Peak
+Value: 1,  String: RMS
+Value: 2,  String: Transient
+  -parameter PASS
+
+Parameter ID:288
+Name: B3 DeComp RMS Window
+Parameter Type: Milliseconds
+Values: Minimum = 1.0 ms, Default = 30.0 ms, Maximum = 500.0 ms
+Flags: Values Have Strings, Display Logarithmic, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:289
+Name: B3 DeComp Transient Crest
+Parameter Type: Decibels
+Values: Minimum = 0.0 dB, Default = 6.0 dB, Maximum = 24.0 dB
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:290
+Name: B3 DeComp Look-Ahead
+Parameter Type: Milliseconds
+Values: Minimum = 0.0 ms, Default = 2.0 ms, Maximum = 10.0 ms
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:291
+Name: B3 DeComp Stereo Link
+Parameter Type: Percent
+Values: Minimum = 0%, Default = 100%, Maximum = 100%
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:292
+Name: B3 DeComp Key Source
+Parameter Type: Boolean
+Values: Minimum = Internal, Default = Internal, Maximum = External
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:293
+Name: B3 DeComp Key High-Pass
+Parameter Type: Hertz
+Values: Minimum = 10.0 Hz, Default = 10.0 Hz, Maximum = 2.00 kHz
+Flags: Values Have Strings, Display Logarithmic, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:294
+Name: B3 DeComp Key Low-Pass
+Parameter Type: Hertz
+Values: Minimum = 500.0 Hz, Default = 22.00 kHz, Maximum = 22.00 kHz
+Flags: Values Have Strings, Display Logarithmic, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:295
+Name: B3 DeComp Mix
+Parameter Type: Percent
+Values: Minimum = 0%, Default = 100%, Maximum = 100%
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:296
+Name: B3 DeComp Ceiling
+Parameter Type: Boolean
+Values: Minimum = Off, Default = Off, Maximum = On
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:297
+Name: B3 DeComp Ceiling Level
+Parameter Type: Decibels
+Values: Minimum = -24.0 dB, Default = -1.0 dB, Maximum = 0.0 dB
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:298
+Name: B3 DeComp Ceiling Type
+Parameter Type: Boolean
+Values: Minimum = Sample peak, Default = True peak, Maximum = True peak
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:299
+Name: B3 DeComp Output Trim
+Parameter Type: Decibels
+Values: Minimum = -24.0 dB, Default = 0.0 dB, Maximum = 0.0 dB
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:300
+Name: B3 DeComp Match
+Parameter Type: Boolean
+Values: Minimum = Off, Default = Off, Maximum = On
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:301
+Name: B3 DeComp Match Target Crest
+Parameter Type: Decibels
+Values: Minimum = 6.0 dB, Default = 12.0 dB, Maximum = 24.0 dB
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:302
+Name: B3 DeComp Auto Attack
+Parameter Type: Boolean
+Values: Minimum = Off, Default = Off, Maximum = On
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:303
+Name: B3 DeComp Auto Release
+Parameter Type: Boolean
+Values: Minimum = Off, Default = Off, Maximum = On
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:304
+Name: B3 DeComp Key Boost Freq
+Parameter Type: Hertz
+Values: Minimum = 20.0 Hz, Default = 1.00 kHz, Maximum = 20.00 kHz
+Flags: Values Have Strings, Display Logarithmic, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:305
+Name: B3 DeComp Key Boost
+Parameter Type: Decibels
+Values: Minimum = -24.0 dB, Default = 0.0 dB, Maximum = 24.0 dB
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:306
+Name: B3 DeComp Key Boost Q
+Parameter Type: Generic
+Values: Minimum = 0.30, Default = 1.00, Maximum = 10.00
+Flags: Values Have Strings, Display Logarithmic, Readable, Writable 
+  -parameter PASS
+
+
+# # Parameters for clump: 16
+# Full Clump Name: Band 4
+# Short (4 Chars limit) Clump Name: Band
+Parameter ID:307
+Name: Band 4 Gain
+Parameter Type: Decibels
+Values: Minimum = -24.0 dB, Default = 0.0 dB, Maximum = 24.0 dB
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:308
+Name: Band 4 Solo
+Parameter Type: Boolean
+Values: Minimum = Off, Default = Off, Maximum = On
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:309
+Name: Band 4 Mute
+Parameter Type: Boolean
+Values: Minimum = Off, Default = Off, Maximum = On
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:310
+Name: Band 4 Bypass
+Parameter Type: Boolean
+Values: Minimum = Off, Default = Off, Maximum = On
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+
+# # Parameters for clump: 17
+# Full Clump Name: Band 4 Compressor
+# Short (4 Chars limit) Clump Name: Band
+Parameter ID:333
+Name: B4 Comp On
+Parameter Type: Boolean
+Values: Minimum = Off, Default = On, Maximum = On
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:334
+Name: B4 Comp Threshold
+Parameter Type: Decibels
+Values: Minimum = -60.0 dB, Default = -18.0 dB, Maximum = 0.0 dB
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:335
+Name: B4 Comp Ratio
+Parameter Type: ID=25 (unknown display string)
+Values: Minimum = 1.0:1, Default = 4.0:1, Maximum = 30.0:1
+Flags: Values Have Strings, Display Logarithmic, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:336
+Name: B4 Comp Knee
+Parameter Type: Decibels
+Values: Minimum = 0.0 dB, Default = 6.0 dB, Maximum = 24.0 dB
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:337
+Name: B4 Comp Attack
+Parameter Type: Milliseconds
+Values: Minimum = 0.0 ms, Default = 10.0 ms, Maximum = 300.0 ms
+Flags: Values Have Strings, Display Logarithmic, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:338
+Name: B4 Comp Release
+Parameter Type: Milliseconds
+Values: Minimum = 5.0 ms, Default = 120.0 ms, Maximum = 5000.0 ms
+Flags: Values Have Strings, Display Logarithmic, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:339
+Name: B4 Comp Detector
+Parameter Type: Boolean
+Values: Minimum = Peak, Default = Peak, Maximum = RMS
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:340
+Name: B4 Comp RMS Window
+Parameter Type: Milliseconds
+Values: Minimum = 1.0 ms, Default = 10.0 ms, Maximum = 300.0 ms
+Flags: Values Have Strings, Display Logarithmic, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:341
+Name: B4 Comp Look-Ahead
+Parameter Type: Milliseconds
+Values: Minimum = 0.0 ms, Default = 2.0 ms, Maximum = 10.0 ms
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:342
+Name: B4 Comp Stereo Link
+Parameter Type: Percent
+Values: Minimum = 0%, Default = 100%, Maximum = 100%
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:343
+Name: B4 Comp Key Source
+Parameter Type: Boolean
+Values: Minimum = Internal, Default = Internal, Maximum = External
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:344
+Name: B4 Comp Key High-Pass
+Parameter Type: Hertz
+Values: Minimum = 10.0 Hz, Default = 10.0 Hz, Maximum = 2.00 kHz
+Flags: Values Have Strings, Display Logarithmic, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:345
+Name: B4 Comp Key Low-Pass
+Parameter Type: Hertz
+Values: Minimum = 500.0 Hz, Default = 22.00 kHz, Maximum = 22.00 kHz
+Flags: Values Have Strings, Display Logarithmic, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:346
+Name: B4 Comp Make-Up
+Parameter Type: Decibels
+Values: Minimum = -12.0 dB, Default = 0.0 dB, Maximum = 24.0 dB
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:347
+Name: B4 Comp Mix
+Parameter Type: Percent
+Values: Minimum = 0%, Default = 100%, Maximum = 100%
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:348
+Name: B4 Comp Auto Attack
+Parameter Type: Boolean
+Values: Minimum = Off, Default = Off, Maximum = On
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:349
+Name: B4 Comp Auto Release
+Parameter Type: Boolean
+Values: Minimum = Off, Default = Off, Maximum = On
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:350
+Name: B4 Comp Key Boost Freq
+Parameter Type: Hertz
+Values: Minimum = 20.0 Hz, Default = 1.00 kHz, Maximum = 20.00 kHz
+Flags: Values Have Strings, Display Logarithmic, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:351
+Name: B4 Comp Key Boost
+Parameter Type: Decibels
+Values: Minimum = -24.0 dB, Default = 0.0 dB, Maximum = 24.0 dB
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:352
+Name: B4 Comp Key Boost Q
+Parameter Type: Generic
+Values: Minimum = 0.30, Default = 1.00, Maximum = 10.00
+Flags: Values Have Strings, Display Logarithmic, Readable, Writable 
+  -parameter PASS
+
+
+# # Parameters for clump: 18
+# Full Clump Name: Band 4 De-Expander
+# Short (4 Chars limit) Clump Name: Band
+Parameter ID:353
+Name: B4 DeExp On
+Parameter Type: Boolean
+Values: Minimum = Off, Default = Off, Maximum = On
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:354
+Name: B4 DeExp Threshold
+Parameter Type: Decibels
+Values: Minimum = -80.0 dB, Default = -40.0 dB, Maximum = 0.0 dB
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:355
+Name: B4 DeExp Ratio
+Parameter Type: ID=25 (unknown display string)
+Values: Minimum = 1.0:1, Default = 2.0:1, Maximum = 8.0:1
+Flags: Values Have Strings, Display Logarithmic, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:356
+Name: B4 DeExp Range
+Parameter Type: Decibels
+Values: Minimum = 0.0 dB, Default = 12.0 dB, Maximum = 36.0 dB
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:357
+Name: B4 DeExp Knee
+Parameter Type: Decibels
+Values: Minimum = 0.0 dB, Default = 6.0 dB, Maximum = 24.0 dB
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:358
+Name: B4 DeExp Floor
+Parameter Type: Decibels
+Values: Minimum = -inf dB, Default = -72.0 dB, Maximum = -20.0 dB
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:359
+Name: B4 DeExp Attack
+Parameter Type: Milliseconds
+Values: Minimum = 0.0 ms, Default = 0.5 ms, Maximum = 100.0 ms
+Flags: Values Have Strings, Display Logarithmic, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:360
+Name: B4 DeExp Hold
+Parameter Type: Milliseconds
+Values: Minimum = 0.0 ms, Default = 20.0 ms, Maximum = 500.0 ms
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:361
+Name: B4 DeExp Release
+Parameter Type: Milliseconds
+Values: Minimum = 1.0 ms, Default = 150.0 ms, Maximum = 5000.0 ms
+Flags: Values Have Strings, Display Logarithmic, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:362
+Name: B4 DeExp Detector
+Parameter Type: Boolean
+Values: Minimum = Peak, Default = RMS, Maximum = RMS
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:363
+Name: B4 DeExp RMS Window
+Parameter Type: Milliseconds
+Values: Minimum = 1.0 ms, Default = 10.0 ms, Maximum = 500.0 ms
+Flags: Values Have Strings, Display Logarithmic, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:364
+Name: B4 DeExp Look-Ahead
+Parameter Type: Milliseconds
+Values: Minimum = 0.0 ms, Default = 2.0 ms, Maximum = 10.0 ms
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:365
+Name: B4 DeExp Stereo Link
+Parameter Type: Percent
+Values: Minimum = 0%, Default = 100%, Maximum = 100%
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:366
+Name: B4 DeExp Key Source
+Parameter Type: Boolean
+Values: Minimum = Internal, Default = Internal, Maximum = External
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:367
+Name: B4 DeExp Key High-Pass
+Parameter Type: Hertz
+Values: Minimum = 10.0 Hz, Default = 10.0 Hz, Maximum = 2.00 kHz
+Flags: Values Have Strings, Display Logarithmic, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:368
+Name: B4 DeExp Key Low-Pass
+Parameter Type: Hertz
+Values: Minimum = 500.0 Hz, Default = 22.00 kHz, Maximum = 22.00 kHz
+Flags: Values Have Strings, Display Logarithmic, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:369
+Name: B4 DeExp Mix
+Parameter Type: Percent
+Values: Minimum = 0%, Default = 100%, Maximum = 100%
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:370
+Name: B4 DeExp Auto Attack
+Parameter Type: Boolean
+Values: Minimum = Off, Default = Off, Maximum = On
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:371
+Name: B4 DeExp Auto Release
+Parameter Type: Boolean
+Values: Minimum = Off, Default = Off, Maximum = On
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:372
+Name: B4 DeExp Key Boost Freq
+Parameter Type: Hertz
+Values: Minimum = 20.0 Hz, Default = 1.00 kHz, Maximum = 20.00 kHz
+Flags: Values Have Strings, Display Logarithmic, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:373
+Name: B4 DeExp Key Boost
+Parameter Type: Decibels
+Values: Minimum = -24.0 dB, Default = 0.0 dB, Maximum = 24.0 dB
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:374
+Name: B4 DeExp Key Boost Q
+Parameter Type: Generic
+Values: Minimum = 0.30, Default = 1.00, Maximum = 10.00
+Flags: Values Have Strings, Display Logarithmic, Readable, Writable 
+  -parameter PASS
+
+
+# # Parameters for clump: 19
+# Full Clump Name: Band 4 Decompressor
+# Short (4 Chars limit) Clump Name: Band
+Parameter ID:375
+Name: B4 DeComp On
+Parameter Type: Boolean
+Values: Minimum = Off, Default = Off, Maximum = On
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:376
+Name: B4 DeComp Threshold
+Parameter Type: Decibels
+Values: Minimum = -60.0 dB, Default = -18.0 dB, Maximum = 0.0 dB
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:377
+Name: B4 DeComp Ratio
+Parameter Type: ID=25 (unknown display string)
+Values: Minimum = 1.0:1, Default = 2.0:1, Maximum = 4.0:1
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:378
+Name: B4 DeComp Range
+Parameter Type: Decibels
+Values: Minimum = 0.0 dB, Default = 6.0 dB, Maximum = 24.0 dB
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:379
+Name: B4 DeComp Knee
+Parameter Type: Decibels
+Values: Minimum = 0.0 dB, Default = 6.0 dB, Maximum = 24.0 dB
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:380
+Name: B4 DeComp Attack
+Parameter Type: Milliseconds
+Values: Minimum = 0.0 ms, Default = 1.0 ms, Maximum = 100.0 ms
+Flags: Values Have Strings, Display Logarithmic, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:381
+Name: B4 DeComp Release
+Parameter Type: Milliseconds
+Values: Minimum = 1.0 ms, Default = 80.0 ms, Maximum = 2000.0 ms
+Flags: Values Have Strings, Display Logarithmic, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:382
+Name: B4 DeComp Detector
+Parameter Type: Indexed
+Values: Minimum = Peak, Default = Peak, Maximum = Transient
+Flags: Values Have Strings, Readable, Writable 
+Parameter has Value Strings
+Num Strings = 3
+Value: 0,  String: Peak
+Value: 1,  String: RMS
+Value: 2,  String: Transient
+  -parameter PASS
+
+Parameter ID:383
+Name: B4 DeComp RMS Window
+Parameter Type: Milliseconds
+Values: Minimum = 1.0 ms, Default = 30.0 ms, Maximum = 500.0 ms
+Flags: Values Have Strings, Display Logarithmic, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:384
+Name: B4 DeComp Transient Crest
+Parameter Type: Decibels
+Values: Minimum = 0.0 dB, Default = 6.0 dB, Maximum = 24.0 dB
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:385
+Name: B4 DeComp Look-Ahead
+Parameter Type: Milliseconds
+Values: Minimum = 0.0 ms, Default = 2.0 ms, Maximum = 10.0 ms
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:386
+Name: B4 DeComp Stereo Link
+Parameter Type: Percent
+Values: Minimum = 0%, Default = 100%, Maximum = 100%
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:387
+Name: B4 DeComp Key Source
+Parameter Type: Boolean
+Values: Minimum = Internal, Default = Internal, Maximum = External
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:388
+Name: B4 DeComp Key High-Pass
+Parameter Type: Hertz
+Values: Minimum = 10.0 Hz, Default = 10.0 Hz, Maximum = 2.00 kHz
+Flags: Values Have Strings, Display Logarithmic, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:389
+Name: B4 DeComp Key Low-Pass
+Parameter Type: Hertz
+Values: Minimum = 500.0 Hz, Default = 22.00 kHz, Maximum = 22.00 kHz
+Flags: Values Have Strings, Display Logarithmic, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:390
+Name: B4 DeComp Mix
+Parameter Type: Percent
+Values: Minimum = 0%, Default = 100%, Maximum = 100%
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:391
+Name: B4 DeComp Ceiling
+Parameter Type: Boolean
+Values: Minimum = Off, Default = Off, Maximum = On
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:392
+Name: B4 DeComp Ceiling Level
+Parameter Type: Decibels
+Values: Minimum = -24.0 dB, Default = -1.0 dB, Maximum = 0.0 dB
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:393
+Name: B4 DeComp Ceiling Type
+Parameter Type: Boolean
+Values: Minimum = Sample peak, Default = True peak, Maximum = True peak
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:394
+Name: B4 DeComp Output Trim
+Parameter Type: Decibels
+Values: Minimum = -24.0 dB, Default = 0.0 dB, Maximum = 0.0 dB
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:395
+Name: B4 DeComp Match
+Parameter Type: Boolean
+Values: Minimum = Off, Default = Off, Maximum = On
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:396
+Name: B4 DeComp Match Target Crest
+Parameter Type: Decibels
+Values: Minimum = 6.0 dB, Default = 12.0 dB, Maximum = 24.0 dB
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:397
+Name: B4 DeComp Auto Attack
+Parameter Type: Boolean
+Values: Minimum = Off, Default = Off, Maximum = On
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:398
+Name: B4 DeComp Auto Release
+Parameter Type: Boolean
+Values: Minimum = Off, Default = Off, Maximum = On
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:399
+Name: B4 DeComp Key Boost Freq
+Parameter Type: Hertz
+Values: Minimum = 20.0 Hz, Default = 1.00 kHz, Maximum = 20.00 kHz
+Flags: Values Have Strings, Display Logarithmic, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:400
+Name: B4 DeComp Key Boost
+Parameter Type: Decibels
+Values: Minimum = -24.0 dB, Default = 0.0 dB, Maximum = 24.0 dB
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:401
+Name: B4 DeComp Key Boost Q
+Parameter Type: Generic
+Values: Minimum = 0.30, Default = 1.00, Maximum = 10.00
+Flags: Values Have Strings, Display Logarithmic, Readable, Writable 
+  -parameter PASS
+
+
+# # Parameters for clump: 20
+# Full Clump Name: Band 5
+# Short (4 Chars limit) Clump Name: Band
+Parameter ID:402
+Name: Band 5 Gain
+Parameter Type: Decibels
+Values: Minimum = -24.0 dB, Default = 0.0 dB, Maximum = 24.0 dB
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:403
+Name: Band 5 Solo
+Parameter Type: Boolean
+Values: Minimum = Off, Default = Off, Maximum = On
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:404
+Name: Band 5 Mute
+Parameter Type: Boolean
+Values: Minimum = Off, Default = Off, Maximum = On
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:405
+Name: Band 5 Bypass
+Parameter Type: Boolean
+Values: Minimum = Off, Default = Off, Maximum = On
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+
+# # Parameters for clump: 21
+# Full Clump Name: Band 5 Compressor
+# Short (4 Chars limit) Clump Name: Band
+Parameter ID:428
+Name: B5 Comp On
+Parameter Type: Boolean
+Values: Minimum = Off, Default = On, Maximum = On
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:429
+Name: B5 Comp Threshold
+Parameter Type: Decibels
+Values: Minimum = -60.0 dB, Default = -18.0 dB, Maximum = 0.0 dB
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:430
+Name: B5 Comp Ratio
+Parameter Type: ID=25 (unknown display string)
+Values: Minimum = 1.0:1, Default = 4.0:1, Maximum = 30.0:1
+Flags: Values Have Strings, Display Logarithmic, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:431
+Name: B5 Comp Knee
+Parameter Type: Decibels
+Values: Minimum = 0.0 dB, Default = 6.0 dB, Maximum = 24.0 dB
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:432
+Name: B5 Comp Attack
+Parameter Type: Milliseconds
+Values: Minimum = 0.0 ms, Default = 10.0 ms, Maximum = 300.0 ms
+Flags: Values Have Strings, Display Logarithmic, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:433
+Name: B5 Comp Release
+Parameter Type: Milliseconds
+Values: Minimum = 5.0 ms, Default = 120.0 ms, Maximum = 5000.0 ms
+Flags: Values Have Strings, Display Logarithmic, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:434
+Name: B5 Comp Detector
+Parameter Type: Boolean
+Values: Minimum = Peak, Default = Peak, Maximum = RMS
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:435
+Name: B5 Comp RMS Window
+Parameter Type: Milliseconds
+Values: Minimum = 1.0 ms, Default = 10.0 ms, Maximum = 300.0 ms
+Flags: Values Have Strings, Display Logarithmic, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:436
+Name: B5 Comp Look-Ahead
+Parameter Type: Milliseconds
+Values: Minimum = 0.0 ms, Default = 2.0 ms, Maximum = 10.0 ms
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:437
+Name: B5 Comp Stereo Link
+Parameter Type: Percent
+Values: Minimum = 0%, Default = 100%, Maximum = 100%
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:438
+Name: B5 Comp Key Source
+Parameter Type: Boolean
+Values: Minimum = Internal, Default = Internal, Maximum = External
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:439
+Name: B5 Comp Key High-Pass
+Parameter Type: Hertz
+Values: Minimum = 10.0 Hz, Default = 10.0 Hz, Maximum = 2.00 kHz
+Flags: Values Have Strings, Display Logarithmic, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:440
+Name: B5 Comp Key Low-Pass
+Parameter Type: Hertz
+Values: Minimum = 500.0 Hz, Default = 22.00 kHz, Maximum = 22.00 kHz
+Flags: Values Have Strings, Display Logarithmic, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:441
+Name: B5 Comp Make-Up
+Parameter Type: Decibels
+Values: Minimum = -12.0 dB, Default = 0.0 dB, Maximum = 24.0 dB
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:442
+Name: B5 Comp Mix
+Parameter Type: Percent
+Values: Minimum = 0%, Default = 100%, Maximum = 100%
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:443
+Name: B5 Comp Auto Attack
+Parameter Type: Boolean
+Values: Minimum = Off, Default = Off, Maximum = On
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:444
+Name: B5 Comp Auto Release
+Parameter Type: Boolean
+Values: Minimum = Off, Default = Off, Maximum = On
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:445
+Name: B5 Comp Key Boost Freq
+Parameter Type: Hertz
+Values: Minimum = 20.0 Hz, Default = 1.00 kHz, Maximum = 20.00 kHz
+Flags: Values Have Strings, Display Logarithmic, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:446
+Name: B5 Comp Key Boost
+Parameter Type: Decibels
+Values: Minimum = -24.0 dB, Default = 0.0 dB, Maximum = 24.0 dB
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:447
+Name: B5 Comp Key Boost Q
+Parameter Type: Generic
+Values: Minimum = 0.30, Default = 1.00, Maximum = 10.00
+Flags: Values Have Strings, Display Logarithmic, Readable, Writable 
+  -parameter PASS
+
+
+# # Parameters for clump: 22
+# Full Clump Name: Band 5 De-Expander
+# Short (4 Chars limit) Clump Name: Band
+Parameter ID:448
+Name: B5 DeExp On
+Parameter Type: Boolean
+Values: Minimum = Off, Default = Off, Maximum = On
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:449
+Name: B5 DeExp Threshold
+Parameter Type: Decibels
+Values: Minimum = -80.0 dB, Default = -40.0 dB, Maximum = 0.0 dB
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:450
+Name: B5 DeExp Ratio
+Parameter Type: ID=25 (unknown display string)
+Values: Minimum = 1.0:1, Default = 2.0:1, Maximum = 8.0:1
+Flags: Values Have Strings, Display Logarithmic, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:451
+Name: B5 DeExp Range
+Parameter Type: Decibels
+Values: Minimum = 0.0 dB, Default = 12.0 dB, Maximum = 36.0 dB
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:452
+Name: B5 DeExp Knee
+Parameter Type: Decibels
+Values: Minimum = 0.0 dB, Default = 6.0 dB, Maximum = 24.0 dB
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:453
+Name: B5 DeExp Floor
+Parameter Type: Decibels
+Values: Minimum = -inf dB, Default = -72.0 dB, Maximum = -20.0 dB
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:454
+Name: B5 DeExp Attack
+Parameter Type: Milliseconds
+Values: Minimum = 0.0 ms, Default = 0.5 ms, Maximum = 100.0 ms
+Flags: Values Have Strings, Display Logarithmic, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:455
+Name: B5 DeExp Hold
+Parameter Type: Milliseconds
+Values: Minimum = 0.0 ms, Default = 20.0 ms, Maximum = 500.0 ms
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:456
+Name: B5 DeExp Release
+Parameter Type: Milliseconds
+Values: Minimum = 1.0 ms, Default = 150.0 ms, Maximum = 5000.0 ms
+Flags: Values Have Strings, Display Logarithmic, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:457
+Name: B5 DeExp Detector
+Parameter Type: Boolean
+Values: Minimum = Peak, Default = RMS, Maximum = RMS
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:458
+Name: B5 DeExp RMS Window
+Parameter Type: Milliseconds
+Values: Minimum = 1.0 ms, Default = 10.0 ms, Maximum = 500.0 ms
+Flags: Values Have Strings, Display Logarithmic, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:459
+Name: B5 DeExp Look-Ahead
+Parameter Type: Milliseconds
+Values: Minimum = 0.0 ms, Default = 2.0 ms, Maximum = 10.0 ms
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:460
+Name: B5 DeExp Stereo Link
+Parameter Type: Percent
+Values: Minimum = 0%, Default = 100%, Maximum = 100%
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:461
+Name: B5 DeExp Key Source
+Parameter Type: Boolean
+Values: Minimum = Internal, Default = Internal, Maximum = External
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:462
+Name: B5 DeExp Key High-Pass
+Parameter Type: Hertz
+Values: Minimum = 10.0 Hz, Default = 10.0 Hz, Maximum = 2.00 kHz
+Flags: Values Have Strings, Display Logarithmic, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:463
+Name: B5 DeExp Key Low-Pass
+Parameter Type: Hertz
+Values: Minimum = 500.0 Hz, Default = 22.00 kHz, Maximum = 22.00 kHz
+Flags: Values Have Strings, Display Logarithmic, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:464
+Name: B5 DeExp Mix
+Parameter Type: Percent
+Values: Minimum = 0%, Default = 100%, Maximum = 100%
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:465
+Name: B5 DeExp Auto Attack
+Parameter Type: Boolean
+Values: Minimum = Off, Default = Off, Maximum = On
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:466
+Name: B5 DeExp Auto Release
+Parameter Type: Boolean
+Values: Minimum = Off, Default = Off, Maximum = On
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:467
+Name: B5 DeExp Key Boost Freq
+Parameter Type: Hertz
+Values: Minimum = 20.0 Hz, Default = 1.00 kHz, Maximum = 20.00 kHz
+Flags: Values Have Strings, Display Logarithmic, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:468
+Name: B5 DeExp Key Boost
+Parameter Type: Decibels
+Values: Minimum = -24.0 dB, Default = 0.0 dB, Maximum = 24.0 dB
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:469
+Name: B5 DeExp Key Boost Q
+Parameter Type: Generic
+Values: Minimum = 0.30, Default = 1.00, Maximum = 10.00
+Flags: Values Have Strings, Display Logarithmic, Readable, Writable 
+  -parameter PASS
+
+
+# # Parameters for clump: 23
+# Full Clump Name: Band 5 Decompressor
+# Short (4 Chars limit) Clump Name: Band
+Parameter ID:470
+Name: B5 DeComp On
+Parameter Type: Boolean
+Values: Minimum = Off, Default = Off, Maximum = On
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:471
+Name: B5 DeComp Threshold
+Parameter Type: Decibels
+Values: Minimum = -60.0 dB, Default = -18.0 dB, Maximum = 0.0 dB
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:472
+Name: B5 DeComp Ratio
+Parameter Type: ID=25 (unknown display string)
+Values: Minimum = 1.0:1, Default = 2.0:1, Maximum = 4.0:1
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:473
+Name: B5 DeComp Range
+Parameter Type: Decibels
+Values: Minimum = 0.0 dB, Default = 6.0 dB, Maximum = 24.0 dB
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:474
+Name: B5 DeComp Knee
+Parameter Type: Decibels
+Values: Minimum = 0.0 dB, Default = 6.0 dB, Maximum = 24.0 dB
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:475
+Name: B5 DeComp Attack
+Parameter Type: Milliseconds
+Values: Minimum = 0.0 ms, Default = 1.0 ms, Maximum = 100.0 ms
+Flags: Values Have Strings, Display Logarithmic, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:476
+Name: B5 DeComp Release
+Parameter Type: Milliseconds
+Values: Minimum = 1.0 ms, Default = 80.0 ms, Maximum = 2000.0 ms
+Flags: Values Have Strings, Display Logarithmic, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:477
+Name: B5 DeComp Detector
+Parameter Type: Indexed
+Values: Minimum = Peak, Default = Peak, Maximum = Transient
+Flags: Values Have Strings, Readable, Writable 
+Parameter has Value Strings
+Num Strings = 3
+Value: 0,  String: Peak
+Value: 1,  String: RMS
+Value: 2,  String: Transient
+  -parameter PASS
+
+Parameter ID:478
+Name: B5 DeComp RMS Window
+Parameter Type: Milliseconds
+Values: Minimum = 1.0 ms, Default = 30.0 ms, Maximum = 500.0 ms
+Flags: Values Have Strings, Display Logarithmic, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:479
+Name: B5 DeComp Transient Crest
+Parameter Type: Decibels
+Values: Minimum = 0.0 dB, Default = 6.0 dB, Maximum = 24.0 dB
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:480
+Name: B5 DeComp Look-Ahead
+Parameter Type: Milliseconds
+Values: Minimum = 0.0 ms, Default = 2.0 ms, Maximum = 10.0 ms
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:481
+Name: B5 DeComp Stereo Link
+Parameter Type: Percent
+Values: Minimum = 0%, Default = 100%, Maximum = 100%
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:482
+Name: B5 DeComp Key Source
+Parameter Type: Boolean
+Values: Minimum = Internal, Default = Internal, Maximum = External
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:483
+Name: B5 DeComp Key High-Pass
+Parameter Type: Hertz
+Values: Minimum = 10.0 Hz, Default = 10.0 Hz, Maximum = 2.00 kHz
+Flags: Values Have Strings, Display Logarithmic, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:484
+Name: B5 DeComp Key Low-Pass
+Parameter Type: Hertz
+Values: Minimum = 500.0 Hz, Default = 22.00 kHz, Maximum = 22.00 kHz
+Flags: Values Have Strings, Display Logarithmic, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:485
+Name: B5 DeComp Mix
+Parameter Type: Percent
+Values: Minimum = 0%, Default = 100%, Maximum = 100%
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:486
+Name: B5 DeComp Ceiling
+Parameter Type: Boolean
+Values: Minimum = Off, Default = Off, Maximum = On
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:487
+Name: B5 DeComp Ceiling Level
+Parameter Type: Decibels
+Values: Minimum = -24.0 dB, Default = -1.0 dB, Maximum = 0.0 dB
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:488
+Name: B5 DeComp Ceiling Type
+Parameter Type: Boolean
+Values: Minimum = Sample peak, Default = True peak, Maximum = True peak
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:489
+Name: B5 DeComp Output Trim
+Parameter Type: Decibels
+Values: Minimum = -24.0 dB, Default = 0.0 dB, Maximum = 0.0 dB
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:490
+Name: B5 DeComp Match
+Parameter Type: Boolean
+Values: Minimum = Off, Default = Off, Maximum = On
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:491
+Name: B5 DeComp Match Target Crest
+Parameter Type: Decibels
+Values: Minimum = 6.0 dB, Default = 12.0 dB, Maximum = 24.0 dB
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:492
+Name: B5 DeComp Auto Attack
+Parameter Type: Boolean
+Values: Minimum = Off, Default = Off, Maximum = On
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:493
+Name: B5 DeComp Auto Release
+Parameter Type: Boolean
+Values: Minimum = Off, Default = Off, Maximum = On
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:494
+Name: B5 DeComp Key Boost Freq
+Parameter Type: Hertz
+Values: Minimum = 20.0 Hz, Default = 1.00 kHz, Maximum = 20.00 kHz
+Flags: Values Have Strings, Display Logarithmic, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:495
+Name: B5 DeComp Key Boost
+Parameter Type: Decibels
+Values: Minimum = -24.0 dB, Default = 0.0 dB, Maximum = 24.0 dB
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:496
+Name: B5 DeComp Key Boost Q
+Parameter Type: Generic
+Values: Minimum = 0.30, Default = 1.00, Maximum = 10.00
+Flags: Values Have Strings, Display Logarithmic, Readable, Writable 
+  -parameter PASS
+
+
+# # Parameters for clump: 24
+# Full Clump Name: Band 6
+# Short (4 Chars limit) Clump Name: Band
+Parameter ID:497
+Name: Band 6 Gain
+Parameter Type: Decibels
+Values: Minimum = -24.0 dB, Default = 0.0 dB, Maximum = 24.0 dB
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:498
+Name: Band 6 Solo
+Parameter Type: Boolean
+Values: Minimum = Off, Default = Off, Maximum = On
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:499
+Name: Band 6 Mute
+Parameter Type: Boolean
+Values: Minimum = Off, Default = Off, Maximum = On
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:500
+Name: Band 6 Bypass
+Parameter Type: Boolean
+Values: Minimum = Off, Default = Off, Maximum = On
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+
+# # Parameters for clump: 25
+# Full Clump Name: Band 6 Compressor
+# Short (4 Chars limit) Clump Name: Band
+Parameter ID:523
+Name: B6 Comp On
+Parameter Type: Boolean
+Values: Minimum = Off, Default = On, Maximum = On
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:524
+Name: B6 Comp Threshold
+Parameter Type: Decibels
+Values: Minimum = -60.0 dB, Default = -18.0 dB, Maximum = 0.0 dB
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:525
+Name: B6 Comp Ratio
+Parameter Type: ID=25 (unknown display string)
+Values: Minimum = 1.0:1, Default = 4.0:1, Maximum = 30.0:1
+Flags: Values Have Strings, Display Logarithmic, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:526
+Name: B6 Comp Knee
+Parameter Type: Decibels
+Values: Minimum = 0.0 dB, Default = 6.0 dB, Maximum = 24.0 dB
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:527
+Name: B6 Comp Attack
+Parameter Type: Milliseconds
+Values: Minimum = 0.0 ms, Default = 10.0 ms, Maximum = 300.0 ms
+Flags: Values Have Strings, Display Logarithmic, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:528
+Name: B6 Comp Release
+Parameter Type: Milliseconds
+Values: Minimum = 5.0 ms, Default = 120.0 ms, Maximum = 5000.0 ms
+Flags: Values Have Strings, Display Logarithmic, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:529
+Name: B6 Comp Detector
+Parameter Type: Boolean
+Values: Minimum = Peak, Default = Peak, Maximum = RMS
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:530
+Name: B6 Comp RMS Window
+Parameter Type: Milliseconds
+Values: Minimum = 1.0 ms, Default = 10.0 ms, Maximum = 300.0 ms
+Flags: Values Have Strings, Display Logarithmic, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:531
+Name: B6 Comp Look-Ahead
+Parameter Type: Milliseconds
+Values: Minimum = 0.0 ms, Default = 2.0 ms, Maximum = 10.0 ms
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:532
+Name: B6 Comp Stereo Link
+Parameter Type: Percent
+Values: Minimum = 0%, Default = 100%, Maximum = 100%
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:533
+Name: B6 Comp Key Source
+Parameter Type: Boolean
+Values: Minimum = Internal, Default = Internal, Maximum = External
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:534
+Name: B6 Comp Key High-Pass
+Parameter Type: Hertz
+Values: Minimum = 10.0 Hz, Default = 10.0 Hz, Maximum = 2.00 kHz
+Flags: Values Have Strings, Display Logarithmic, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:535
+Name: B6 Comp Key Low-Pass
+Parameter Type: Hertz
+Values: Minimum = 500.0 Hz, Default = 22.00 kHz, Maximum = 22.00 kHz
+Flags: Values Have Strings, Display Logarithmic, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:536
+Name: B6 Comp Make-Up
+Parameter Type: Decibels
+Values: Minimum = -12.0 dB, Default = 0.0 dB, Maximum = 24.0 dB
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:537
+Name: B6 Comp Mix
+Parameter Type: Percent
+Values: Minimum = 0%, Default = 100%, Maximum = 100%
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:538
+Name: B6 Comp Auto Attack
+Parameter Type: Boolean
+Values: Minimum = Off, Default = Off, Maximum = On
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:539
+Name: B6 Comp Auto Release
+Parameter Type: Boolean
+Values: Minimum = Off, Default = Off, Maximum = On
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:540
+Name: B6 Comp Key Boost Freq
+Parameter Type: Hertz
+Values: Minimum = 20.0 Hz, Default = 1.00 kHz, Maximum = 20.00 kHz
+Flags: Values Have Strings, Display Logarithmic, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:541
+Name: B6 Comp Key Boost
+Parameter Type: Decibels
+Values: Minimum = -24.0 dB, Default = 0.0 dB, Maximum = 24.0 dB
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:542
+Name: B6 Comp Key Boost Q
+Parameter Type: Generic
+Values: Minimum = 0.30, Default = 1.00, Maximum = 10.00
+Flags: Values Have Strings, Display Logarithmic, Readable, Writable 
+  -parameter PASS
+
+
+# # Parameters for clump: 26
+# Full Clump Name: Band 6 De-Expander
+# Short (4 Chars limit) Clump Name: Band
+Parameter ID:543
+Name: B6 DeExp On
+Parameter Type: Boolean
+Values: Minimum = Off, Default = Off, Maximum = On
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:544
+Name: B6 DeExp Threshold
+Parameter Type: Decibels
+Values: Minimum = -80.0 dB, Default = -40.0 dB, Maximum = 0.0 dB
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:545
+Name: B6 DeExp Ratio
+Parameter Type: ID=25 (unknown display string)
+Values: Minimum = 1.0:1, Default = 2.0:1, Maximum = 8.0:1
+Flags: Values Have Strings, Display Logarithmic, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:546
+Name: B6 DeExp Range
+Parameter Type: Decibels
+Values: Minimum = 0.0 dB, Default = 12.0 dB, Maximum = 36.0 dB
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:547
+Name: B6 DeExp Knee
+Parameter Type: Decibels
+Values: Minimum = 0.0 dB, Default = 6.0 dB, Maximum = 24.0 dB
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:548
+Name: B6 DeExp Floor
+Parameter Type: Decibels
+Values: Minimum = -inf dB, Default = -72.0 dB, Maximum = -20.0 dB
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:549
+Name: B6 DeExp Attack
+Parameter Type: Milliseconds
+Values: Minimum = 0.0 ms, Default = 0.5 ms, Maximum = 100.0 ms
+Flags: Values Have Strings, Display Logarithmic, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:550
+Name: B6 DeExp Hold
+Parameter Type: Milliseconds
+Values: Minimum = 0.0 ms, Default = 20.0 ms, Maximum = 500.0 ms
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:551
+Name: B6 DeExp Release
+Parameter Type: Milliseconds
+Values: Minimum = 1.0 ms, Default = 150.0 ms, Maximum = 5000.0 ms
+Flags: Values Have Strings, Display Logarithmic, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:552
+Name: B6 DeExp Detector
+Parameter Type: Boolean
+Values: Minimum = Peak, Default = RMS, Maximum = RMS
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:553
+Name: B6 DeExp RMS Window
+Parameter Type: Milliseconds
+Values: Minimum = 1.0 ms, Default = 10.0 ms, Maximum = 500.0 ms
+Flags: Values Have Strings, Display Logarithmic, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:554
+Name: B6 DeExp Look-Ahead
+Parameter Type: Milliseconds
+Values: Minimum = 0.0 ms, Default = 2.0 ms, Maximum = 10.0 ms
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:555
+Name: B6 DeExp Stereo Link
+Parameter Type: Percent
+Values: Minimum = 0%, Default = 100%, Maximum = 100%
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:556
+Name: B6 DeExp Key Source
+Parameter Type: Boolean
+Values: Minimum = Internal, Default = Internal, Maximum = External
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:557
+Name: B6 DeExp Key High-Pass
+Parameter Type: Hertz
+Values: Minimum = 10.0 Hz, Default = 10.0 Hz, Maximum = 2.00 kHz
+Flags: Values Have Strings, Display Logarithmic, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:558
+Name: B6 DeExp Key Low-Pass
+Parameter Type: Hertz
+Values: Minimum = 500.0 Hz, Default = 22.00 kHz, Maximum = 22.00 kHz
+Flags: Values Have Strings, Display Logarithmic, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:559
+Name: B6 DeExp Mix
+Parameter Type: Percent
+Values: Minimum = 0%, Default = 100%, Maximum = 100%
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:560
+Name: B6 DeExp Auto Attack
+Parameter Type: Boolean
+Values: Minimum = Off, Default = Off, Maximum = On
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:561
+Name: B6 DeExp Auto Release
+Parameter Type: Boolean
+Values: Minimum = Off, Default = Off, Maximum = On
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:562
+Name: B6 DeExp Key Boost Freq
+Parameter Type: Hertz
+Values: Minimum = 20.0 Hz, Default = 1.00 kHz, Maximum = 20.00 kHz
+Flags: Values Have Strings, Display Logarithmic, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:563
+Name: B6 DeExp Key Boost
+Parameter Type: Decibels
+Values: Minimum = -24.0 dB, Default = 0.0 dB, Maximum = 24.0 dB
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:564
+Name: B6 DeExp Key Boost Q
+Parameter Type: Generic
+Values: Minimum = 0.30, Default = 1.00, Maximum = 10.00
+Flags: Values Have Strings, Display Logarithmic, Readable, Writable 
+  -parameter PASS
+
+
+# # Parameters for clump: 27
+# Full Clump Name: Band 6 Decompressor
+# Short (4 Chars limit) Clump Name: Band
+Parameter ID:565
+Name: B6 DeComp On
+Parameter Type: Boolean
+Values: Minimum = Off, Default = Off, Maximum = On
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:566
+Name: B6 DeComp Threshold
+Parameter Type: Decibels
+Values: Minimum = -60.0 dB, Default = -18.0 dB, Maximum = 0.0 dB
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:567
+Name: B6 DeComp Ratio
+Parameter Type: ID=25 (unknown display string)
+Values: Minimum = 1.0:1, Default = 2.0:1, Maximum = 4.0:1
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:568
+Name: B6 DeComp Range
+Parameter Type: Decibels
+Values: Minimum = 0.0 dB, Default = 6.0 dB, Maximum = 24.0 dB
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:569
+Name: B6 DeComp Knee
+Parameter Type: Decibels
+Values: Minimum = 0.0 dB, Default = 6.0 dB, Maximum = 24.0 dB
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:570
+Name: B6 DeComp Attack
+Parameter Type: Milliseconds
+Values: Minimum = 0.0 ms, Default = 1.0 ms, Maximum = 100.0 ms
+Flags: Values Have Strings, Display Logarithmic, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:571
+Name: B6 DeComp Release
+Parameter Type: Milliseconds
+Values: Minimum = 1.0 ms, Default = 80.0 ms, Maximum = 2000.0 ms
+Flags: Values Have Strings, Display Logarithmic, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:572
+Name: B6 DeComp Detector
+Parameter Type: Indexed
+Values: Minimum = Peak, Default = Peak, Maximum = Transient
+Flags: Values Have Strings, Readable, Writable 
+Parameter has Value Strings
+Num Strings = 3
+Value: 0,  String: Peak
+Value: 1,  String: RMS
+Value: 2,  String: Transient
+  -parameter PASS
+
+Parameter ID:573
+Name: B6 DeComp RMS Window
+Parameter Type: Milliseconds
+Values: Minimum = 1.0 ms, Default = 30.0 ms, Maximum = 500.0 ms
+Flags: Values Have Strings, Display Logarithmic, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:574
+Name: B6 DeComp Transient Crest
+Parameter Type: Decibels
+Values: Minimum = 0.0 dB, Default = 6.0 dB, Maximum = 24.0 dB
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:575
+Name: B6 DeComp Look-Ahead
+Parameter Type: Milliseconds
+Values: Minimum = 0.0 ms, Default = 2.0 ms, Maximum = 10.0 ms
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:576
+Name: B6 DeComp Stereo Link
+Parameter Type: Percent
+Values: Minimum = 0%, Default = 100%, Maximum = 100%
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:577
+Name: B6 DeComp Key Source
+Parameter Type: Boolean
+Values: Minimum = Internal, Default = Internal, Maximum = External
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:578
+Name: B6 DeComp Key High-Pass
+Parameter Type: Hertz
+Values: Minimum = 10.0 Hz, Default = 10.0 Hz, Maximum = 2.00 kHz
+Flags: Values Have Strings, Display Logarithmic, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:579
+Name: B6 DeComp Key Low-Pass
+Parameter Type: Hertz
+Values: Minimum = 500.0 Hz, Default = 22.00 kHz, Maximum = 22.00 kHz
+Flags: Values Have Strings, Display Logarithmic, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:580
+Name: B6 DeComp Mix
+Parameter Type: Percent
+Values: Minimum = 0%, Default = 100%, Maximum = 100%
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:581
+Name: B6 DeComp Ceiling
+Parameter Type: Boolean
+Values: Minimum = Off, Default = Off, Maximum = On
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:582
+Name: B6 DeComp Ceiling Level
+Parameter Type: Decibels
+Values: Minimum = -24.0 dB, Default = -1.0 dB, Maximum = 0.0 dB
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:583
+Name: B6 DeComp Ceiling Type
+Parameter Type: Boolean
+Values: Minimum = Sample peak, Default = True peak, Maximum = True peak
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:584
+Name: B6 DeComp Output Trim
+Parameter Type: Decibels
+Values: Minimum = -24.0 dB, Default = 0.0 dB, Maximum = 0.0 dB
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:585
+Name: B6 DeComp Match
+Parameter Type: Boolean
+Values: Minimum = Off, Default = Off, Maximum = On
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:586
+Name: B6 DeComp Match Target Crest
+Parameter Type: Decibels
+Values: Minimum = 6.0 dB, Default = 12.0 dB, Maximum = 24.0 dB
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:587
+Name: B6 DeComp Auto Attack
+Parameter Type: Boolean
+Values: Minimum = Off, Default = Off, Maximum = On
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:588
+Name: B6 DeComp Auto Release
+Parameter Type: Boolean
+Values: Minimum = Off, Default = Off, Maximum = On
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:589
+Name: B6 DeComp Key Boost Freq
+Parameter Type: Hertz
+Values: Minimum = 20.0 Hz, Default = 1.00 kHz, Maximum = 20.00 kHz
+Flags: Values Have Strings, Display Logarithmic, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:590
+Name: B6 DeComp Key Boost
+Parameter Type: Decibels
+Values: Minimum = -24.0 dB, Default = 0.0 dB, Maximum = 24.0 dB
+Flags: Values Have Strings, Readable, Writable 
+  -parameter PASS
+
+Parameter ID:591
+Name: B6 DeComp Key Boost Q
+Parameter Type: Generic
+Values: Minimum = 0.30, Default = 1.00, Maximum = 10.00
+Flags: Values Have Strings, Display Logarithmic, Readable, Writable 
+  -parameter PASS
+
+Testing that parameters retain value across reset and initialization
+  PASS
+
+* * PASS
+--------------------------------------------------
+FORMAT TESTS:
+
+Reported Channel Capabilities (explicit):
+      [2, 2]  [1, 1]  
+
+Input/Output Channel Handling:
+1-1   1-2   1-4   1-5   1-6   1-7   1-8   2-2   2-4   2-5   2-6   2-7   2-8   4-4   4-5   5-5   6-6   7-7   8-8
+X                                         X                                                                       
+
+# # AudioChannelLayouts (1), Input Scope:
+ChannelLayout is Writable: T
+The Unit publishes the following Channel Layouts:
+  0x650002, 
+
+Is Audio Channel Layout Available:
+Mono    Stereo  Binau.  AU_4    Ambi.   AU_5    AU_5_0  AU_6    AU_6_0  AU_7_0  AU_7_0F AU_8    AU_5_1  AU_6_1  AU_7_1  AU_7_1F 
+        X                                                                                                                       
+
+Current Format:AudioStreamBasicDescription:  2 ch,  44100 Hz, Float32, deinterleaved
+Current Format Tag = 0x650002, New Format Tag = 0x650002, Successsful
+
+# # AudioChannelLayouts (1), Output Scope:
+ChannelLayout is Writable: T
+The Unit publishes the following Channel Layouts:
+  0x650002, 
+
+Is Audio Channel Layout Available:
+Mono    Stereo  Binau.  AU_4    Ambi.   AU_5    AU_5_0  AU_6    AU_6_0  AU_7_0  AU_7_0F AU_8    AU_5_1  AU_6_1  AU_7_1  AU_7_1F 
+        X                                                                                                                       
+
+Current Format:AudioStreamBasicDescription:  2 ch,  44100 Hz, Float32, deinterleaved
+Current Format Tag = 0x650002, New Format Tag = 0x650002, Successsful
+
+* * PASS
+--------------------------------------------------
+RENDER TESTS:
+
+Input Format: AudioStreamBasicDescription:  2 ch,  44100 Hz, Float32, deinterleaved
+Output Format: AudioStreamBasicDescription:  2 ch,  44100 Hz, Float32, deinterleaved
+Render Test at 512 frames
+Slicing Render Test at 64 frames
+  PASS
+
+
+Render Test at 64 frames, sample rate: 22050 Hz
+Render Test at 137 frames, sample rate: 96000 Hz
+Render Test at 4096 frames, sample rate: 48000 Hz
+Render Test at 4096 frames, sample rate: 192000 Hz
+Render Test at 4096 frames, sample rate: 11025 Hz
+Render Test at 512 frames, sample rate: 44100 Hz
+  PASS
+
+1 Channel Test:
+Render Test at 512 frames
+  PASS
+
+Checking connection semantics:
+Connection format:
+AudioStreamBasicDescription:  2 ch,  44100 Hz, Float32, deinterleaved
+  PASS
+
+Bad Max Frames - Render should fail
+  PASS
+
+Checking parameter setting
+Using AudioUnitSetParameter
+Using AudioUnitScheduleParameter
+  PASS
+
+Test MIDI
+  PASS
+
+* * PASS
+--------------------------------------------------
+AU VALIDATION SUCCEEDED.
+--------------------------------------------------

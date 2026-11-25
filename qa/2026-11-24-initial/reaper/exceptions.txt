@@ -1,0 +1,63 @@
+# OpenMultiband REAPER suite contexts and exceptions (2026-11-24). Values are normalised 0..1.
+
+# Crossover 4 & 5 only split audio when Bands >= 5 / 6; not shown on default 4-band view.
+Crossover 4 @ Bands=0.8
+Crossover 5 @ Bands=1
+visual:Crossover 4   # hidden at default 4 bands; verified by every_parameter_has_a_control and 6-band screenshot
+visual:Crossover 5   # hidden at default 4 bands; verified by every_parameter_has_a_control and 6-band screenshot
+
+# Master Limiter lives on the MASTER LIMITER tab (not shown while Band 1 Compressor is open).
+visual:Limiter On           # on Master Limiter tab; verified by every_parameter_has_a_control and screenshot
+visual:Limiter Threshold    # on Master Limiter tab; verified by every_parameter_has_a_control and screenshot
+visual:Limiter Ceiling      # on Master Limiter tab; verified by every_parameter_has_a_control and screenshot
+visual:Limiter Attack       # on Master Limiter tab; verified by every_parameter_has_a_control and screenshot
+visual:Limiter Release      # on Master Limiter tab; verified by every_parameter_has_a_control and screenshot
+visual:Limiter Clean        # on Master Limiter tab; verified by every_parameter_has_a_control and screenshot
+visual:Limiter Bass Hold    # in Master Limiter TIMING panel; verified by every_parameter_has_a_control
+Limiter Attack @ Limiter Threshold=0.5
+Limiter Release @ Limiter Clean=0, Limiter Threshold=0.5
+Limiter Clean @ Limiter Threshold=0.5
+Limiter Bass Hold @ Limiter Clean=1, Limiter Threshold=0.5
+
+# Band 1 Gate / DeExp / DeComp live on their respective section tabs; default off so tested with On=1.
+B1 Gate Mode @ B1 Gate On=1, B1 Gate Threshold=0.9
+B1 Gate Threshold @ B1 Gate On=1
+B1 Gate Range @ B1 Gate On=1, B1 Gate Threshold=0.9
+B1 DeExp Threshold @ B1 DeExp On=1
+B1 DeExp Ratio @ B1 DeExp On=1
+B1 DeExp Range @ B1 DeExp On=1
+B1 DeComp Threshold @ B1 DeComp On=1
+B1 DeComp Ratio @ B1 DeComp On=1
+B1 DeComp Range @ B1 DeComp On=1
+visual:B1 Gate On           # dot on Gate tab; audio tested
+visual:B1 Gate Mode         # on Gate tab; verified by every_parameter_has_a_control and screenshot
+visual:B1 Gate Threshold    # on Gate tab; verified by every_parameter_has_a_control and screenshot
+visual:B1 Gate Range        # on Gate tab; verified by every_parameter_has_a_control and screenshot
+visual:B1 DeExp On          # dot on De-Expander tab
+visual:B1 DeExp Threshold   # on De-Expander tab; verified by every_parameter_has_a_control
+visual:B1 DeExp Ratio       # on De-Expander tab; verified by every_parameter_has_a_control
+visual:B1 DeExp Range       # on De-Expander tab; verified by every_parameter_has_a_control
+visual:B1 DeComp On         # dot on Decompressor tab
+visual:B1 DeComp Threshold  # on Decompressor tab; verified by every_parameter_has_a_control and screenshot
+visual:B1 DeComp Ratio      # on Decompressor tab; verified by every_parameter_has_a_control and screenshot
+visual:B1 DeComp Range      # on Decompressor tab; verified by every_parameter_has_a_control and screenshot
+
+# Band 1 Compressor controls: Knee/Look-Ahead live in closed SHAPE/TIMING panels.
+visual:B1 Comp Knee         # in SHAPE settings panel; verified by every_parameter_has_a_control
+visual:B1 Comp Look-Ahead   # in TIMING settings panel; verified by every_parameter_has_a_control
+
+# Bands 2..6 live on their own band tabs (B5/B6 only process audio when Bands >= 5 / 6).
+Band 5 Gain @ Bands=0.8
+Band 6 Gain @ Bands=1
+B5 Comp Threshold @ Bands=0.8
+B6 Comp Threshold @ Bands=1
+visual:Band 2 Gain          # on Band 2 tab; verified by every_parameter_has_a_control
+visual:Band 3 Gain          # on Band 3 tab; verified by every_parameter_has_a_control
+visual:Band 4 Gain          # on Band 4 tab; verified by every_parameter_has_a_control
+visual:Band 5 Gain          # on Band 5 tab; verified by every_parameter_has_a_control
+visual:Band 6 Gain          # on Band 6 tab; verified by every_parameter_has_a_control
+visual:B2 Comp Threshold    # on Band 2 tab; verified by every_parameter_has_a_control
+visual:B3 Comp Threshold    # on Band 3 tab; verified by every_parameter_has_a_control
+visual:B4 Comp Threshold    # on Band 4 tab; verified by every_parameter_has_a_control
+visual:B5 Comp Threshold    # on Band 5 tab; verified by every_parameter_has_a_control
+visual:B6 Comp Threshold    # on Band 6 tab; verified by every_parameter_has_a_control

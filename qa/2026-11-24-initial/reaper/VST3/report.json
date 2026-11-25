@@ -1,0 +1,664 @@
+{
+ "fx": "VST3: OpenMultiband (OpenGrid)",
+ "checks": [
+  {
+   "check": "loads",
+   "status": "PASS",
+   "detail": "VST3: OpenMultiband (OpenGrid), 596 parameters"
+  },
+  {
+   "check": "finite output",
+   "status": "PASS",
+   "detail": "peak -6.8 dBFS"
+  },
+  {
+   "check": "not silent",
+   "status": "PASS",
+   "detail": "rms -19.9 dBFS"
+  },
+  {
+   "check": "deterministic render",
+   "status": "PASS",
+   "detail": "repeat differs by -240.0 dB"
+  },
+  {
+   "check": "editor opens",
+   "status": "PASS",
+   "detail": "1080x821, 2.4% animates by itself"
+  },
+  {
+   "check": "every parameter changes the sound",
+   "status": "PASS",
+   "detail": ""
+  },
+  {
+   "check": "every parameter is shown in the GUI",
+   "status": "PASS",
+   "detail": ""
+  },
+  {
+   "check": "state survives save and reopen",
+   "status": "PASS",
+   "detail": ""
+  },
+  {
+   "check": "editor reopens",
+   "status": "PASS",
+   "detail": "5 close/open cycles"
+  }
+ ],
+ "params": [
+  {
+   "index": 0,
+   "name": "Input Gain",
+   "ident": "0:0",
+   "default": 0.5,
+   "context": "",
+   "audioDiffDb": -2.7,
+   "audio": "ok",
+   "visualChange": 5.93,
+   "visual": "ok"
+  },
+  {
+   "index": 1,
+   "name": "Output Gain",
+   "ident": "1:1",
+   "default": 0.5,
+   "context": "",
+   "audioDiffDb": -0.6,
+   "audio": "ok",
+   "visualChange": 4.989,
+   "visual": "ok"
+  },
+  {
+   "index": 2,
+   "name": "Zero Latency",
+   "ident": "2:2",
+   "default": 0,
+   "context": "",
+   "audioDiffDb": -4.1,
+   "audio": "ok",
+   "visualChange": 4.421,
+   "visual": "ok"
+  },
+  {
+   "index": 3,
+   "name": "Auto Gain",
+   "ident": "3:3",
+   "default": 0,
+   "context": "",
+   "audioDiffDb": -5.3,
+   "audio": "ok",
+   "visualChange": 3.991,
+   "visual": "ok"
+  },
+  {
+   "index": 4,
+   "name": "Delta",
+   "ident": "4:4",
+   "default": 0,
+   "context": "",
+   "audioDiffDb": -3.7,
+   "audio": "ok",
+   "visualChange": 3.717,
+   "visual": "ok"
+  },
+  {
+   "index": 5,
+   "name": "Bands",
+   "ident": "5:5",
+   "default": 0.6000000238,
+   "context": "",
+   "audioDiffDb": -7.1,
+   "audio": "ok",
+   "visualChange": 8.383,
+   "visual": "ok"
+  },
+  {
+   "index": 6,
+   "name": "Crossover Slope",
+   "ident": "6:6",
+   "default": 0.5,
+   "context": "",
+   "audioDiffDb": -4.1,
+   "audio": "ok",
+   "visualChange": 4.64,
+   "visual": "ok"
+  },
+  {
+   "index": 7,
+   "name": "Crossover 1",
+   "ident": "7:7",
+   "default": 0.259383738,
+   "context": "",
+   "audioDiffDb": -4.5,
+   "audio": "ok",
+   "visualChange": 4.027,
+   "visual": "ok"
+  },
+  {
+   "index": 8,
+   "name": "Crossover 2",
+   "ident": "8:8",
+   "default": 0.5246770978,
+   "context": "",
+   "audioDiffDb": -3.0,
+   "audio": "ok",
+   "visualChange": 3.729,
+   "visual": "ok"
+  },
+  {
+   "index": 9,
+   "name": "Crossover 3",
+   "ident": "9:9",
+   "default": 0.7253637314,
+   "context": "",
+   "audioDiffDb": -3.7,
+   "audio": "ok",
+   "visualChange": 3.848,
+   "visual": "ok"
+  },
+  {
+   "index": 10,
+   "name": "Crossover 4",
+   "ident": "10:10",
+   "default": 0.8673533201,
+   "context": "Bands=0.8",
+   "audioDiffDb": -6.3,
+   "audio": "ok",
+   "visualChange": 5.667,
+   "visual": "excused"
+  },
+  {
+   "index": 11,
+   "name": "Crossover 5",
+   "ident": "11:11",
+   "default": 0.9483659863,
+   "context": "Bands=1",
+   "audioDiffDb": -5.7,
+   "audio": "ok",
+   "visualChange": 5.598,
+   "visual": "excused"
+  },
+  {
+   "index": 12,
+   "name": "Limiter On",
+   "ident": "12:12",
+   "default": 1,
+   "context": "",
+   "audioDiffDb": -8.5,
+   "audio": "ok",
+   "visualChange": 4.546,
+   "visual": "excused"
+  },
+  {
+   "index": 13,
+   "name": "Limiter Threshold",
+   "ident": "13:13",
+   "default": 1,
+   "context": "",
+   "audioDiffDb": -2.2,
+   "audio": "ok",
+   "visualChange": 3.899,
+   "visual": "excused"
+  },
+  {
+   "index": 14,
+   "name": "Limiter Ceiling",
+   "ident": "14:14",
+   "default": 0.9583333135,
+   "context": "",
+   "audioDiffDb": -7.4,
+   "audio": "ok",
+   "visualChange": 3.628,
+   "visual": "excused"
+  },
+  {
+   "index": 15,
+   "name": "Limiter Attack",
+   "ident": "15:15",
+   "default": 0,
+   "context": "Limiter Threshold=0.5",
+   "audioDiffDb": -7.9,
+   "audio": "ok",
+   "visualChange": 6.975,
+   "visual": "excused"
+  },
+  {
+   "index": 16,
+   "name": "Limiter Release",
+   "ident": "16:16",
+   "default": 0.6058714986,
+   "context": "Limiter Clean=0, Limiter Threshold=0.5",
+   "audioDiffDb": -7.4,
+   "audio": "ok",
+   "visualChange": 4.402,
+   "visual": "excused"
+  },
+  {
+   "index": 18,
+   "name": "Limiter Clean",
+   "ident": "18:18",
+   "default": 1,
+   "context": "Limiter Threshold=0.5",
+   "audioDiffDb": -20.9,
+   "audio": "ok",
+   "visualChange": 4.782,
+   "visual": "excused"
+  },
+  {
+   "index": 19,
+   "name": "Limiter Bass Hold",
+   "ident": "19:19",
+   "default": 0.6999999881,
+   "context": "Limiter Clean=1, Limiter Threshold=0.5",
+   "audioDiffDb": -29.2,
+   "audio": "ok",
+   "visualChange": 4.989,
+   "visual": "excused"
+  },
+  {
+   "index": 22,
+   "name": "Band 1 Gain",
+   "ident": "22:22",
+   "default": 0.5,
+   "context": "",
+   "audioDiffDb": -1.4,
+   "audio": "ok",
+   "visualChange": 4.609,
+   "visual": "ok"
+  },
+  {
+   "index": 23,
+   "name": "Band 1 Solo",
+   "ident": "23:23",
+   "default": 0,
+   "context": "",
+   "audioDiffDb": -9.1,
+   "audio": "ok",
+   "visualChange": 4.349,
+   "visual": "ok"
+  },
+  {
+   "index": 24,
+   "name": "Band 1 Mute",
+   "ident": "24:24",
+   "default": 0,
+   "context": "",
+   "audioDiffDb": -15.1,
+   "audio": "ok",
+   "visualChange": 6.77,
+   "visual": "ok"
+  },
+  {
+   "index": 25,
+   "name": "Band 1 Bypass",
+   "ident": "25:25",
+   "default": 0,
+   "context": "",
+   "audioDiffDb": -20.5,
+   "audio": "ok",
+   "visualChange": 3.064,
+   "visual": "ok"
+  },
+  {
+   "index": 26,
+   "name": "B1 Gate On",
+   "ident": "26:26",
+   "default": 0,
+   "context": "",
+   "audioDiffDb": -49.5,
+   "audio": "ok",
+   "visualChange": 3.221,
+   "visual": "excused"
+  },
+  {
+   "index": 27,
+   "name": "B1 Gate Mode",
+   "ident": "27:27",
+   "default": 0,
+   "context": "B1 Gate On=1, B1 Gate Threshold=0.9",
+   "audioDiffDb": -16.8,
+   "audio": "ok",
+   "visualChange": 3.074,
+   "visual": "excused"
+  },
+  {
+   "index": 28,
+   "name": "B1 Gate Threshold",
+   "ident": "28:28",
+   "default": 0.4444444478,
+   "context": "B1 Gate On=1",
+   "audioDiffDb": -15.1,
+   "audio": "ok",
+   "visualChange": 3.716,
+   "visual": "excused"
+  },
+  {
+   "index": 30,
+   "name": "B1 Gate Range",
+   "ident": "30:30",
+   "default": 0.4444444478,
+   "context": "B1 Gate On=1, B1 Gate Threshold=0.9",
+   "audioDiffDb": -15.2,
+   "audio": "ok",
+   "visualChange": 3.3,
+   "visual": "excused"
+  },
+  {
+   "index": 48,
+   "name": "B1 Comp On",
+   "ident": "48:48",
+   "default": 1,
+   "context": "",
+   "audioDiffDb": -20.5,
+   "audio": "ok",
+   "visualChange": 3.18,
+   "visual": "ok"
+  },
+  {
+   "index": 49,
+   "name": "B1 Comp Threshold",
+   "ident": "49:49",
+   "default": 0.6999999881,
+   "context": "",
+   "audioDiffDb": -15.7,
+   "audio": "ok",
+   "visualChange": 3.918,
+   "visual": "ok"
+  },
+  {
+   "index": 50,
+   "name": "B1 Comp Ratio",
+   "ident": "50:50",
+   "default": 0.4075900912,
+   "context": "",
+   "audioDiffDb": -20.5,
+   "audio": "ok",
+   "visualChange": 3.735,
+   "visual": "ok"
+  },
+  {
+   "index": 51,
+   "name": "B1 Comp Knee",
+   "ident": "51:51",
+   "default": 0.25,
+   "context": "",
+   "audioDiffDb": -36.3,
+   "audio": "ok",
+   "visualChange": 3.738,
+   "visual": "excused"
+  },
+  {
+   "index": 52,
+   "name": "B1 Comp Attack",
+   "ident": "52:52",
+   "default": 0.6700734496,
+   "context": "",
+   "audioDiffDb": -22.4,
+   "audio": "ok",
+   "visualChange": 3.674,
+   "visual": "ok"
+  },
+  {
+   "index": 53,
+   "name": "B1 Comp Release",
+   "ident": "53:53",
+   "default": 0.4600704014,
+   "context": "",
+   "audioDiffDb": -27.7,
+   "audio": "ok",
+   "visualChange": 3.446,
+   "visual": "ok"
+  },
+  {
+   "index": 56,
+   "name": "B1 Comp Look-Ahead",
+   "ident": "56:56",
+   "default": 0.200000003,
+   "context": "",
+   "audioDiffDb": -6.0,
+   "audio": "ok",
+   "visualChange": 3.392,
+   "visual": "excused"
+  },
+  {
+   "index": 61,
+   "name": "B1 Comp Make-Up",
+   "ident": "61:61",
+   "default": 0.3333333433,
+   "context": "",
+   "audioDiffDb": -1.4,
+   "audio": "ok",
+   "visualChange": 4.364,
+   "visual": "ok"
+  },
+  {
+   "index": 62,
+   "name": "B1 Comp Mix",
+   "ident": "62:62",
+   "default": 1,
+   "context": "",
+   "audioDiffDb": -17.8,
+   "audio": "ok",
+   "visualChange": 3.981,
+   "visual": "ok"
+  },
+  {
+   "index": 68,
+   "name": "B1 DeExp On",
+   "ident": "68:68",
+   "default": 0,
+   "context": "",
+   "audioDiffDb": -52.1,
+   "audio": "ok",
+   "visualChange": 3.187,
+   "visual": "excused"
+  },
+  {
+   "index": 69,
+   "name": "B1 DeExp Threshold",
+   "ident": "69:69",
+   "default": 0.5,
+   "context": "B1 DeExp On=1",
+   "audioDiffDb": -9.5,
+   "audio": "ok",
+   "visualChange": 4.238,
+   "visual": "excused"
+  },
+  {
+   "index": 70,
+   "name": "B1 DeExp Ratio",
+   "ident": "70:70",
+   "default": 0.3333333433,
+   "context": "B1 DeExp On=1",
+   "audioDiffDb": -46.9,
+   "audio": "ok",
+   "visualChange": 4.633,
+   "visual": "excused"
+  },
+  {
+   "index": 71,
+   "name": "B1 DeExp Range",
+   "ident": "71:71",
+   "default": 0.3333333433,
+   "context": "B1 DeExp On=1",
+   "audioDiffDb": -52.6,
+   "audio": "ok",
+   "visualChange": 4.422,
+   "visual": "excused"
+  },
+  {
+   "index": 90,
+   "name": "B1 DeComp On",
+   "ident": "90:90",
+   "default": 0,
+   "context": "",
+   "audioDiffDb": -20.0,
+   "audio": "ok",
+   "visualChange": 4.313,
+   "visual": "excused"
+  },
+  {
+   "index": 91,
+   "name": "B1 DeComp Threshold",
+   "ident": "91:91",
+   "default": 0.6999999881,
+   "context": "B1 DeComp On=1",
+   "audioDiffDb": -20.0,
+   "audio": "ok",
+   "visualChange": 4.378,
+   "visual": "excused"
+  },
+  {
+   "index": 92,
+   "name": "B1 DeComp Ratio",
+   "ident": "92:92",
+   "default": 0.3333333433,
+   "context": "B1 DeComp On=1",
+   "audioDiffDb": -20.3,
+   "audio": "ok",
+   "visualChange": 4.659,
+   "visual": "excused"
+  },
+  {
+   "index": 93,
+   "name": "B1 DeComp Range",
+   "ident": "93:93",
+   "default": 0.25,
+   "context": "B1 DeComp On=1",
+   "audioDiffDb": -19.5,
+   "audio": "ok",
+   "visualChange": 5.144,
+   "visual": "excused"
+  },
+  {
+   "index": 117,
+   "name": "Band 2 Gain",
+   "ident": "117:117",
+   "default": 0.5,
+   "context": "",
+   "audioDiffDb": 0.0,
+   "audio": "ok",
+   "visualChange": 5.774,
+   "visual": "excused"
+  },
+  {
+   "index": 144,
+   "name": "B2 Comp Threshold",
+   "ident": "144:144",
+   "default": 0.6999999881,
+   "context": "",
+   "audioDiffDb": -13.8,
+   "audio": "ok",
+   "visualChange": 3.781,
+   "visual": "excused"
+  },
+  {
+   "index": 212,
+   "name": "Band 3 Gain",
+   "ident": "212:212",
+   "default": 0.5,
+   "context": "",
+   "audioDiffDb": -0.3,
+   "audio": "ok",
+   "visualChange": 3.954,
+   "visual": "excused"
+  },
+  {
+   "index": 239,
+   "name": "B3 Comp Threshold",
+   "ident": "239:239",
+   "default": 0.6999999881,
+   "context": "",
+   "audioDiffDb": -15.9,
+   "audio": "ok",
+   "visualChange": 3.658,
+   "visual": "excused"
+  },
+  {
+   "index": 307,
+   "name": "Band 4 Gain",
+   "ident": "307:307",
+   "default": 0.5,
+   "context": "",
+   "audioDiffDb": -1.5,
+   "audio": "ok",
+   "visualChange": 3.713,
+   "visual": "excused"
+  },
+  {
+   "index": 334,
+   "name": "B4 Comp Threshold",
+   "ident": "334:334",
+   "default": 0.6999999881,
+   "context": "",
+   "audioDiffDb": -12.7,
+   "audio": "ok",
+   "visualChange": 3.534,
+   "visual": "excused"
+  },
+  {
+   "index": 402,
+   "name": "Band 5 Gain",
+   "ident": "402:402",
+   "default": 0.5,
+   "context": "Bands=0.8",
+   "audioDiffDb": -0.6,
+   "audio": "ok",
+   "visualChange": 5.482,
+   "visual": "excused"
+  },
+  {
+   "index": 429,
+   "name": "B5 Comp Threshold",
+   "ident": "429:429",
+   "default": 0.6999999881,
+   "context": "Bands=0.8",
+   "audioDiffDb": -5.7,
+   "audio": "ok",
+   "visualChange": 5.098,
+   "visual": "excused"
+  },
+  {
+   "index": 497,
+   "name": "Band 6 Gain",
+   "ident": "497:497",
+   "default": 0.5,
+   "context": "Bands=1",
+   "audioDiffDb": -0.1,
+   "audio": "ok",
+   "visualChange": 5.813,
+   "visual": "excused"
+  },
+  {
+   "index": 524,
+   "name": "B6 Comp Threshold",
+   "ident": "524:524",
+   "default": 0.6999999881,
+   "context": "Bands=1",
+   "audioDiffDb": -6.4,
+   "audio": "ok",
+   "visualChange": 5.475,
+   "visual": "excused"
+  },
+  {
+   "index": 595,
+   "name": "Delta",
+   "ident": "595:delta",
+   "default": 0,
+   "context": "",
+   "audioDiffDb": -4.4,
+   "audio": "ok",
+   "visualChange": 4.638,
+   "visual": "ok"
+  }
+ ],
+ "info": {
+  "numParams": 596,
+  "fx": 0,
+  "latency": "0",
+  "name": "VST3: OpenMultiband (OpenGrid)"
+ },
+ "failed": []
+}

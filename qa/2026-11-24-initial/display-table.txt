@@ -1,0 +1,87 @@
+
+running 1 test
+input                        |       -24 dB |         0 dB |        24 dB
+output                       |       -24 dB |         0 dB |        24 dB
+xover1                       |      20.0 Hz |       632 Hz |     20.0 kHz
+xover2                       |      20.0 Hz |       632 Hz |     20.0 kHz
+xover3                       |      20.0 Hz |       632 Hz |     20.0 kHz
+xover4                       |      20.0 Hz |       632 Hz |     20.0 kHz
+xover5                       |      20.0 Hz |       632 Hz |     20.0 kHz
+b1.gain                      |       -24 dB |         0 dB |        24 dB
+b1.gate.threshold            |       -90 dB |       -45 dB |         0 dB
+b1.gate.ratio                |          1:1 |          4:1 |         20:1
+b1.gate.range                |         0 dB |        45 dB |        90 dB
+b1.gate.attack               |        10 µs |       1.0 ms |       100 ms
+b1.gate.hold                 |         0 ms |       250 ms |       500 ms
+b1.gate.release              |       5.0 ms |       158 ms |       5.00 s
+b1.gate.knee                 |         0 dB |        12 dB |        24 dB
+b1.gate.hysteresis           |         0 dB |         6 dB |        12 dB
+b1.gate.stereoLink           |           0% |          50% |         100%
+b1.gate.lookahead            |         0 ms |       5.0 ms |      10.0 ms
+b1.gate.rmsWindow            |       1.0 ms |      17.3 ms |       300 ms
+b1.gate.keyHighPass          |      10.0 Hz |       141 Hz |     2.00 kHz
+b1.gate.keyLowPass           |       500 Hz |     3.32 kHz |     22.0 kHz
+b1.gate.keyBoost             |       -24 dB |         0 dB |        24 dB
+b1.gate.keyBoostFreq         |      20.0 Hz |       632 Hz |     20.0 kHz
+b1.gate.keyBoostQ            |         0.30 |         1.73 |         10.0
+b1.comp.threshold            |       -60 dB |       -30 dB |         0 dB
+b1.comp.ratio                |          1:1 |          5:1 |         30:1
+b1.comp.attack               |        10 µs |       1.7 ms |       300 ms
+b1.comp.release              |       5.0 ms |       158 ms |       5.00 s
+b1.comp.makeup               |       -12 dB |         6 dB |        24 dB
+b1.comp.mix                  |           0% |          50% |         100%
+b1.comp.knee                 |         0 dB |        12 dB |        24 dB
+b1.comp.stereoLink           |           0% |          50% |         100%
+b1.comp.lookahead            |         0 ms |       5.0 ms |      10.0 ms
+b1.comp.rmsWindow            |       1.0 ms |      17.3 ms |       300 ms
+b1.comp.keyHighPass          |      10.0 Hz |       141 Hz |     2.00 kHz
+b1.comp.keyLowPass           |       500 Hz |     3.32 kHz |     22.0 kHz
+b1.comp.keyBoost             |       -24 dB |         0 dB |        24 dB
+b1.comp.keyBoostFreq         |      20.0 Hz |       632 Hz |     20.0 kHz
+b1.comp.keyBoostQ            |         0.30 |         1.73 |         10.0
+b1.deexp.threshold           |       -80 dB |       -40 dB |         0 dB
+b1.deexp.ratio               |          1:1 |          3:1 |          8:1
+b1.deexp.range               |         0 dB |        18 dB |        36 dB
+b1.deexp.attack              |        10 µs |       1.0 ms |       100 ms
+b1.deexp.release             |       1.0 ms |      70.7 ms |       5.00 s
+b1.deexp.mix                 |           0% |          50% |         100%
+b1.deexp.knee                |         0 dB |        12 dB |        24 dB
+b1.deexp.floor               |      -120 dB |       -70 dB |       -20 dB
+b1.deexp.stereoLink          |           0% |          50% |         100%
+b1.deexp.hold                |         0 ms |       250 ms |       500 ms
+b1.deexp.lookahead           |         0 ms |       5.0 ms |      10.0 ms
+b1.deexp.detectorWindow      |       1.0 ms |      22.4 ms |       500 ms
+b1.deexp.keyHighPass         |      10.0 Hz |       141 Hz |     2.00 kHz
+b1.deexp.keyLowPass          |       500 Hz |     3.32 kHz |     22.0 kHz
+b1.deexp.keyBoost            |       -24 dB |         0 dB |        24 dB
+b1.deexp.keyBoostFreq        |      20.0 Hz |       632 Hz |     20.0 kHz
+b1.deexp.keyBoostQ           |         0.30 |         1.73 |         10.0
+b1.decomp.threshold          |       -60 dB |       -30 dB |         0 dB
+b1.decomp.ratio              |          1:1 |          1:3 |          1:4
+b1.decomp.range              |         0 dB |        12 dB |        24 dB
+b1.decomp.attack             |        10 µs |       1.0 ms |       100 ms
+b1.decomp.release            |       1.0 ms |      44.7 ms |       2.00 s
+b1.decomp.mix                |           0% |          50% |         100%
+b1.decomp.knee               |         0 dB |        12 dB |        24 dB
+b1.decomp.trim               |       -24 dB |       -12 dB |         0 dB
+b1.decomp.stereoLink         |           0% |          50% |         100%
+b1.decomp.lookahead          |         0 ms |       5.0 ms |      10.0 ms
+b1.decomp.transientCrest     |         0 dB |        12 dB |        24 dB
+b1.decomp.detectorWindow     |       1.0 ms |      22.4 ms |       500 ms
+b1.decomp.keyHighPass        |      10.0 Hz |       141 Hz |     2.00 kHz
+b1.decomp.keyLowPass         |       500 Hz |     3.32 kHz |     22.0 kHz
+b1.decomp.keyBoost           |       -24 dB |         0 dB |        24 dB
+b1.decomp.keyBoostFreq       |      20.0 Hz |       632 Hz |     20.0 kHz
+b1.decomp.keyBoostQ          |         0.30 |         1.73 |         10.0
+b1.decomp.ceiling            |       -24 dB |       -12 dB |         0 dB
+b1.decomp.matchTarget        |         6 dB |        15 dB |        24 dB
+limit.threshold              |       -24 dB |       -12 dB |         0 dB
+limit.ceiling                |       -24 dB |       -12 dB |         0 dB
+limit.attack                 |         0 ms |       5.0 ms |      10.0 ms
+limit.release                |       1.0 ms |      44.7 ms |       2.00 s
+limit.stereoLink             |           0% |          50% |         100%
+limit.bassHold               |         0 ms |      10.0 ms |      20.0 ms
+test ui::tests::display_table ... ok
+
+test result: ok. 1 passed; 0 failed; 0 ignored; 0 measured; 26 filtered out; finished in 0.00s
+

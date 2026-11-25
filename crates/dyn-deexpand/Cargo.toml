@@ -1,0 +1,11 @@
+[package]
+name = "dyn-deexpand"
+version = "0.1.0"
+edition = "2021"
+description = "De-expander module for OpenLimiter: upward compression below a threshold, above a floor"
+
+
+[dependencies]
+olm-api = { path = "../api" }
+dynamics = { path = "../dynamics" }
+

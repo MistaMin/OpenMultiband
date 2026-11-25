@@ -1,0 +1,206 @@
+{
+ "fx": "VST3: OpenMultiband",
+ "checks": [
+  {
+   "check": "loads",
+   "status": "PASS",
+   "detail": "OpenMultiband, 593 parameters"
+  },
+  {
+   "check": "finite output",
+   "status": "PASS",
+   "detail": "peak -9.0 dBFS"
+  },
+  {
+   "check": "not silent",
+   "status": "PASS",
+   "detail": "rms -19.6 dBFS"
+  },
+  {
+   "check": "deterministic render",
+   "status": "PASS",
+   "detail": "repeat differs by -240.0 dB"
+  },
+  {
+   "check": "editor opens",
+   "status": "SKIPPED",
+   "detail": "visual checks disabled"
+  },
+  {
+   "check": "every parameter changes the sound",
+   "status": "PASS",
+   "detail": ""
+  },
+  {
+   "check": "state survives save and reopen",
+   "status": "PASS",
+   "detail": ""
+  },
+  {
+   "check": "editor reopens",
+   "status": "SKIPPED",
+   "detail": "headless: OpenGrid9 runs without an editor window"
+  }
+ ],
+ "params": [
+  {
+   "index": 0,
+   "name": "Input Gain",
+   "ident": "Input Gain",
+   "default": 0.5,
+   "context": "",
+   "audioDiffDb": -1.7,
+   "audio": "ok"
+  },
+  {
+   "index": 1,
+   "name": "Output Gain",
+   "ident": "Output Gain",
+   "default": 0.5,
+   "context": "",
+   "audioDiffDb": 23.0,
+   "audio": "ok"
+  },
+  {
+   "index": 2,
+   "name": "Zero Latency",
+   "ident": "Zero Latency",
+   "default": 0,
+   "context": "",
+   "audioDiffDb": 23.1,
+   "audio": "ok"
+  },
+  {
+   "index": 3,
+   "name": "Auto Gain",
+   "ident": "Auto Gain",
+   "default": 0,
+   "context": "",
+   "audioDiffDb": 23.0,
+   "audio": "ok"
+  },
+  {
+   "index": 4,
+   "name": "Delta",
+   "ident": "Delta",
+   "default": 0,
+   "context": "",
+   "audioDiffDb": 40.8,
+   "audio": "ok"
+  },
+  {
+   "index": 5,
+   "name": "Bands",
+   "ident": "Bands",
+   "default": 0.6,
+   "context": "",
+   "audioDiffDb": 23.0,
+   "audio": "ok"
+  },
+  {
+   "index": 6,
+   "name": "Crossover Slope",
+   "ident": "Crossover Slope",
+   "default": 0.5,
+   "context": "",
+   "audioDiffDb": 23.1,
+   "audio": "ok"
+  },
+  {
+   "index": 7,
+   "name": "Crossover 1",
+   "ident": "Crossover 1",
+   "default": 0.005005004623,
+   "context": "",
+   "audioDiffDb": 23.1,
+   "audio": "ok"
+  },
+  {
+   "index": 12,
+   "name": "Limiter On",
+   "ident": "Limiter On",
+   "default": 1,
+   "context": "",
+   "audioDiffDb": 34.1,
+   "audio": "ok"
+  },
+  {
+   "index": 13,
+   "name": "Limiter Threshold",
+   "ident": "Limiter Threshold",
+   "default": 1,
+   "context": "",
+   "audioDiffDb": 23.2,
+   "audio": "ok"
+  },
+  {
+   "index": 14,
+   "name": "Limiter Ceiling",
+   "ident": "Limiter Ceiling",
+   "default": 0.9583333333,
+   "context": "",
+   "audioDiffDb": 24.1,
+   "audio": "ok"
+  },
+  {
+   "index": 22,
+   "name": "Band 1 Gain",
+   "ident": "Band 1 Gain",
+   "default": 0.5,
+   "context": "",
+   "audioDiffDb": 24.1,
+   "audio": "ok"
+  },
+  {
+   "index": 23,
+   "name": "Band 1 Solo",
+   "ident": "Band 1 Solo",
+   "default": 0,
+   "context": "",
+   "audioDiffDb": 24.1,
+   "audio": "ok"
+  },
+  {
+   "index": 24,
+   "name": "Band 1 Mute",
+   "ident": "Band 1 Mute",
+   "default": 0,
+   "context": "",
+   "audioDiffDb": 24.1,
+   "audio": "ok"
+  },
+  {
+   "index": 25,
+   "name": "Band 1 Bypass",
+   "ident": "Band 1 Bypass",
+   "default": 0,
+   "context": "",
+   "audioDiffDb": 24.1,
+   "audio": "ok"
+  },
+  {
+   "index": 49,
+   "name": "B1 Comp Threshold",
+   "ident": "B1 Comp Threshold",
+   "default": 0.7,
+   "context": "",
+   "audioDiffDb": 24.1,
+   "audio": "ok"
+  },
+  {
+   "index": 50,
+   "name": "B1 Comp Ratio",
+   "ident": "B1 Comp Ratio",
+   "default": 0.1034482759,
+   "context": "",
+   "audioDiffDb": 24.1,
+   "audio": "ok"
+  }
+ ],
+ "info": {
+  "name": "OpenMultiband",
+  "fx": 0,
+  "numParams": 593
+ },
+ "failed": []
+}

@@ -1,0 +1,132 @@
+# Windows and Linux builds of OpenMultiband. macOS is built on the owner's Mac (scripts/build.sh).
+# Each job builds the same commit, runs the tests and keeps the installer (Windows) or archive (Linux)
+# with its SHA-256 as an artifact.
+name: Windows and Linux builds
+
+on:
+  workflow_dispatch:
+  push:
+    tags: ["v*"]
+
+env:
+  # The revisions this build is made and tested with (as in scripts/build.sh).
+  OPENPLUGIN_SDK_REF: c6fa6a03560443191e1045db47c45a1839c65696
+  GOODLOOKINDRI_REF: 3fe04263a7e1eb21931717393d0f1d705417e884
+  VST3_SDK_REF: v3.8.1_build_84
+  CARGO_TERM_COLOR: always
+
+jobs:
+  windows:
+    name: Windows x64 (VST3, CLAP, LV2)
+    runs-on: windows-latest
+    env:
+      CARGO_TARGET_X86_64_PC_WINDOWS_MSVC_RUSTFLAGS: -C target-feature=+crt-static
+    steps:
+      # Cargo.toml finds the SDK and DRI at ../../Dependencies.
+      - uses: actions/checkout@v4
+        with:
+          path: w/openmultiband
+      - uses: actions/checkout@v4
+        with:
+          repository: MistaMin/OpenPluginSDK
+          ref: ${{ env.OPENPLUGIN_SDK_REF }}
+          path: Dependencies/OpenPluginSDK
+      - uses: actions/checkout@v4
+        with:
+          repository: MistaMin/GoodLookinDri
+          ref: ${{ env.GOODLOOKINDRI_REF }}
+          path: Dependencies/GoodLookinDri
+      - uses: actions/checkout@v4
+        with:
+          repository: steinbergmedia/vst3sdk
+          ref: ${{ env.VST3_SDK_REF }}
+          submodules: recursive
+          path: Dependencies/vst3sdk
+      - uses: dtolnay/rust-toolchain@stable
+      - name: Tests
+        working-directory: w/openmultiband
+        run: cargo test --release --workspace
+      # UIAutomationCore.DLL is the Windows accessibility library the editor's window uses.
+      - name: Build VST3, CLAP and LV2
+        shell: pwsh
+        run: |
+          $root = "$env:GITHUB_WORKSPACE"
+          $version = (Select-String -Path w\openmultiband\Cargo.toml -Pattern '^version = "(.*)"').Matches[0].Groups[1].Value
+          # Bundle versions are numbers only; the plugin itself reports the full version.
+          $version = $version.Split('-')[0]
+          powershell -NoProfile -ExecutionPolicy Bypass -File Dependencies\OpenPluginSDK\scripts\windows\build_plugin.ps1 `
+            -ManifestPath w\openmultiband\Cargo.toml -Name OpenMultiband -Version $version -Manufacturer OpenGrid `
+            -BundleId com.opengrid.openmultiband -Editor -AllowLib UIAutomationCore.DLL -TtlBin lv2_ttl -Formats clap,vst3,lv2 `
+            -Vst3Sdk "$root\Dependencies\vst3sdk" -Out "$root\dist-windows" -WorkDir "$root\build-windows"
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+      - name: Installer
+        shell: pwsh
+        run: |
+          $v = (Select-String -Path w\openmultiband\Cargo.toml -Pattern '^version = "(.*)"').Matches[0].Groups[1].Value
+          $v = $v -replace '-beta$','-Beta'
+          if (-not (Get-Command iscc -ErrorAction SilentlyContinue)) { choco install innosetup -y --no-progress; $env:Path += ";${env:ProgramFiles(x86)}\Inno Setup 6" }
+          iscc /DVersion=$v /DDist="$env:GITHUB_WORKSPACE\dist-windows" /DRoot="$env:GITHUB_WORKSPACE\w\openmultiband" w\openmultiband\installer\windows.iss
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+          # One line with a Unix line ending, so `shasum -a 256 -c` reads it on macOS and Linux.
+          Get-FileHash -Algorithm SHA256 OpenMultiband-*-setup.exe | ForEach-Object { [IO.File]::WriteAllText("$PWD\$(Split-Path $_.Path -Leaf).sha256", "$($_.Hash.ToLower())  $(Split-Path $_.Path -Leaf)`n") }
+      - uses: actions/upload-artifact@v4
+        with:
+          name: windows-x64
+          path: |
+            OpenMultiband-*-windows-x64-setup.exe
+            OpenMultiband-*-windows-x64-setup.exe.sha256
+
+  linux:
+    name: Linux x86_64 (VST3, CLAP, LV2)
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          path: w/openmultiband
+      - uses: actions/checkout@v4
+        with:
+          repository: MistaMin/OpenPluginSDK
+          ref: ${{ env.OPENPLUGIN_SDK_REF }}
+          path: Dependencies/OpenPluginSDK
+      - uses: actions/checkout@v4
+        with:
+          repository: MistaMin/GoodLookinDri
+          ref: ${{ env.GOODLOOKINDRI_REF }}
+          path: Dependencies/GoodLookinDri
+      - uses: actions/checkout@v4
+        with:
+          repository: steinbergmedia/vst3sdk
+          ref: ${{ env.VST3_SDK_REF }}
+          submodules: recursive
+          path: Dependencies/vst3sdk
+      - uses: dtolnay/rust-toolchain@stable
+      - name: Tests
+        working-directory: w/openmultiband
+        run: cargo test --release --workspace
+      - name: Build VST3, CLAP and LV2
+        run: |
+          version=$(sed -n 's/^version = "\(.*\)"/\1/p' w/openmultiband/Cargo.toml | head -1)
+          version="${version%%-*}"  # bundle versions are numbers only
+          Dependencies/OpenPluginSDK/scripts/build_plugin_linux.sh --manifest-path w/openmultiband/Cargo.toml \
+            --name OpenMultiband --version "$version" --ttl-bin lv2_ttl --formats clap,lv2,vst3 --editor \
+            --vst3-sdk "$GITHUB_WORKSPACE/Dependencies/vst3sdk" --strip \
+            --out "$GITHUB_WORKSPACE/dist-linux" --work-dir "$GITHUB_WORKSPACE/build-linux"
+      - name: Archive
+        run: |
+          v=$(sed -n 's/^version = "\(.*\)"/\1/p' w/openmultiband/Cargo.toml | head -1 | sed 's/-beta$/-Beta/')
+          name="OpenMultiband-$v-linux-x86_64"
+          mkdir -p pkg/usr/lib/vst3 pkg/usr/lib/clap pkg/usr/lib/lv2 pkg/usr/share/doc/openmultiband/Licenses
+          cp -R dist-linux/OpenMultiband.vst3 pkg/usr/lib/vst3/
+          cp dist-linux/OpenMultiband.clap pkg/usr/lib/clap/
+          cp -R dist-linux/OpenMultiband.lv2 pkg/usr/lib/lv2/
+          cp w/openmultiband/LICENSE w/openmultiband/BINARY_LICENSE.txt w/openmultiband/THIRD_PARTY_LICENSES.md pkg/usr/share/doc/openmultiband/
+          cp -R w/openmultiband/Licenses/. pkg/usr/share/doc/openmultiband/Licenses/
+          tar -C pkg --owner=0 --group=0 -czf "$name.tar.gz" usr
+          sha256sum "$name.tar.gz" > "$name.tar.gz.sha256"
+          tar -tzf "$name.tar.gz"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: linux-x86_64
+          path: |
+            OpenMultiband-*-linux-x86_64.tar.gz
+            OpenMultiband-*-linux-x86_64.tar.gz.sha256
