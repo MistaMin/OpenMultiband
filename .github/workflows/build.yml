@@ -10,8 +10,7 @@ on:
 
 env:
   # The revisions this build is made and tested with (as in scripts/build.sh).
-  OPENPLUGIN_SDK_REF: c6fa6a03560443191e1045db47c45a1839c65696
-  GOODLOOKINDRI_REF: 3fe04263a7e1eb21931717393d0f1d705417e884
+  OPENPLUGIN_SDK_REF: 19fac892df45210d0967229cf3799181a0489464
   VST3_SDK_REF: v3.8.1_build_84
   CARGO_TERM_COLOR: always
 
@@ -22,7 +21,7 @@ jobs:
     env:
       CARGO_TARGET_X86_64_PC_WINDOWS_MSVC_RUSTFLAGS: -C target-feature=+crt-static
     steps:
-      # Cargo.toml finds the SDK and DRI at ../../Dependencies.
+      # Cargo.toml finds the SDK (with GoodLookin DRI in its tree) at ../../Dependencies.
       - uses: actions/checkout@v4
         with:
           path: w/openmultiband
@@ -31,11 +30,6 @@ jobs:
           repository: MistaMin/OpenPluginSDK
           ref: ${{ env.OPENPLUGIN_SDK_REF }}
           path: Dependencies/OpenPluginSDK
-      - uses: actions/checkout@v4
-        with:
-          repository: MistaMin/GoodLookinDri
-          ref: ${{ env.GOODLOOKINDRI_REF }}
-          path: Dependencies/GoodLookinDri
       - uses: actions/checkout@v4
         with:
           repository: steinbergmedia/vst3sdk
@@ -88,11 +82,6 @@ jobs:
           repository: MistaMin/OpenPluginSDK
           ref: ${{ env.OPENPLUGIN_SDK_REF }}
           path: Dependencies/OpenPluginSDK
-      - uses: actions/checkout@v4
-        with:
-          repository: MistaMin/GoodLookinDri
-          ref: ${{ env.GOODLOOKINDRI_REF }}
-          path: Dependencies/GoodLookinDri
       - uses: actions/checkout@v4
         with:
           repository: steinbergmedia/vst3sdk

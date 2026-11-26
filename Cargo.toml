@@ -15,17 +15,10 @@ olm-api = { path = "crates/api" }
 dynamics = { path = "crates/dynamics" }
 dyn-deexpand = { path = "crates/dyn-deexpand" }
 dyn-decompress = { path = "crates/dyn-decompress" }
-# OpenPluginSDK main (c6fa6a0) and GoodLookin DRI main (3fe0426) side by side in
-# ../../Dependencies.
+# OpenPluginSDK main (19fac89) in ../../Dependencies (pinned in scripts/build.sh).
 openplugin = { path = "../../Dependencies/OpenPluginSDK/crates/openplugin" }
-# Text measuring for the kit; the SDK takes the same checkout.
-goodlookindri-shell = { path = "../../Dependencies/GoodLookinDri/shell" }
-
-# The SDK takes GoodLookin DRI from GitHub; use the same checkout as the direct dependency, so
-# both are one crate (pinned in scripts/build.sh).
-[patch."https://github.com/MistaMin/GoodLookinDri"]
-goodlookindri = { path = "../../Dependencies/GoodLookinDri" }
-goodlookindri-shell = { path = "../../Dependencies/GoodLookinDri/shell" }
+# Text measuring for the kit: the GoodLookin DRI in the SDK's tree, the same crate the SDK uses.
+goodlookindri-shell = { path = "../../Dependencies/OpenPluginSDK/crates/goodlookindri/shell" }
 
 [workspace]
 members = ["crates/*"]

@@ -1,5 +1,10 @@
 # Changelog
 
+## Unreleased
+
+- Builds against OpenPluginSDK 19fac89, which carries GoodLookin DRI in its own tree; the separate GoodLookin DRI
+  checkout is no longer needed. The DRI code is the same as in 1.0.0 Beta.
+
 ## 1.0.0 Beta (2026-11-25)
 
 First public release.

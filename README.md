@@ -71,9 +71,9 @@ all-pass-matched dry reference.
 
 ## Build from source
 
-Rust (stable). Builds against [OpenPluginSDK](https://github.com/MistaMin/OpenPluginSDK) and
-[GoodLookin DRI](https://github.com/MistaMin/GoodLookinDri) checked out beside it
-(`../../Dependencies/OpenPluginSDK`, `../../Dependencies/GoodLookinDri`).
+Rust (stable). Builds against [OpenPluginSDK](https://github.com/MistaMin/OpenPluginSDK) checked out beside it
+(`../../Dependencies/OpenPluginSDK`, revision in `scripts/build.sh`), which carries
+[GoodLookin DRI](https://github.com/MistaMin/GoodLookinDri) in its tree.
 
 ```bash
 cargo test --release --workspace   # DSP, plugin, layout and Band Link tests
