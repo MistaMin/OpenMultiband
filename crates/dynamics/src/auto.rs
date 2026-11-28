@@ -51,7 +51,7 @@ impl AutoTime {
     pub fn push(&mut self, change_db: f64) -> bool {
         self.avg += (change_db.abs() - self.avg) * self.k;
         self.tick = self.tick.wrapping_add(1);
-        self.tick % EVERY == 0
+        self.tick.is_multiple_of(EVERY)
     }
 
     pub fn factor(&self) -> f64 {

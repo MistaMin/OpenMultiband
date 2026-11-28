@@ -83,7 +83,7 @@ struct Svf2 {
     ic2: f64,
 }
 
-#[derive(Clone, Copy)]
+#[derive(Clone, Copy, Default)]
 struct SvfCoefs {
     a1: f64,
     a2: f64,
@@ -98,6 +98,26 @@ impl SvfCoefs {
         let a2 = g * a1;
         let a3 = g * a2;
         Self { a1, a2, a3, k }
+    }
+}
+
+/// One split's coefficients for its slope, worked out once per sample and shared by both
+/// channels, the split and every all-pass cell at that split (the divisions are the cost).
+#[derive(Clone, Copy, Default)]
+struct Coefs {
+    bg: f64,
+    a: SvfCoefs,
+    b: SvfCoefs,
+}
+
+impl Coefs {
+    #[inline]
+    fn new(g: f64, slope: Slope) -> Self {
+        match slope {
+            Slope::Db12 => Self { bg: g / (1.0 + g), ..Self::default() },
+            Slope::Db24 => Self { a: SvfCoefs::new(g, SQRT_2), ..Self::default() },
+            Slope::Db48 => Self { a: SvfCoefs::new(g, K8_A), b: SvfCoefs::new(g, K8_B), ..Self::default() },
+        }
     }
 }
 
@@ -145,10 +165,10 @@ impl SplitCell {
     }
 
     #[inline]
-    fn run(&mut self, x: f64, slope: Slope, g: f64) -> (f64, f64) {
+    fn run(&mut self, x: f64, slope: Slope, c: Coefs) -> (f64, f64) {
         match slope {
             Slope::Db12 => {
-                let bg = g / (1.0 + g);
+                let bg = c.bg;
                 let lo = self.lp1[0].lp(x, bg);
                 let lo = self.lp1[1].lp(lo, bg);
                 let hi = self.hp1[0].hp(x, bg);
@@ -156,7 +176,7 @@ impl SplitCell {
                 (lo, hi)
             }
             Slope::Db24 => {
-                let c = SvfCoefs::new(g, SQRT_2);
+                let c = c.a;
                 let lo = self.lp2[0].lp(x, c);
                 let lo = self.lp2[1].lp(lo, c);
                 let hi = self.hp2[0].hp(x, c);
@@ -164,8 +184,7 @@ impl SplitCell {
                 (lo, hi)
             }
             Slope::Db48 => {
-                let ca = SvfCoefs::new(g, K8_A);
-                let cb = SvfCoefs::new(g, K8_B);
+                let (ca, cb) = (c.a, c.b);
                 let lo = self.lp2[0].lp(x, ca);
                 let lo = self.lp2[1].lp(lo, cb);
                 let lo = self.lp2[2].lp(lo, ca);
@@ -193,15 +212,13 @@ impl ApCell {
     }
 
     #[inline]
-    fn run(&mut self, x: f64, slope: Slope, g: f64) -> f64 {
+    fn run(&mut self, x: f64, slope: Slope, c: Coefs) -> f64 {
         match slope {
-            Slope::Db12 => self.p1.ap(x, g / (1.0 + g)),
-            Slope::Db24 => self.s2[0].ap(x, SvfCoefs::new(g, SQRT_2)),
+            Slope::Db12 => self.p1.ap(x, c.bg),
+            Slope::Db24 => self.s2[0].ap(x, c.a),
             Slope::Db48 => {
-                let ca = SvfCoefs::new(g, K8_A);
-                let cb = SvfCoefs::new(g, K8_B);
-                let y = self.s2[0].ap(x, ca);
-                self.s2[1].ap(y, cb)
+                let y = self.s2[0].ap(x, c.a);
+                self.s2[1].ap(y, c.b)
             }
         }
     }
@@ -322,8 +339,8 @@ impl Crossover {
         let mut sorted = [0.0f32; MAX_SPLITS];
         sorted[..n].copy_from_slice(&self.raw_freqs[..n]);
         sorted[..n].sort_by(|a, b| a.total_cmp(b));
-        for k in 0..n {
-            self.g_target[k] = freq_to_g(sorted[k], self.sr);
+        for (g, &f) in self.g_target.iter_mut().zip(&sorted[..n]) {
+            *g = freq_to_g(f, self.sr);
         }
     }
 
@@ -351,29 +368,32 @@ impl Crossover {
         let splits = self.bands - 1;
         let slope = self.slope;
         let smooth = self.smooth;
+        let mut coefs = [Coefs::default(); MAX_SPLITS];
         for i in 0..n {
-            for k in 0..splits {
-                self.g[k] += (self.g_target[k] - self.g[k]) * smooth;
+            for ((g, &t), c) in self.g.iter_mut().zip(&self.g_target).zip(&mut coefs).take(splits) {
+                *g += (t - *g) * smooth;
+                *c = Coefs::new(*g, slope);
             }
             for c in 0..2 {
                 let x = if c == 0 { in_l[i] as f64 } else { in_r[i] as f64 };
+                let x = if x.is_finite() { x } else { 0.0 }; // ST-2: NaN in the state never leaves
                 let ch = &mut self.ch[c];
                 let mut bands = [0.0f64; MAX_BANDS];
                 let mut rem = x;
                 for k in 0..splits {
-                    let g = self.g[k];
+                    let g = coefs[k];
                     let (lo, hi) = ch.splits[k].run(rem, slope, g);
                     bands[k] = lo;
                     // Phase-align all previously peeled lower bands with split `k`.
-                    for b in 0..k {
-                        bands[b] = ch.ap[b][k].run(bands[b], slope, g);
+                    for (b, v) in bands[..k].iter_mut().enumerate() {
+                        *v = ch.ap[b][k].run(*v, slope, g);
                     }
                     rem = hi;
                 }
                 bands[splits] = rem;
                 let mut r = x;
-                for k in 0..splits {
-                    r = ch.ref_ap[k].run(r, slope, self.g[k]);
+                for (ap, &c) in ch.ref_ap.iter_mut().zip(&coefs).take(splits) {
+                    r = ap.run(r, slope, c);
                 }
                 if c == 0 {
                     for b in 0..self.bands {

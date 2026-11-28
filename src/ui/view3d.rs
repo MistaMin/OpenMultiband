@@ -263,7 +263,8 @@ impl MultibandEditor {
         let n = tr.rows.len();
         let points = (BANDS3 - 1) * SUB + 1;
         let x_at = |l: f32, w: f32, i: usize| l + w * i as f32 / (points - 1) as f32;
-        let ridges: Vec<(f32, f32, f32, f32, Vec<f32>, Vec<f32>)> = (0..n)
+        type Ridge = (f32, f32, f32, f32, Vec<f32>, Vec<f32>);
+        let ridges: Vec<Ridge> = (0..n)
             .map(|age| {
                 let row = &tr.rows[n - 1 - age];
                 let (l, w, base, h) = row_geom(age as f32 / (n - 1) as f32);

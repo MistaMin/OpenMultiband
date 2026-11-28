@@ -482,12 +482,14 @@ pub struct MultibandEditor {
     dragging: bool,
     xover_moved: bool,
     band_link: bool,
-    link_drag: Option<(usize, f32, Vec<(usize, f32)>)>,
+    link_drag: Option<LinkDrag>,
     modifiers: Modifiers,
     keys_active: bool,
     canvas: SceneCanvas,
     damage: DamageTracker,
 }
+
+type LinkDrag = (usize, f32, Vec<(usize, f32)>);
 
 pub fn make_editor(host: EditorHost) -> Option<Box<dyn Editor>> {
     Some(Box::new(MultibandEditor::new(host)))
@@ -550,6 +552,14 @@ impl MultibandEditor {
         f
     }
 
+    /// Active crossover parameter offsets `k`, low to high frequency: a crossover dragged past
+    /// another keeps its hitbox and badge next to where it is drawn.
+    fn xovers_by_freq(&self) -> Vec<usize> {
+        let mut ks: Vec<usize> = (0..self.active_bands().saturating_sub(1)).collect();
+        ks.sort_by(|&a, &b| self.values[P_XOVER_BASE + a].total_cmp(&self.values[P_XOVER_BASE + b]));
+        ks
+    }
+
     /// Frequency span `[lo, hi]` Hz of active band `b`.
     fn band_bounds(&self, b: usize) -> (f32, f32) {
         let splits = self.sorted_xovers();
@@ -608,9 +618,8 @@ impl MultibandEditor {
         ];
 
         // Active crossover handles inside MB_PLOT (horizontal drag tracking 1:1 with log Hz).
-        let splits = self.active_bands().saturating_sub(1);
         let mut prev_right = MB_PLOT.0;
-        for k in 0..splits {
+        for k in self.xovers_by_freq() {
             let f = self.values[P_XOVER_BASE + k];
             let x = mb_freq_x(f).clamp(MB_PLOT.0 + 8.0, MB_PLOT.0 + MB_PLOT.2 - 8.0);
             let left = (x - 8.0).max(prev_right + 1.0).min(MB_PLOT.0 + MB_PLOT.2 - 16.0);
@@ -978,9 +987,8 @@ impl MultibandEditor {
             }
         }
         // Draggable crossover vertical lines & frequency badges (cached; re-hashed when any xover moves).
-        let splits = n_bands.saturating_sub(1);
         let mut prev_badge_right = MB_PLOT.0;
-        for k in 0..splits {
+        for k in self.xovers_by_freq() {
             let f = self.values[P_XOVER_BASE + k];
             let x = mb_freq_x(f).clamp(MB_PLOT.0 + 4.0, MB_PLOT.0 + MB_PLOT.2 - 4.0);
             s.line(Point::new(x, MB_PLOT.1), Point::new(x, mb_bottom), t.text.with_alpha(0.75), 1.4);
@@ -1069,7 +1077,7 @@ impl MultibandEditor {
             Target::Band(b) => {
                 let bl = &LAYOUT.bands[b];
                 let bc = t.band(b);
-                for si in 0..BAND_SECTIONS {
+                for (si, &lbl) in SEC_TAB_LABELS.iter().enumerate() {
                     let r = sec_tab_rect(si);
                     let open = self.sec_tab == si;
                     let on = self.values[bl.sections[si].on] >= 0.5;
@@ -1078,7 +1086,7 @@ impl MultibandEditor {
                     let (dx, dy) = sec_dot(si);
                     let dot = Scene::ellipse_at(Point::new(dx, dy), 3.8);
                     if on { s.fill_ellipse_solid(dot, bc); } else { s.stroke_ellipse(dot, t.dim, 1.2); }
-                    s.text(Point::new(r.0 + 23.0, dy), SEC_TAB_LABELS[si], if open { t.text } else { t.dim }, 8.5, false);
+                    s.text(Point::new(r.0 + 23.0, dy), lbl, if open { t.text } else { t.dim }, 8.5, false);
                 }
                 s.text(Point::new(820.0, 291.0), "GAIN", t.dim, 8.5, false);
             }
@@ -1345,6 +1353,13 @@ impl MultibandEditor {
     }
 }
 
+impl Drop for MultibandEditor {
+    /// The window closed mid-drag: no mouse_up will end the linked bands' gestures.
+    fn drop(&mut self) {
+        self.end_link_drag();
+    }
+}
+
 impl Editor for MultibandEditor {
     fn size(&self) -> (u32, u32) {
         (WIDTH, HEIGHT)
@@ -1380,7 +1395,9 @@ impl Editor for MultibandEditor {
 
         for b in 0..MAX_BANDS {
             self.band_summary[b] = sh.take_band_summary(b);
-            for si in 0..BAND_SECTIONS {
+            // A take clears the audio thread's peak: take only when a column is pushed, so a
+            // tick that pushes none (60 Hz and faster displays) does not throw a peak away.
+            for si in (0..BAND_SECTIONS).filter(|_| pushes > 0) {
                 let l = sh.take_band_section(b, si);
                 self.band_live[b][si] = l;
                 let g = if l.gain[0].abs() >= l.gain[1].abs() { l.gain[0] } else { l.gain[1] };
@@ -1392,8 +1409,10 @@ impl Editor for MultibandEditor {
                 }
             }
         }
-        let ll = sh.take_limiter();
-        self.lim_live = ll;
+        if pushes > 0 {
+            self.lim_live = sh.take_limiter();
+        }
+        let ll = self.lim_live;
         let lg = if ll.gain[0].abs() >= ll.gain[1].abs() { ll.gain[0] } else { ll.gain[1] };
         for _ in 0..pushes {
             self.lim_trace.pop_front();
@@ -1493,7 +1512,6 @@ impl Editor for MultibandEditor {
     }
 
     fn mouse_down(&mut self, x: f32, y: f32, clicks: u32) {
-        self.dragging = true;
         if inside(THEME_BUTTON, x, y) {
             self.theme = self.theme.next();
             store_theme(self.theme);
@@ -1555,6 +1573,7 @@ impl Editor for MultibandEditor {
         // First let controls handle crossover grips & normal widgets.
         let hit_control = self.cells.iter().any(|c| inside(c.rect, x, y));
         if hit_control {
+            self.dragging = true;
             self.controls.mouse_down(x, y, clicks);
             self.sync();
             return;
@@ -1731,6 +1750,9 @@ impl Editor for MultibandEditor {
         self.keys_active = focused;
         if !focused {
             self.controls.release_keys();
+            // The mouse_up of a drag may never come: close the linked bands' gestures now.
+            self.dragging = false;
+            self.end_link_drag();
         }
         self.damage.add_all();
     }
@@ -1765,6 +1787,57 @@ mod tests {
         e.mouse_move(cx, cy + 40.0);
         e.mouse_up(cx, cy + 40.0);
         assert!(e.values[thresh_p] < -38.0, "drag down should lower threshold, got {}", e.values[thresh_p]);
+    }
+
+    #[test]
+    fn clicking_a_toggle_updates_dimmed_controls() {
+        use dyn_decompress::index as d;
+        let mut e = MultibandEditor::new(EditorHost::detached());
+        e.select_sec(3);
+        let panel = page(3).panels.iter().position(|(name, _)| *name == "CEILING").unwrap();
+        e.open_panel(Some(panel));
+        let base = LAYOUT.bands[0].sections[3].base;
+        let dim = |e: &MultibandEditor| e.cells.iter().find(|c| c.param == base + d::CEILING).unwrap().dim;
+        assert!(e.values[base + d::CEILING_ON] < 0.5 && dim(&e), "expects Ceiling off and dimmed by default");
+        let r = e.cells.iter().find(|c| c.param == base + d::CEILING_ON).unwrap().rect;
+        let (x, y) = (r.0 + r.2 * 0.5, r.1 + r.3 * 0.5);
+        e.mouse_down(x, y, 1);
+        e.mouse_up(x, y);
+        assert!(e.values[base + d::CEILING_ON] >= 0.5, "click did not switch Ceiling on");
+        assert!(!dim(&e), "the Ceiling knob should undim right after the click");
+    }
+
+    #[test]
+    fn focus_loss_mid_drag_ends_linked_gestures() {
+        use openplugin::core::Gesture;
+        use std::sync::{Arc, Mutex};
+        let log: Arc<Mutex<Vec<Gesture>>> = Arc::new(Mutex::new(Vec::new()));
+        let log_cb = log.clone();
+        let mut e = MultibandEditor::new(EditorHost::new(move |g| log_cb.lock().unwrap().push(g)));
+        e.set_band_link(true);
+        let t = |b: usize| LAYOUT.bands[b].sections[1].base + dynamics::comp::index::THRESHOLD;
+        e.select_sec(1);
+        let r = e.cells.iter().find(|c| c.param == t(0)).unwrap().rect;
+        let (cx, cy) = (r.0 + r.2 * 0.5, r.1 + r.3 * 0.5);
+        e.mouse_down(cx, cy, 1);
+        e.mouse_move(cx, cy + 40.0);
+        e.focus_changed(false); // no mouse_up follows
+        assert!(!e.dragging);
+        let events = log.lock().unwrap().clone();
+        for b in 1..4 {
+            assert!(events.iter().any(|ev| matches!(ev, Gesture::Begin(p) if *p as usize == t(b))), "no Begin for band {b}");
+            assert!(events.iter().any(|ev| matches!(ev, Gesture::End(p) if *p as usize == t(b))), "gesture left open for band {b}");
+        }
+    }
+
+    #[test]
+    fn a_crossed_crossover_is_grabbed_where_it_is_drawn() {
+        let mut e = MultibandEditor::new(EditorHost::detached());
+        let f1 = e.values[P_XOVER_BASE + 1];
+        e.param_changed(P_XOVER_BASE, f1 * 3.0); // drag Crossover 1 past Crossover 2
+        let x = mb_freq_x(f1);
+        let grip = e.cells.iter().find(|c| c.param == P_XOVER_BASE + 1).unwrap().rect;
+        assert!(grip.0 <= x && x <= grip.0 + grip.2, "Crossover 2 hitbox {grip:?} misses its line at x {x}");
     }
 
     #[test]
@@ -1990,8 +2063,8 @@ mod tests {
                                 for j in i + 1..texts.len() {
                                     let (a, b) = (&texts[i], &texts[j]);
                                     // Skip text under an open panel overlay (the panel covers DISPLAY labels behind it).
-                                    if p.is_some() {
-                                        let pr = panel_rect(sec, p.unwrap());
+                                    if let Some(open_p) = p {
+                                        let pr = panel_rect(sec, open_p);
                                         let in_pr = |r: &(f32, f32, f32, f32, String, f32)| r.0 < pr.0 + pr.2 && pr.0 < r.2 && r.1 < pr.1 + pr.3 && pr.1 < r.3;
                                         if in_pr(a) && in_pr(b) && (a.4.starts_with("CURVE") || b.4.starts_with("CURVE") || a.4.starts_with("3D") || b.4.starts_with("3D") || a.4.starts_with("QUIET") || b.4.starts_with("QUIET")) {
                                             continue;

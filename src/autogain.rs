@@ -50,6 +50,12 @@ impl Biquad {
         let y = b0 * x + self.z[0];
         self.z[0] = b1 * x - a1 * y + self.z[1];
         self.z[1] = b2 * x - a2 * y;
+        // Flush denormals: in silence the state decays into them and x86 slows down badly.
+        for z in &mut self.z {
+            if z.abs() < 1e-30 {
+                *z = 0.0;
+            }
+        }
         y
     }
 }
@@ -72,10 +78,14 @@ impl Power {
         let mut sum = 0.0;
         for (c, x) in [l, r].into_iter().enumerate() {
             let [a, b] = &mut self.filters[c];
-            let y = b.run(a.run(f64::from(x)));
+            let x = if x.is_finite() { f64::from(x) } else { 0.0 }; // ST-2: NaN would freeze the gain
+            let y = b.run(a.run(x));
             sum += y * y;
         }
         self.avg += (sum - self.avg) * coef;
+        if self.avg < 1e-30 {
+            self.avg = 0.0;
+        }
     }
 }
 

@@ -15,10 +15,14 @@ olm-api = { path = "crates/api" }
 dynamics = { path = "crates/dynamics" }
 dyn-deexpand = { path = "crates/dyn-deexpand" }
 dyn-decompress = { path = "crates/dyn-decompress" }
-# OpenPluginSDK main (19fac89) in ../../Dependencies (pinned in scripts/build.sh).
+# OpenPluginSDK main (07f97e1) in ../../Dependencies (pinned in scripts/build.sh).
 openplugin = { path = "../../Dependencies/OpenPluginSDK/crates/openplugin" }
 # Text measuring for the kit: the GoodLookin DRI in the SDK's tree, the same crate the SDK uses.
 goodlookindri-shell = { path = "../../Dependencies/OpenPluginSDK/crates/goodlookindri/shell" }
+
+[dev-dependencies]
+# The SDK's conformance kit and bench harness (openplugin::testing); nothing of it ships in the plugin.
+openplugin = { path = "../../Dependencies/OpenPluginSDK/crates/openplugin", features = ["testing"] }
 
 [workspace]
 members = ["crates/*"]

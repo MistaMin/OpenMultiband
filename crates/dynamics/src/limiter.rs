@@ -241,8 +241,8 @@ impl Module for Limiter {
             // Clean: hold length from the bass share of the last 20 ms of peaks.
             let mut hold = 1;
             if clean_on {
-                for c in 0..2 {
-                    self.lp[c] += self.a_lp * (x[c] - self.lp[c]);
+                for (lp, &xc) in self.lp.iter_mut().zip(&x) {
+                    *lp += self.a_lp * (xc - *lp);
                 }
                 let lo = self.lo_max.push(self.lp[0].abs().max(self.lp[1].abs()), self.w_share);
                 let pk = self.pk_max.push(x[0].abs().max(x[1].abs()), self.w_share);
@@ -256,7 +256,7 @@ impl Module for Limiter {
                 let m2 = self.crest_ms.push(0.5 * (x[0] * x[0] + x[1] * x[1]), self.w_crest);
                 let p = self.crest_pk.push(x[0].abs().max(x[1].abs()), self.w_crest);
                 self.tick = self.tick.wrapping_add(1);
-                if self.tick % CREST_EVERY == 0 {
+                if self.tick.is_multiple_of(CREST_EVERY) {
                     self.crest_db = if m2 > 1e-14 && p > 1e-7 { lin_to_db(p) - 10.0 * m2.log10() } else { 12.0 };
                     self.auto_rel = self.auto_release_coef();
                 }

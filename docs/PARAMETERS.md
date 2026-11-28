@@ -48,7 +48,7 @@ Generated from the plugin (`cargo test --release --lib dump_manual_params -- --i
 | Band 1 Mute | Off, On | Off |
 | Band 1 Bypass | Off, On | Off |
 
-## Per-band Gate / Expander (Band 1 shown; identical for Bands 2 to 6)
+## Per-band Gate & Expander (Band 1 shown; identical for Bands 2 to 6)
 
 | Parameter | Range or choices | Default |
 |---|---|---|

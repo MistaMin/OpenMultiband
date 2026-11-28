@@ -689,6 +689,7 @@ pub fn x_freq(x: f32, x0: f32, x1: f32, lo: f32, hi: f32) -> f32 {
 
 /// A frequency grid with decade labels inside `plot`, `lo..hi` Hz, and dB lines every `step`
 /// from `top` down `span` dB.
+#[allow(clippy::too_many_arguments)]
 pub fn freq_grid(s: &mut Scene, t: &Theme, plot: R, lo: f32, hi: f32, top: f32, span: f32, step: f32) {
     let (x0, y0, w, h) = plot;
     let x1 = x0 + w;
@@ -852,6 +853,7 @@ fn columns(s: &mut Scene, upper: &[Point], lower: Option<&[Point]>, base_y: f32,
 }
 
 /// A dashed horizontal line.
+#[allow(clippy::too_many_arguments)]
 pub fn dashed_h(s: &mut Scene, x0: f32, x1: f32, y: f32, on: f32, off: f32, c: C, width: f32) {
     let mut x = x0;
     while x < x1 {

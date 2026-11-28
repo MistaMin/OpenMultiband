@@ -68,6 +68,8 @@ impl Detector {
     pub fn levels(&mut self, kl: f64, kr: f64) -> [f64; 2] {
         let mut l = [0.0; 2];
         for (c, k) in [kl, kr].into_iter().enumerate() {
+            // A NaN or Inf key sample would poison the filter state and the gain follower for good.
+            let k = if k.is_finite() { k } else { 0.0 };
             let v = self.boost.run(c, self.lp[c].run(self.hp[c].run(k)));
             let a = if self.rms {
                 self.ms[c] += (v * v - self.ms[c]) * self.rms_coef;
@@ -95,6 +97,9 @@ impl GainFollower {
     /// `down`: coefficient while the gain falls, `up` while it rises.
     #[inline]
     pub fn step(&mut self, target: f64, down: f64, up: f64) -> f64 {
+        if !target.is_finite() {
+            return self.g;
+        }
         let a = if target < self.g { down } else { up };
         self.g += (target - self.g) * a;
         if (self.g - target).abs() < 1e-12 {

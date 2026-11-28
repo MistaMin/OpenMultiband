@@ -187,7 +187,8 @@ static TABLE: LazyLock<(Vec<ParamInfo>, ParamLayout)> = LazyLock::new(|| {
 
         let mut secs_vec = Vec::with_capacity(BAND_SECTIONS);
         for ((key, label, short_name, def_on), m) in BAND_SECTION_KEYS.iter().zip(template_mods.iter()) {
-            let sec_grp = leak(format!("Band {bn} {label}"));
+            // A "/" in a host group path starts a subgroup: "Gate / Expander" -> "Gate & Expander".
+            let sec_grp = leak(format!("Band {bn} {}", label.replace(" / ", " & ")));
             let on_idx = params.len();
             params.push(
                 ParamInfo::new(leak(format!("b{bn}.{key}.on")), leak(format!("B{bn} {short_name} On")), 0.0, 1.0, f32::from(u8::from(*def_on)), Unit::Toggle)
@@ -222,9 +223,13 @@ static LAYOUTS: &[IoConfig] = &[
     IoConfig { input: SpeakerLayout::Stereo, output: SpeakerLayout::Stereo, sidechain: Some(SpeakerLayout::Mono) },
 ];
 
-/// Max latency any band's 4-section chain can add (ms): three 10 ms look-aheads + decompressor
-/// ceiling + true peak, with headroom.
-const MAX_LATENCY_MS: f32 = 45.0;
+/// Max latency any band's 4-section chain can add: four 10 ms look-aheads + the 1.5 ms
+/// decompressor ceiling, 0.5 ms for their rounding, + the true-peak FIR's fixed samples.
+fn max_latency_samples(sr: f32) -> usize {
+    (42.0 * 1e-3 * sr).ceil() as usize + dyn_decompress::TP_DELAY
+}
+/// Reported tail: worst-case crossover (all splits at 20 Hz, 48 dB/oct, 6 bands) rings ~490 ms to -90 dBFS.
+const TAIL_MS: f32 = 600.0;
 const FADE_MS: f32 = 10.0;
 /// Fade out and back in around topology switches (Zero Latency, band count, slope).
 const DIP_MS: f32 = 5.0;
@@ -353,12 +358,11 @@ pub struct OpenMultiband {
     delta_mix: f32,
     delta_step: f32,
     key_hold: usize,
-    silent_for: usize,
-    silence_logged: bool,
 }
 
 fn log_line(msg: &str) {
-    if cfg!(test) {
+    // Cargo sets CARGO_MANIFEST_DIR for integration tests too; hosts never do.
+    if cfg!(test) || std::env::var_os("CARGO_MANIFEST_DIR").is_some() {
         return;
     }
     let path = if cfg!(target_os = "macos") {
@@ -439,8 +443,6 @@ impl Default for OpenMultiband {
             delta_mix: 0.0,
             delta_step: 1.0,
             key_hold: 0,
-            silent_for: 0,
-            silence_logged: false,
         };
         for (i, &v) in values.iter().enumerate() {
             p.set_param_index(i, v);
@@ -458,6 +460,28 @@ impl Default for OpenMultiband {
 }
 
 impl OpenMultiband {
+    /// Lands every glide and every measured state on its target, so a pass after prepare or
+    /// reset starts the same each time (offline bounces must match).
+    fn snap_glides(&mut self) {
+        self.delta_mix = if self.delta { 1.0 } else { 0.0 };
+        let active = self.bands_active;
+        let any_solo = (0..active).any(|b| self.bands[b].solo);
+        for b in 0..MAX_BANDS {
+            self.bands[b].aud = if any_solo {
+                if self.bands[b].solo { 1.0 } else { 0.0 }
+            } else if self.bands[b].mute {
+                0.0
+            } else {
+                1.0
+            };
+        }
+        self.dip = 1.0;
+        self.autogain = autogain::AutoGain::new(self.sample_rate, self.values[P_AUTO_GAIN] >= 0.5);
+        self.in_gain = self.in_gain_target;
+        self.out_gain = self.out_gain_target;
+        self.key_hold = 0;
+    }
+
     fn topology_pending(&self) -> bool {
         self.zero != self.zero_want || self.bands_active != self.bands_want || self.slope_active != self.slope_want
     }
@@ -499,6 +523,12 @@ impl OpenMultiband {
         let n = left.len();
         if self.dip <= 0.0 && self.topology_pending() {
             self.apply_topology();
+        }
+        // ST-2: non-finite input never enters crossover, dynamics or Auto Gain state.
+        for v in left.iter_mut().chain(right.iter_mut()) {
+            if !v.is_finite() {
+                *v = 0.0;
+            }
         }
         self.autogain.feed_raw(left, right);
 
@@ -710,7 +740,6 @@ impl OpenMultiband {
             self.sum[0][i] = g;
         }
         self.shared.peaks(peak_in, peak_out);
-        self.watch_silence(n, peak_in, peak_out);
         self.autogain.feed_out(left, right);
 
         if self.delta_mix != 0.0 || delta_to != 0.0 {
@@ -729,22 +758,11 @@ impl OpenMultiband {
         }
         self.autogain.apply(left, right);
         self.shared.set_auto_gain(self.autogain.gain_db());
-    }
-
-    fn watch_silence(&mut self, n: usize, peak_in: [f32; 2], peak_out: [f32; 2]) {
-        let all_muted = (0..self.bands_active).all(|b| self.bands[b].mute);
-        if !all_muted && peak_in[0].max(peak_in[1]) > 1e-4 && peak_out[0].max(peak_out[1]) == 0.0 {
-            self.silent_for += n;
-        } else {
-            self.silent_for = 0;
-        }
-        if self.silent_for > self.sample_rate as usize && !self.silence_logged {
-            self.silence_logged = true;
-            let msg = format!(
-                "silent output with input: bands {} slope {:?} delta {} mix {} dip {} zero {} want {} lat {} in {} out {} ag {} sr {} block {}",
-                self.bands_active, self.slope_active, self.delta, self.delta_mix, self.dip, self.zero, self.zero_want, self.total_latency(), self.values[P_INPUT], self.values[P_OUTPUT], self.autogain.gain_db(), self.sample_rate, self.max_block
-            );
-            log_line(&msg);
+        // ST-3: f64 crossover and delay paths can leave subnormals; hosts without FTZ must not see them.
+        for v in left.iter_mut().chain(right.iter_mut()) {
+            if v.abs() < 1e-30 {
+                *v = 0.0;
+            }
         }
     }
 }
@@ -761,7 +779,7 @@ impl Plugin for OpenMultiband {
     fn prepare(&mut self, sample_rate: f32, max_block: usize, _channels: usize) {
         self.sample_rate = sample_rate.max(1.0);
         self.max_block = max_block.max(1);
-        let dry_len = (MAX_LATENCY_MS * 1e-3 * self.sample_rate).ceil() as usize + 2;
+        let dry_len = max_latency_samples(self.sample_rate) + 2;
         self.crossover.prepare(self.sample_rate);
         for b in &mut self.bands {
             for s in &mut b.sections {
@@ -800,25 +818,10 @@ impl Plugin for OpenMultiband {
         self.fade_step = 1.0 / (FADE_MS * 1e-3 * self.sample_rate);
         self.dip_step = 1.0 / (DIP_MS * 1e-3 * self.sample_rate);
         self.delta_step = 1.0 / (DELTA_GLIDE_MS * 1e-3 * self.sample_rate);
-        self.delta_mix = if self.delta { 1.0 } else { 0.0 };
         if self.topology_pending() {
             self.apply_topology();
         }
-        let active = self.bands_active;
-        let any_solo = (0..active).any(|b| self.bands[b].solo);
-        for b in 0..MAX_BANDS {
-            self.bands[b].aud = if any_solo {
-                if self.bands[b].solo { 1.0 } else { 0.0 }
-            } else if self.bands[b].mute {
-                0.0
-            } else {
-                1.0
-            };
-        }
-        self.dip = 1.0;
-        self.autogain = autogain::AutoGain::new(self.sample_rate, self.values[P_AUTO_GAIN] >= 0.5);
-        self.in_gain = self.in_gain_target;
-        self.out_gain = self.out_gain_target;
+        self.snap_glides();
         self.shared.set_sample_rate(self.sample_rate);
     }
 
@@ -844,8 +847,7 @@ impl Plugin for OpenMultiband {
         self.limiter.fade = if self.limiter.on { 1.0 } else { 0.0 };
         self.pre_delay[0].clear();
         self.pre_delay[1].clear();
-        self.in_gain = self.in_gain_target;
-        self.out_gain = self.out_gain_target;
+        self.snap_glides();
     }
 
     fn set_param(&mut self, id: &str, value: f32) -> bool {
@@ -980,11 +982,16 @@ impl Plugin for OpenMultiband {
         self.key_hold = if heard { self.sample_rate as usize } else { self.key_hold.saturating_sub(frames) };
         self.shared.set_key_present(self.key_hold > 0);
 
-        let mut mono = std::mem::take(&mut self.mono);
         let Some((first, rest)) = io.split_first_mut() else { return };
+        // Take the scratch only after the empty-io return, or that return would drop it.
+        let mut mono = std::mem::take(&mut self.mono);
         let mut start = 0;
         while start < frames {
-            let n = (frames - start).min(self.max_block);
+            let mut n = (frames - start).min(self.max_block);
+            if self.topology_pending() && self.dip > 0.0 {
+                // End the chunk where the 5 ms dip hits silence so switches complete inside large blocks.
+                n = n.min(((self.dip / self.dip_step).ceil() as usize).max(1));
+            }
             let k = key.map(|[a, b]| [&a[start..start + n], &b[start..start + n]]);
             let l = &mut first[start..start + n];
             match rest.first_mut() {
@@ -1004,8 +1011,12 @@ impl Plugin for OpenMultiband {
         self.total_latency()
     }
 
+    fn tail(&self) -> openplugin::core::Tail {
+        openplugin::core::Tail::Finite((TAIL_MS * 1e-3 * self.sample_rate).ceil() as u32)
+    }
+
     fn max_latency(&self) -> Option<usize> {
-        Some((MAX_LATENCY_MS * 1e-3 * self.sample_rate).ceil() as usize)
+        Some(max_latency_samples(self.sample_rate))
     }
 
     fn meters(&self) -> MeterFrame {
@@ -1309,6 +1320,76 @@ mod tests {
         let rms_key: f32 = (l_key[n / 2..].iter().map(|v| v * v).sum::<f32>() / (n / 2) as f32).sqrt();
         assert!(p.shared.key_present());
         assert!(rms_key < rms_no_key * 0.5, "external key should duck band: no_key={rms_no_key} key={rms_key}");
+    }
+
+    #[test]
+    fn bad_sidechain_samples_do_not_freeze_a_band() {
+        let mut p = OpenMultiband::default();
+        disable_all_dynamics(&mut p);
+        p.set_param("b1.comp.on", 1.0);
+        p.set_param("b1.comp.threshold", -30.0);
+        p.set_param("b1.comp.ratio", 10.0);
+        p.set_param("b1.comp.keySource", 1.0); // External
+        p.set_param("b1.comp.keyHighPass", 100.0); // a key filter whose state NaN would poison
+        p.prepare(48_000.0, 256, 2);
+        let n = 4096;
+        let quiet: Vec<f32> = (0..n).map(|i| 0.02 * (i as f32 * 0.01).sin()).collect();
+        let loud_key: Vec<f32> = (0..n).map(|i| 0.8 * (i as f32 * 0.05).sin()).collect();
+        let (mut l, mut r) = (quiet.clone(), quiet.clone());
+        block(&mut p, &mut l, &mut r);
+        let rms_no_key = (l[n / 2..].iter().map(|v| v * v).sum::<f32>() / (n / 2) as f32).sqrt();
+
+        let mut bad_key = loud_key.clone();
+        bad_key[10] = f32::NAN;
+        bad_key[20] = f32::INFINITY;
+        for key in [&bad_key, &loud_key, &loud_key] {
+            let (mut l, mut r) = (quiet.clone(), quiet.clone());
+            let mut io: [&mut [f32]; 2] = [&mut l, &mut r];
+            let sc: [&[f32]; 2] = [key, key];
+            p.process_buses(&mut io, Some(&sc), n);
+            assert!(l.iter().chain(&r).all(|v| v.is_finite()));
+            let rms = (l[n / 2..].iter().map(|v| v * v).sum::<f32>() / (n / 2) as f32).sqrt();
+            assert!(rms > 1e-4, "band silenced: {rms}");
+            assert!(rms < rms_no_key * 0.5, "band stopped compressing: no_key={rms_no_key} key={rms}");
+        }
+    }
+
+    #[test]
+    fn a_pass_after_reset_matches_a_fresh_instance_with_auto_gain() {
+        let fresh = || {
+            let mut p = OpenMultiband::default();
+            p.set_param("autoGain", 1.0);
+            p.set_param("b1.comp.makeup", 12.0);
+            p.prepare(48_000.0, 512, 2);
+            p
+        };
+        let pass = |p: &mut OpenMultiband| {
+            p.reset();
+            let mut l: Vec<f32> = (0..4096).map(|i| 0.0005 * (i as f32 * 0.01).sin()).collect();
+            let mut r = l.clone();
+            for (a, b) in l.chunks_mut(512).zip(r.chunks_mut(512)) {
+                block(p, a, b);
+            }
+            l
+        };
+        let mut played = fresh();
+        // Let Auto Gain settle far from unity on loud material.
+        for b in 0..200 {
+            let mut l: Vec<f32> = (0..512).map(|i| 0.3 * ((b * 512 + i) as f32 * 0.01).sin()).collect();
+            let mut r = l.clone();
+            block(&mut played, &mut l, &mut r);
+        }
+        assert_eq!(pass(&mut played), pass(&mut fresh()), "a bounce after reset must not depend on what played before");
+    }
+
+    #[test]
+    fn mono_after_an_empty_call_works() {
+        let mut p = OpenMultiband::default();
+        p.prepare(48_000.0, 256, 1);
+        p.process(&mut [], 0);
+        let mut m = vec![0.1f32; 256];
+        p.process(&mut [&mut m[..]], 256);
+        assert!(m.iter().all(|v| v.is_finite()));
     }
 
     #[test]

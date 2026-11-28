@@ -231,6 +231,7 @@ dependencies = [
  "openplugin-dsp",
  "openplugin-host",
  "openplugin-targets",
+ "openplugin-testing",
 ]
 
 [[package]]
@@ -275,6 +276,13 @@ dependencies = [
  "openplugin-core",
  "openplugin-dri",
  "openplugin-host",
+]
+
+[[package]]
+name = "openplugin-testing"
+version = "1.0.0-beta"
+dependencies = [
+ "openplugin-core",
 ]
 
 [[package]]

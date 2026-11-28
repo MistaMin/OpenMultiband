@@ -46,6 +46,7 @@ impl Target<'_> {
     }
 
     /// An anti-aliased vertical run in column `x` from `y0` to `y1`, kept inside rows `top..bottom`.
+    #[allow(clippy::too_many_arguments)]
     pub fn vspan(&mut self, x: usize, y0: f32, y1: f32, top: usize, bottom: usize, c: C, alpha: f32) {
         let (y0, y1) = (y0.max(top as f32), y1.min(bottom.min(self.h) as f32));
         if x >= self.w || y1 <= y0 {
@@ -79,6 +80,7 @@ impl Target<'_> {
     }
 
     /// Text with the canvas's own font and placement rules: `y` is the middle of the line.
+    #[allow(clippy::too_many_arguments)]
     pub fn text(&mut self, glyphs: &mut GlyphCache, x: f32, y: f32, label: &str, size: f32, c: C, align: Align) {
         let px = text::quantise(size);
         let font = text::face();

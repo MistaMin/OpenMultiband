@@ -67,8 +67,8 @@ fn block_size_does_not_change_the_output() {
     let n = ms(1500.0);
     let mut x = noise(n, 8, 0.2);
     for i in (0..n).step_by(ms(90.0)) {
-        for j in i..(i + 200).min(n) {
-            x[j] *= 4.0;
+        for v in &mut x[i..(i + 200).min(n)] {
+            *v *= 4.0;
         }
     }
     let xr: Vec<f32> = x.iter().map(|v| -0.7 * v).collect();
@@ -96,8 +96,8 @@ fn every_parameter_at_min_max_default() {
     let x = noise(4096, 3, 0.5);
     let key = noise(4096, 5, 1.0);
     let mut worst = 0.0f32;
-    for i in 0..NPARAMS {
-        for v in [PARAMS[i].min, PARAMS[i].max, PARAMS[i].default] {
+    for (i, p) in PARAMS.iter().enumerate() {
+        for v in [p.min, p.max, p.default] {
             // with the ceiling off, so the curve's own extremes are seen
             for ceiling in [0.0f32, 1.0] {
                 m.set_param(dyn_decompress::index::CEILING_ON, ceiling);
@@ -107,17 +107,17 @@ fn every_parameter_at_min_max_default() {
                 m.process(&mut l[2048..], &mut r[2048..]);
                 let pk = l.iter().chain(&r).fold(0.0f32, |a, &s| if s.is_finite() { a.max(s.abs()) } else { f32::INFINITY });
                 worst = worst.max(pk);
-                assert!(pk < 100.0, "{} = {v}: peak {pk}", PARAMS[i].id);
-                if ceiling == 1.0 && PARAMS[i].id != "ceilingOn" {
-                    assert!(pk <= 1.0, "{} = {v} with the ceiling: peak {pk}", PARAMS[i].id);
+                assert!(pk < 100.0, "{} = {v}: peak {pk}", p.id);
+                if ceiling == 1.0 && p.id != "ceilingOn" {
+                    assert!(pk <= 1.0, "{} = {v} with the ceiling: peak {pk}", p.id);
                 }
                 let mt = m.meters();
                 assert!(mt.reduction_db.is_finite() && mt.reduction_db >= 0.0);
                 let mut vv = [0.0f32; 16];
                 m.view(&mut vv);
-                assert!(vv.iter().all(|s| s.is_finite()), "{} view", PARAMS[i].id);
+                assert!(vv.iter().all(|s| s.is_finite()), "{} view", p.id);
             }
-            m.set_param(i, PARAMS[i].default);
+            m.set_param(i, p.default);
         }
     }
     // all at their minimum, then all at their maximum

@@ -25,9 +25,10 @@ pub fn fft(re: &mut [f32], im: &mut [f32]) {
     let mut len = 2;
     while len <= n {
         let step = -2.0 * PI / len as f32;
-        for start in (0..n).step_by(len) {
-            for k in 0..len / 2 {
-                let (s, c) = (step * k as f32).sin_cos();
+        // Twiddle loop outside: each sin_cos then serves every block of this stage.
+        for k in 0..len / 2 {
+            let (s, c) = (step * k as f32).sin_cos();
+            for start in (0..n).step_by(len) {
                 let (a, b) = (start + k, start + k + len / 2);
                 let (tr, ti) = (re[b] * c - im[b] * s, re[b] * s + im[b] * c);
                 re[b] = re[a] - tr;
